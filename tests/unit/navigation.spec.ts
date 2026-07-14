@@ -15,9 +15,11 @@ describe('navigation', () => {
       },
     });
 
+    expect(wrapper.get('.brand-logo--header').attributes('aria-hidden')).toBe('true');
     expect(wrapper.text()).toContain('Inicio');
     expect(wrapper.text()).toContain('Sobre mi');
     expect(wrapper.text()).toContain('Investigacion');
+    expect(wrapper.text()).toContain('Blog');
   });
 
   it('routes to work without hashes', async () => {

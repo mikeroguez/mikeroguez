@@ -1,13 +1,16 @@
 :root {
-  --color-background: #f7f8f8;
+  --color-background: #eee8dc;
   --color-surface: #ffffff;
-  --color-text: #182026;
-  --color-text-muted: #5f6b73;
-  --color-brand: #102a43;
-  --color-brand-muted: #294866;
-  --color-border: #d7dde2;
-  --color-focus: #b7791f;
-  --color-hover: #edf2f7;
+  --color-surface-subtle: #f7f3ea;
+  --color-text: #1b2329;
+  --color-text-muted: #5d6870;
+  --color-brand: #20294d;
+  --color-brand-muted: #39476f;
+  --color-border: #d8d0c1;
+  --color-focus: #a15c16;
+  --color-hover: #e8e1d5;
+  --color-accent: #7a4a1c;
+  --color-paper-dot: rgb(32 41 77 / 0.055);
 
   --font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-size-0: 0.875rem;
@@ -15,6 +18,7 @@
   --font-size-2: 1.125rem;
   --font-size-3: 1.5rem;
   --font-size-4: 2.25rem;
+  --font-size-5: 3rem;
   --line-height-body: 1.65;
   --line-height-heading: 1.15;
 
@@ -26,11 +30,15 @@
   --space-6: 2rem;
   --space-7: 3rem;
   --space-8: 4rem;
+  --space-9: 6rem;
 
   --radius-small: 0.25rem;
   --radius-medium: 0.5rem;
+  --radius-large: 0.75rem;
   --width-content: 68rem;
+  --width-reading: 46rem;
   --shadow-subtle: 0 1px 2px rgb(24 32 38 / 0.08);
   --transition-fast: 160ms ease;
-  --focus-ring: 0 0 0 3px rgb(183 121 31 / 0.35);
+  --focus-ring: 0 0 0 3px rgb(161 92 22 / 0.35);
+  --paper-dot-size: 18px;
 }

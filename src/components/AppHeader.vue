@@ -1,7 +1,14 @@
 <template>
   <header class="site-header">
     <div class="site-header__inner">
-      <RouterLink class="site-header__brand" to="/" @click="closeMenu">Mikeroguez</RouterLink>
+      <RouterLink
+        class="site-header__brand"
+        to="/"
+        aria-label="Mikeroguez, inicio"
+        @click="closeMenu"
+      >
+        <BrandLogo decorative size="header" />
+      </RouterLink>
       <button
         class="site-header__menu-button"
         type="button"
@@ -26,6 +33,7 @@ import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
 import AppNavigation from '@/components/AppNavigation.vue';
+import BrandLogo from '@/components/BrandLogo.vue';
 
 const isMenuOpen = ref(false);
 

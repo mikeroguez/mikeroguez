@@ -22,6 +22,7 @@ const navigationItems = [
   { to: '/about', label: 'Sobre mi' },
   { to: '/work', label: 'Trabajo' },
   { to: '/research', label: 'Investigacion' },
+  { to: '/blog', label: 'Blog' },
   { to: '/contact', label: 'Contacto' },
 ];
 </script>

@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import AboutView from '@/views/AboutView.vue';
+import BlogIndexView from '@/views/BlogIndexView.vue';
+import BlogPostView from '@/views/BlogPostView.vue';
 import ContactView from '@/views/ContactView.vue';
 import HomeView from '@/views/HomeView.vue';
 import NotFoundView from '@/views/NotFoundView.vue';
@@ -43,6 +45,24 @@ const routes = [
     meta: {
       title: 'Investigacion | Mikeroguez',
       description: 'Investigacion y publicaciones de Mikeroguez, pendientes de verificacion.',
+    },
+  },
+  {
+    path: '/blog',
+    name: 'blog',
+    component: BlogIndexView,
+    meta: {
+      title: 'Publicaciones | Mikeroguez',
+      description: 'Publicaciones, notas y ensayos de Mikeroguez.',
+    },
+  },
+  {
+    path: '/blog/:slug',
+    name: 'blog-post',
+    component: BlogPostView,
+    meta: {
+      title: 'Publicacion | Mikeroguez',
+      description: 'Publicacion del blog de Mikeroguez.',
     },
   },
   {

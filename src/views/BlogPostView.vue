@@ -1,0 +1,127 @@
+<template>
+  <!-- eslint-disable vue/no-v-html -->
+  <article v-if="post" class="page blog-post">
+    <RouterLink class="text-link" to="/blog">Volver a publicaciones</RouterLink>
+    <p class="eyebrow">Publicacion</p>
+    <h1>{{ post.meta.title }}</h1>
+    <p class="post-list__meta">
+      <time :datetime="post.meta.date">{{ formatDate(post.meta.date) }}</time>
+    </p>
+    <section class="share-tools" aria-labelledby="share-tools-title">
+      <h2 id="share-tools-title">Compartir</h2>
+      <div class="share-tools__actions">
+        <button
+          v-if="canUseNativeShare"
+          class="share-tools__button"
+          type="button"
+          @click="sharePost"
+        >
+          Compartir
+        </button>
+        <button class="share-tools__button" type="button" @click="copyPostUrl">
+          Copiar enlace
+        </button>
+        <a
+          class="share-tools__button"
+          :href="linkedInShareUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+        <a
+          class="share-tools__button"
+          :href="facebookShareUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Facebook
+        </a>
+        <a class="share-tools__button" :href="xShareUrl" target="_blank" rel="noopener noreferrer">
+          X
+        </a>
+      </div>
+      <p class="share-tools__status" aria-live="polite">{{ shareStatus }}</p>
+    </section>
+    <div class="markdown-body" v-html="post.html" />
+  </article>
+
+  <NotFoundView v-else />
+</template>
+
+<script setup lang="ts">
+import { computed, ref, watchEffect } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
+
+import { getPostBySlug } from '@/content/blog';
+import NotFoundView from '@/views/NotFoundView.vue';
+
+const route = useRoute();
+const post = computed(() => getPostBySlug(String(route.params.slug)));
+const shareStatus = ref('');
+
+const postUrl = computed(() => new window.URL(route.fullPath, 'https://mikeroguez.me').toString());
+
+const encodedPostUrl = computed(() => encodeURIComponent(postUrl.value));
+
+const encodedPostTitle = computed(() => encodeURIComponent(post.value?.meta.title ?? 'Mikeroguez'));
+
+const linkedInShareUrl = computed(
+  () => `https://www.linkedin.com/sharing/share-offsite/?url=${encodedPostUrl.value}`,
+);
+
+const facebookShareUrl = computed(
+  () => `https://www.facebook.com/sharer/sharer.php?u=${encodedPostUrl.value}`,
+);
+
+const xShareUrl = computed(
+  () =>
+    `https://twitter.com/intent/tweet?url=${encodedPostUrl.value}&text=${encodedPostTitle.value}`,
+);
+
+const canUseNativeShare = computed(() => 'share' in window.navigator);
+
+watchEffect(() => {
+  if (!post.value) {
+    return;
+  }
+
+  document.title = `${post.value.meta.title} | Mikeroguez`;
+  document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute('content', post.value.meta.description);
+});
+
+function formatDate(date: string) {
+  return new Intl.DateTimeFormat('es-MX', {
+    dateStyle: 'long',
+    timeZone: 'UTC',
+  }).format(new Date(`${date}T00:00:00Z`));
+}
+
+async function sharePost() {
+  if (!post.value || !canUseNativeShare.value) {
+    return;
+  }
+
+  try {
+    await window.navigator.share({
+      title: post.value.meta.title,
+      text: post.value.meta.description,
+      url: postUrl.value,
+    });
+    shareStatus.value = 'Publicacion lista para compartir.';
+  } catch {
+    shareStatus.value = '';
+  }
+}
+
+async function copyPostUrl() {
+  try {
+    await window.navigator.clipboard.writeText(postUrl.value);
+    shareStatus.value = 'Enlace copiado.';
+  } catch {
+    shareStatus.value = postUrl.value;
+  }
+}
+</script>
