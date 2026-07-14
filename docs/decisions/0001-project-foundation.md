@@ -34,3 +34,8 @@ No agregar framework CSS inicialmente.
 - Publicar desde `/docs`: descartado para mantener fuente y artefacto separados.
 - Usar framework CSS: descartado por peso y riesgo de identidad generica.
 - Elegir licencia ahora: descartado por falta de decision explicita.
+
+## Decisiones Relacionadas
+
+- `0002-css-identity-foundation.md`: mantiene CSS nativo durante la definicion
+  de identidad grafica.

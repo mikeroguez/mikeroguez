@@ -80,6 +80,12 @@ mas correcta. Nunca almacenar credenciales ahi.
 | Biografia o evidencia     | `.local-context/approved/`, `reviewed/`, `raw/` |
 | Decisiones previas        | `docs/decisions/`                               |
 
+## Blog
+
+Las entradas publicas viven en `src/content/posts/` y se sirven como
+`/blog/{slug}`. No escribir borradores privados ahi. Un archivo Markdown
+rastreado por Git debe considerarse publico aunque tenga `status: draft`.
+
 ## Flujo de Trabajo
 
 1. Inspeccionar el repositorio.

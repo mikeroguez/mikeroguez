@@ -76,6 +76,44 @@ Vue Router resolves the client route.
 Every public claim needs evidence, source date, publication authorization, and
 privacy review. Do not publish private data or unverified achievements.
 
+## Blog Posts
+
+Blog entries live in `src/content/posts/`. Each Markdown file becomes one entry
+at `/blog/{slug}`, where `{slug}` is the filename without `.md`.
+
+Use lowercase slugs with hyphens, for example:
+
+```text
+src/content/posts/nota-sobre-diseno-educativo.md
+```
+
+Required frontmatter:
+
+```md
+---
+title: 'Public title'
+description: 'Short summary for index and metadata.'
+date: '2026-07-13'
+status: 'draft'
+---
+```
+
+Only `published` entries appear in the blog index. Do not commit private drafts,
+secrets, personal data, client details, student data, or unverified claims. A
+committed Markdown file is public even when its status is `draft`.
+
+The blog index at `/blog` includes local search, a side index, year filters, and
+incremental loading in groups of six posts. Search uses the generated
+`searchText` field, so run `npm run generate:blog` after editing posts.
+
+`npm run generate:blog` reads the Markdown files once and generates:
+
+- `src/content/generated/blog-posts.ts` for the Vue app.
+- `public/feed.xml` for RSS readers.
+- `public/sitemap.xml` for the public routes and published posts.
+
+Do not edit generated blog output by hand; edit the Markdown source instead.
+
 ## Before Commit
 
 Run `npm run validate`, `git diff --check`, `git status --short`, and inspect the

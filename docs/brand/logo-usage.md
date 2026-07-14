@@ -1,6 +1,7 @@
 # Logo Usage
 
-Los archivos reales del logo se agregaran despues de una revision humana.
+El sitio usa por ahora `public/brand/mikeroguez-logo-mask.svg`, un SVG optimizado
+derivado del logo aprobado y pintado desde CSS con `currentColor`.
 
 ## Variantes Previstas
 
@@ -13,13 +14,18 @@ Los archivos reales del logo se agregaran despues de una revision humana.
 ## Reglas Iniciales
 
 - Mantener zona de proteccion alrededor del logo.
-- Definir tamano minimo despues de revisar los archivos reales.
+- Usar el SVG optimizado como mascara para variantes de color.
+- Cambiar color desde CSS, no duplicando SVGs.
+- Usar azul tinta sobre fondos claros.
+- Usar blanco sobre azul tinta u otros fondos oscuros aprobados.
+- Definir tamano minimo despues de pruebas visuales en mobile y desktop.
 - Usar fondos permitidos con contraste suficiente.
 - No deformar.
 - No recolorear arbitrariamente.
 - No reconstruir el logo con texto o SVG improvisado.
+- No publicar archivos fuente pesados si no son necesarios para el sitio.
 
 ## Pendiente
 
-Registrar dimensiones, colores, formatos y usos permitidos cuando existan los
-activos aprobados.
+Definir isotipo, favicon, zona de proteccion precisa, tamano minimo y reglas
+para usos fuera del sitio.
