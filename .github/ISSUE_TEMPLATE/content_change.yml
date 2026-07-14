@@ -1,0 +1,53 @@
+name: Content change
+description: Request a change to public content with evidence.
+title: '[Content]: '
+labels: ['content']
+body:
+  - type: textarea
+    id: claim
+    attributes:
+      label: Claim to change
+      description: Quote or describe the public claim.
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Provide the source and explain why it supports the change.
+    validations:
+      required: true
+  - type: input
+    id: source_date
+    attributes:
+      label: Source date
+    validations:
+      required: true
+  - type: dropdown
+    id: validity
+    attributes:
+      label: Current validity
+      options:
+        - Current
+        - Possibly outdated
+        - Contradicted by another source
+        - Unknown
+    validations:
+      required: true
+  - type: dropdown
+    id: sensitivity
+    attributes:
+      label: Sensitivity
+      options:
+        - Public
+        - Potentially sensitive
+        - Private or confidential
+    validations:
+      required: true
+  - type: textarea
+    id: authorization
+    attributes:
+      label: Publication authorization
+      description: Explain why this may be published.
+    validations:
+      required: true

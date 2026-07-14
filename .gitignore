@@ -1,0 +1,14 @@
+.local-context/
+.env
+.env.*
+!.env.example
+dist/
+coverage/
+node_modules/
+.npm-cache/
+.npm-logs/
+.DS_Store
+Thumbs.db
+*.pem
+*.key
+*.p12

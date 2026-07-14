@@ -1,0 +1,31 @@
+name: Design proposal
+description: Propose a visual or UX change.
+title: '[Design]: '
+labels: ['design']
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the change and the user need.
+    validations:
+      required: true
+  - type: textarea
+    id: brand
+    attributes:
+      label: Brand impact
+      description: Explain how it supports the site identity.
+    validations:
+      required: true
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility impact
+      description: Describe keyboard, contrast, focus, motion, and readability effects.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or reference
+      description: Include relevant evidence without private material.

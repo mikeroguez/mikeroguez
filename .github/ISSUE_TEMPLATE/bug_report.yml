@@ -1,0 +1,31 @@
+name: Bug report
+description: Report a reproducible problem in the public site or repository.
+title: '[Bug]: '
+labels: ['bug']
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the issue and where it appears.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide the shortest reproducible steps.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Browser, device, operating system
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy check
+      description: Do not include secrets or private information.
+    validations:
+      required: true
