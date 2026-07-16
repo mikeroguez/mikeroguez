@@ -3,15 +3,15 @@
   <channel>
     <title>Mikeroguez</title>
     <link>https://mikeroguez.me</link>
-    <description>Sitio personal de Mikeroguez. Investigacion, educacion, diseno y desarrollo de software.</description>
+    <description>Sitio personal de Mikeroguez. Investigación, educación, diseño y desarrollo de software.</description>
     <language>es-MX</language>
     <lastBuildDate>Mon, 13 Jul 2026 00:00:00 GMT</lastBuildDate>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://mikeroguez.me/feed.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Contenido en preparacion</title>
+      <title>Contenido en preparación</title>
       <link>https://mikeroguez.me/blog/contenido-en-preparacion</link>
       <guid isPermaLink="true">https://mikeroguez.me/blog/contenido-en-preparacion</guid>
-      <description>Entrada provisional para validar el flujo editorial del blog.</description>
+      <description>Nota editorial sobre el estado inicial del blog.</description>
       <pubDate>Mon, 13 Jul 2026 00:00:00 GMT</pubDate>
     </item>
   </channel>

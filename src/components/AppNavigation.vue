@@ -1,5 +1,5 @@
 <template>
-  <nav aria-label="Navegacion principal">
+  <nav :aria-label="t('a11y.mainNav')">
     <ul class="nav-list">
       <li v-for="item in navigationItems" :key="item.to">
         <RouterLink :to="item.to" class="nav-link" @click="$emit('navigate')">
@@ -11,18 +11,21 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
+
+import { t } from '@/i18n';
 
 defineEmits<{
   navigate: [];
 }>();
 
-const navigationItems = [
-  { to: '/', label: 'Inicio' },
-  { to: '/about', label: 'Sobre mi' },
-  { to: '/work', label: 'Trabajo' },
-  { to: '/research', label: 'Investigacion' },
-  { to: '/blog', label: 'Blog' },
-  { to: '/contact', label: 'Contacto' },
-];
+const navigationItems = computed(() => [
+  { to: '/', label: t('nav.home') },
+  { to: '/about', label: t('nav.about') },
+  { to: '/work', label: t('nav.work') },
+  { to: '/research', label: t('nav.research') },
+  { to: '/blog', label: t('nav.blog') },
+  { to: '/contact', label: t('nav.contact') },
+]);
 </script>

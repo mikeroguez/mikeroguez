@@ -17,8 +17,8 @@ describe('navigation', () => {
 
     expect(wrapper.get('.brand-logo--header').attributes('aria-hidden')).toBe('true');
     expect(wrapper.text()).toContain('Inicio');
-    expect(wrapper.text()).toContain('Sobre mi');
-    expect(wrapper.text()).toContain('Investigacion');
+    expect(wrapper.text()).toContain('Sobre mí');
+    expect(wrapper.text()).toContain('Investigación');
     expect(wrapper.text()).toContain('Blog');
   });
 

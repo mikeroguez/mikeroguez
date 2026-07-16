@@ -4,14 +4,14 @@ export const blogPosts = [
   {
     slug: 'contenido-en-preparacion',
     meta: {
-      title: 'Contenido en preparacion',
-      description: 'Entrada provisional para validar el flujo editorial del blog.',
+      title: 'Contenido en preparación',
+      description: 'Nota editorial sobre el estado inicial del blog.',
       date: '2026-07-13',
       status: 'published',
     },
-    html: '<p>Esta entrada valida el flujo tecnico del blog.</p>\n<p>El contenido definitivo se construira con evidencia verificada, revision de\nprivacidad y aprobacion humana antes de publicarse.</p>\n<p>No debe usarse este espacio para publicar borradores privados, datos sensibles o\nafirmaciones no verificadas.</p>\n',
-    excerpt: 'Entrada provisional para validar el flujo editorial del blog.',
+    html: '<p>Este espacio inicia con una nota editorial breve.</p>\n<p>Las próximas entradas se construirán con evidencia verificada, revisión de\nprivacidad y aprobación humana antes de publicarse.</p>\n<p>El blog no debe usarse para publicar borradores privados, datos sensibles ni\nafirmaciones sin contexto suficiente.</p>\n',
+    excerpt: 'Nota editorial sobre el estado inicial del blog.',
     searchText:
-      'contenido en preparacion entrada provisional para validar el flujo editorial del blog 2026-07-13 esta entrada valida el flujo tecnico del blog el contenido definitivo se construira con evidencia verificada revision de privacidad y aprobacion humana antes de publicarse no debe usarse este espacio para publicar borradores privados datos sensibles o afirmaciones no verificadas',
+      'contenido en preparacion nota editorial sobre el estado inicial del blog 2026-07-13 este espacio inicia con una nota editorial breve las proximas entradas se construiran con evidencia verificada revision de privacidad y aprobacion humana antes de publicarse el blog no debe usarse para publicar borradores privados datos sensibles ni afirmaciones sin contexto suficiente',
   },
 ] satisfies BlogPost[];

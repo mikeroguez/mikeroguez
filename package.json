@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run generate:blog && vue-tsc --noEmit && vite build && node scripts/create-pages-fallback.mjs",
+    "build": "npm run generate:blog && npm run generate:research && vue-tsc --noEmit && vite build && node scripts/create-pages-fallback.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -17,8 +17,9 @@
     "test:coverage": "vitest run --coverage",
     "check:public": "node scripts/check-public-safety.mjs",
     "generate:blog": "node scripts/generate-blog-content.mjs",
+    "generate:research": "node scripts/generate-research-content.mjs",
     "optimize:brand": "node scripts/optimize-brand-logo.mjs",
-    "validate": "npm run generate:blog && npm run format:check && npm run lint && npm run typecheck && npm run test:run && npm run check:public && npm run build"
+    "validate": "npm run generate:blog && npm run generate:research && npm run format:check && npm run lint && npm run typecheck && npm run test:run && npm run check:public && npm run build"
   },
   "dependencies": {
     "vue": "^3.5.0",

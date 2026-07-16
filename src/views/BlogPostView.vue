@@ -1,14 +1,15 @@
 <template>
   <!-- eslint-disable vue/no-v-html -->
   <article v-if="post" class="page blog-post">
-    <RouterLink class="text-link" to="/blog">Volver a publicaciones</RouterLink>
-    <p class="eyebrow">Publicacion</p>
+    <RouterLink class="text-link" to="/blog">{{ t('blogPost.back') }}</RouterLink>
+    <p class="eyebrow">{{ t('blogPost.eyebrow') }}</p>
     <h1>{{ post.meta.title }}</h1>
     <p class="post-list__meta">
       <time :datetime="post.meta.date">{{ formatDate(post.meta.date) }}</time>
     </p>
+    <div class="markdown-body" v-html="post.html" />
     <section class="share-tools" aria-labelledby="share-tools-title">
-      <h2 id="share-tools-title">Compartir</h2>
+      <h2 id="share-tools-title">{{ t('blogPost.shareHeading') }}</h2>
       <div class="share-tools__actions">
         <button
           v-if="canUseNativeShare"
@@ -16,10 +17,10 @@
           type="button"
           @click="sharePost"
         >
-          Compartir
+          {{ t('blogPost.share') }}
         </button>
         <button class="share-tools__button" type="button" @click="copyPostUrl">
-          Copiar enlace
+          {{ t('blogPost.copyLink') }}
         </button>
         <a
           class="share-tools__button"
@@ -28,6 +29,7 @@
           rel="noopener noreferrer"
         >
           LinkedIn
+          <span class="visually-hidden">{{ t('a11y.openNewTab') }}</span>
         </a>
         <a
           class="share-tools__button"
@@ -36,14 +38,15 @@
           rel="noopener noreferrer"
         >
           Facebook
+          <span class="visually-hidden">{{ t('a11y.openNewTab') }}</span>
         </a>
         <a class="share-tools__button" :href="xShareUrl" target="_blank" rel="noopener noreferrer">
           X
+          <span class="visually-hidden">{{ t('a11y.openNewTab') }}</span>
         </a>
       </div>
       <p class="share-tools__status" aria-live="polite">{{ shareStatus }}</p>
     </section>
-    <div class="markdown-body" v-html="post.html" />
   </article>
 
   <NotFoundView v-else />
@@ -53,6 +56,7 @@
 import { computed, ref, watchEffect } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 
+import { locale, t } from '@/i18n';
 import { getPostBySlug } from '@/content/blog';
 import NotFoundView from '@/views/NotFoundView.vue';
 
@@ -61,19 +65,15 @@ const post = computed(() => getPostBySlug(String(route.params.slug)));
 const shareStatus = ref('');
 
 const postUrl = computed(() => new window.URL(route.fullPath, 'https://mikeroguez.me').toString());
-
 const encodedPostUrl = computed(() => encodeURIComponent(postUrl.value));
-
 const encodedPostTitle = computed(() => encodeURIComponent(post.value?.meta.title ?? 'Mikeroguez'));
 
 const linkedInShareUrl = computed(
   () => `https://www.linkedin.com/sharing/share-offsite/?url=${encodedPostUrl.value}`,
 );
-
 const facebookShareUrl = computed(
   () => `https://www.facebook.com/sharer/sharer.php?u=${encodedPostUrl.value}`,
 );
-
 const xShareUrl = computed(
   () =>
     `https://twitter.com/intent/tweet?url=${encodedPostUrl.value}&text=${encodedPostTitle.value}`,
@@ -82,10 +82,7 @@ const xShareUrl = computed(
 const canUseNativeShare = computed(() => 'share' in window.navigator);
 
 watchEffect(() => {
-  if (!post.value) {
-    return;
-  }
-
+  if (!post.value) return;
   document.title = `${post.value.meta.title} | Mikeroguez`;
   document
     .querySelector('meta[name="description"]')
@@ -93,24 +90,21 @@ watchEffect(() => {
 });
 
 function formatDate(date: string) {
-  return new Intl.DateTimeFormat('es-MX', {
+  return new Intl.DateTimeFormat(locale.value === 'es' ? 'es-MX' : 'en-US', {
     dateStyle: 'long',
     timeZone: 'UTC',
   }).format(new Date(`${date}T00:00:00Z`));
 }
 
 async function sharePost() {
-  if (!post.value || !canUseNativeShare.value) {
-    return;
-  }
-
+  if (!post.value || !canUseNativeShare.value) return;
   try {
     await window.navigator.share({
       title: post.value.meta.title,
       text: post.value.meta.description,
       url: postUrl.value,
     });
-    shareStatus.value = 'Publicacion lista para compartir.';
+    shareStatus.value = t('blogPost.shareReady');
   } catch {
     shareStatus.value = '';
   }
@@ -119,7 +113,7 @@ async function sharePost() {
 async function copyPostUrl() {
   try {
     await window.navigator.clipboard.writeText(postUrl.value);
-    shareStatus.value = 'Enlace copiado.';
+    shareStatus.value = t('blogPost.linkCopied');
   } catch {
     shareStatus.value = postUrl.value;
   }

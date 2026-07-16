@@ -1,23 +1,36 @@
 <template>
-  <header class="site-header">
+  <header class="site-header" @keydown.escape="closeMenu">
     <div class="site-header__inner">
       <RouterLink
         class="site-header__brand"
         to="/"
-        aria-label="Mikeroguez, inicio"
+        :aria-label="t('a11y.homeLink')"
         @click="closeMenu"
       >
         <BrandLogo decorative size="header" />
       </RouterLink>
-      <button
-        class="site-header__menu-button"
-        type="button"
-        :aria-expanded="isMenuOpen"
-        aria-controls="site-navigation"
-        @click="toggleMenu"
-      >
-        <span class="site-header__menu-label">Menu</span>
-      </button>
+      <div class="site-header__actions">
+        <button
+          class="site-header__lang-toggle"
+          type="button"
+          :lang="nextLocale"
+          :aria-label="t('lang.toggleLabel')"
+          @click="toggleLocale"
+        >
+          {{ nextLocaleLabel }}
+        </button>
+        <button
+          class="site-header__menu-button"
+          type="button"
+          :aria-expanded="isMenuOpen"
+          :aria-label="isMenuOpen ? t('a11y.closeMenu') : t('a11y.openMenu')"
+          aria-controls="site-navigation"
+          @click="toggleMenu"
+        >
+          <span class="site-header__menu-icon" aria-hidden="true"></span>
+          <span class="site-header__menu-label">{{ t('a11y.menuLabel') }}</span>
+        </button>
+      </div>
       <AppNavigation
         id="site-navigation"
         class="site-header__navigation"
@@ -29,13 +42,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { RouterLink } from 'vue-router';
+import { computed, ref, watch } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
 
+import { locale, setLocale, t } from '@/i18n';
+import type { Locale } from '@/i18n';
 import AppNavigation from '@/components/AppNavigation.vue';
 import BrandLogo from '@/components/BrandLogo.vue';
 
 const isMenuOpen = ref(false);
+const route = useRoute();
+const nextLocale = computed<Locale>(() => (locale.value === 'es' ? 'en' : 'es'));
+const nextLocaleLabel = computed(() => nextLocale.value.toUpperCase());
+
+watch(
+  () => route.fullPath,
+  () => closeMenu(),
+);
 
 function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value;
@@ -43,5 +66,9 @@ function toggleMenu() {
 
 function closeMenu() {
   isMenuOpen.value = false;
+}
+
+function toggleLocale() {
+  setLocale(nextLocale.value);
 }
 </script>

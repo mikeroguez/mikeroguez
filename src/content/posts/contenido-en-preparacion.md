@@ -1,14 +1,14 @@
 ---
-title: 'Contenido en preparacion'
-description: 'Entrada provisional para validar el flujo editorial del blog.'
+title: 'Contenido en preparación'
+description: 'Nota editorial sobre el estado inicial del blog.'
 date: '2026-07-13'
 status: 'published'
 ---
 
-Esta entrada valida el flujo tecnico del blog.
+Este espacio inicia con una nota editorial breve.
 
-El contenido definitivo se construira con evidencia verificada, revision de
-privacidad y aprobacion humana antes de publicarse.
+Las próximas entradas se construirán con evidencia verificada, revisión de
+privacidad y aprobación humana antes de publicarse.
 
-No debe usarse este espacio para publicar borradores privados, datos sensibles o
-afirmaciones no verificadas.
+El blog no debe usarse para publicar borradores privados, datos sensibles ni
+afirmaciones sin contexto suficiente.

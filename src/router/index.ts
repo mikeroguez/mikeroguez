@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
+import { t } from '@/i18n';
 import AboutView from '@/views/AboutView.vue';
 import BlogIndexView from '@/views/BlogIndexView.vue';
 import BlogPostView from '@/views/BlogPostView.vue';
@@ -14,74 +15,49 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView,
-    meta: {
-      title: 'Mikeroguez',
-      description:
-        'Sitio personal de Mikeroguez. Investigación, educación, diseño y desarrollo de software.',
-    },
+    meta: { titleKey: 'meta.homeTitle', descKey: 'meta.homeDesc' },
   },
   {
     path: '/about',
     name: 'about',
     component: AboutView,
-    meta: {
-      title: 'Sobre mi | Mikeroguez',
-      description: 'Pagina provisional sobre Mikeroguez, pendiente de evidencia verificada.',
-    },
+    meta: { titleKey: 'meta.aboutTitle', descKey: 'meta.aboutDesc' },
   },
   {
     path: '/work',
     name: 'work',
     component: WorkView,
-    meta: {
-      title: 'Trabajo y proyectos | Mikeroguez',
-      description: 'Trabajo y proyectos de Mikeroguez, en preparacion editorial.',
-    },
+    meta: { titleKey: 'meta.workTitle', descKey: 'meta.workDesc' },
   },
   {
     path: '/research',
     name: 'research',
     component: ResearchView,
-    meta: {
-      title: 'Investigacion | Mikeroguez',
-      description: 'Investigacion y publicaciones de Mikeroguez, pendientes de verificacion.',
-    },
+    meta: { titleKey: 'meta.researchTitle', descKey: 'meta.researchDesc' },
   },
   {
     path: '/blog',
     name: 'blog',
     component: BlogIndexView,
-    meta: {
-      title: 'Publicaciones | Mikeroguez',
-      description: 'Publicaciones, notas y ensayos de Mikeroguez.',
-    },
+    meta: { titleKey: 'meta.blogTitle', descKey: 'meta.blogDesc' },
   },
   {
     path: '/blog/:slug',
     name: 'blog-post',
     component: BlogPostView,
-    meta: {
-      title: 'Publicacion | Mikeroguez',
-      description: 'Publicacion del blog de Mikeroguez.',
-    },
+    meta: { titleKey: 'meta.blogPostTitle', descKey: 'meta.blogPostDesc' },
   },
   {
     path: '/contact',
     name: 'contact',
     component: ContactView,
-    meta: {
-      title: 'Contacto | Mikeroguez',
-      description: 'Opciones de contacto de Mikeroguez, pendientes de aprobacion publica.',
-    },
+    meta: { titleKey: 'meta.contactTitle', descKey: 'meta.contactDesc' },
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: NotFoundView,
-    meta: {
-      title: 'Pagina no encontrada | Mikeroguez',
-      description: 'Ruta no encontrada en el sitio personal de Mikeroguez.',
-    },
+    meta: { titleKey: 'meta.notFoundTitle', descKey: 'meta.notFoundDesc' },
   },
 ];
 
@@ -94,14 +70,10 @@ const router = createRouter({
 });
 
 router.afterEach((to) => {
-  const title = typeof to.meta.title === 'string' ? to.meta.title : 'Mikeroguez';
-  const description =
-    typeof to.meta.description === 'string'
-      ? to.meta.description
-      : 'Sitio personal de Mikeroguez. Investigacion, educacion, diseno y desarrollo de software.';
-
-  document.title = title;
-  document.querySelector('meta[name="description"]')?.setAttribute('content', description);
+  const titleKey = typeof to.meta.titleKey === 'string' ? to.meta.titleKey : 'meta.homeTitle';
+  const descKey = typeof to.meta.descKey === 'string' ? to.meta.descKey : 'meta.homeDesc';
+  document.title = t(titleKey);
+  document.querySelector('meta[name="description"]')?.setAttribute('content', t(descKey));
 });
 
 export default router;

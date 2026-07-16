@@ -13,7 +13,7 @@ const sitemapPath = join(publicDir, 'sitemap.xml');
 const siteUrl = 'https://mikeroguez.me';
 const siteTitle = 'Mikeroguez';
 const siteDescription =
-  'Sitio personal de Mikeroguez. Investigacion, educacion, diseno y desarrollo de software.';
+  'Sitio personal de Mikeroguez. Investigación, educación, diseño y desarrollo de software.';
 const validStatuses = new Set(['draft', 'review', 'published']);
 
 const markdown = new MarkdownIt({

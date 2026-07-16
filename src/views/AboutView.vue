@@ -1,11 +1,40 @@
 <template>
   <article class="page">
-    <p class="eyebrow">Sobre mi</p>
-    <h1>Sobre Mikeroguez</h1>
-    <p class="lead">Placeholder editorial. No hay biografia publica definitiva en esta base.</p>
-    <section class="content-section" aria-labelledby="about-next">
-      <h2 id="about-next">Pendiente</h2>
-      <p>Esta seccion se construira con evidencia verificada y contenido autorizado.</p>
+    <div class="about-intro">
+      <div class="about-intro__text">
+        <p class="eyebrow">{{ t('about.eyebrow') }}</p>
+        <h1>{{ t('about.h1') }}</h1>
+        <p class="lead">{{ t('about.lead') }}</p>
+        <p>{{ t('about.bio1') }}</p>
+        <p>{{ t('about.bio2') }}</p>
+        <p>{{ t('about.bio3') }}</p>
+      </div>
+      <div class="about-intro__media">
+        <picture>
+          <source srcset="/images/mike-roguez.webp" type="image/webp" />
+          <img
+            src="/images/mike-roguez.jpg"
+            :alt="t('about.photoAlt')"
+            width="640"
+            height="640"
+            class="about-intro__photo"
+          />
+        </picture>
+      </div>
+    </div>
+
+    <section class="content-section" aria-labelledby="about-lines">
+      <h2 id="about-lines">{{ t('about.linesHeading') }}</h2>
+      <ul class="clean-list">
+        <li>{{ t('about.line1') }}</li>
+        <li>{{ t('about.line2') }}</li>
+        <li>{{ t('about.line3') }}</li>
+        <li>{{ t('about.line4') }}</li>
+      </ul>
     </section>
   </article>
 </template>
+
+<script setup lang="ts">
+import { t } from '@/i18n';
+</script>

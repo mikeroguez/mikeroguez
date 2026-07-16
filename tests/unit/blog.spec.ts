@@ -12,7 +12,8 @@ describe('blog content', () => {
 
     expect(posts.length).toBeGreaterThan(0);
     expect(posts[0]?.slug).toBe('contenido-en-preparacion');
-    expect(posts[0]?.searchText).toContain('flujo editorial');
+    expect(posts[0]?.searchText).toContain('nota editorial');
+    expect(posts[0]?.searchText).toContain('evidencia verificada');
   });
 
   it('renders markdown to html without allowing raw html by default', () => {
@@ -32,7 +33,7 @@ describe('blog content', () => {
       },
     });
 
-    expect(wrapper.get('aside[aria-labelledby="blog-index-title"]').text()).toContain('Indice');
+    expect(wrapper.get('aside[aria-labelledby="blog-index-title"]').text()).toContain('Índice');
     expect(wrapper.find('input[type="search"]').exists()).toBe(true);
     expect(wrapper.get('a[href="/feed.xml"]').text()).toBe('RSS');
   });
@@ -47,7 +48,7 @@ describe('blog content', () => {
       },
     });
 
-    expect(wrapper.get('#share-tools-title').text()).toBe('Compartir');
+    expect(wrapper.get('#share-tools-title').text()).toBe('Compartir esta publicación');
     expect(wrapper.text()).toContain('Copiar enlace');
     expect(wrapper.get('a[href*="linkedin.com"]').attributes('href')).toContain(
       'https%3A%2F%2Fmikeroguez.me%2Fblog%2Fcontenido-en-preparacion',
