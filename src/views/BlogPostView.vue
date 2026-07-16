@@ -53,20 +53,26 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watchEffect } from 'vue';
+import { computed, ref } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 
 import { locale, t } from '@/i18n';
 import { getPostBySlug } from '@/content/blog';
 import NotFoundView from '@/views/NotFoundView.vue';
+import { absoluteUrl, SITE_NAME } from '@/utils/site';
+import type { BlogPostLanguage } from '@/types/blog';
+
+const props = defineProps<{
+  lang?: BlogPostLanguage;
+}>();
 
 const route = useRoute();
-const post = computed(() => getPostBySlug(String(route.params.slug)));
+const post = computed(() => getPostBySlug(String(route.params.slug), props.lang ?? 'es'));
 const shareStatus = ref('');
 
-const postUrl = computed(() => new window.URL(route.fullPath, 'https://mikeroguez.me').toString());
+const postUrl = computed(() => absoluteUrl(route.path));
 const encodedPostUrl = computed(() => encodeURIComponent(postUrl.value));
-const encodedPostTitle = computed(() => encodeURIComponent(post.value?.meta.title ?? 'Mikeroguez'));
+const encodedPostTitle = computed(() => encodeURIComponent(post.value?.meta.title ?? SITE_NAME));
 
 const linkedInShareUrl = computed(
   () => `https://www.linkedin.com/sharing/share-offsite/?url=${encodedPostUrl.value}`,
@@ -79,15 +85,9 @@ const xShareUrl = computed(
     `https://twitter.com/intent/tweet?url=${encodedPostUrl.value}&text=${encodedPostTitle.value}`,
 );
 
-const canUseNativeShare = computed(() => 'share' in window.navigator);
-
-watchEffect(() => {
-  if (!post.value) return;
-  document.title = `${post.value.meta.title} | Mikeroguez`;
-  document
-    .querySelector('meta[name="description"]')
-    ?.setAttribute('content', post.value.meta.description);
-});
+const canUseNativeShare = computed(
+  () => typeof window !== 'undefined' && 'share' in window.navigator,
+);
 
 function formatDate(date: string) {
   return new Intl.DateTimeFormat(locale.value === 'es' ? 'es-MX' : 'en-US', {
@@ -97,7 +97,7 @@ function formatDate(date: string) {
 }
 
 async function sharePost() {
-  if (!post.value || !canUseNativeShare.value) return;
+  if (typeof window === 'undefined' || !post.value || !canUseNativeShare.value) return;
   try {
     await window.navigator.share({
       title: post.value.meta.title,
@@ -112,6 +112,7 @@ async function sharePost() {
 
 async function copyPostUrl() {
   try {
+    if (typeof window === 'undefined') return;
     await window.navigator.clipboard.writeText(postUrl.value);
     shareStatus.value = t('blogPost.linkCopied');
   } catch {

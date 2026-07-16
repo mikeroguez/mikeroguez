@@ -28,12 +28,13 @@ const route = useRoute();
 const items = computed<BreadcrumbItem[]>(() => {
   if (route.name === 'home') return [];
 
-  if (route.name === 'blog-post') {
+  if (route.name === 'blog-post' || route.name === 'blog-post-en') {
     const slug = String(route.params.slug);
-    const post = getPostBySlug(slug);
+    const isEnglish = route.name === 'blog-post-en';
+    const post = getPostBySlug(slug, isEnglish ? 'en' : 'es');
     return [
       { label: t('breadcrumb.home'), to: '/' },
-      { label: t('breadcrumb.blog'), to: '/blog' },
+      { label: t('breadcrumb.blog'), to: isEnglish ? '/en/blog' : '/blog' },
       { label: post?.meta.title ?? t('breadcrumb.publication') },
     ];
   }
@@ -43,6 +44,7 @@ const items = computed<BreadcrumbItem[]>(() => {
     work: 'breadcrumb.work',
     research: 'breadcrumb.research',
     blog: 'breadcrumb.blog',
+    'blog-en': 'breadcrumb.blog',
     contact: 'breadcrumb.contact',
     'not-found': 'breadcrumb.notFound',
   };

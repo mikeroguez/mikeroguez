@@ -7,18 +7,18 @@ El despliegue usa GitHub Pages y GitHub Actions.
 1. `npm ci`.
 2. `npm run validate`.
 3. `npm run build`.
-4. Subir `dist/` como artefacto de Pages.
+4. Subir `.output/public` como artefacto de Pages.
 5. Desplegar con acciones oficiales.
 
 ## Dominio
 
-`public/CNAME` contiene `mikeroguez.me` y debe llegar a `dist/CNAME`.
+`public/CNAME` contiene `mikeroguez.me` y debe llegar a `.output/public/CNAME`.
 
-## SPA Fallback
+## Generacion estatica
 
-GitHub Pages no ofrece reescritura de servidor para rutas de SPA. El script
-`scripts/create-pages-fallback.mjs` copia `dist/index.html` a `dist/404.html`.
-Esto permite navegar directamente a rutas como `/about` sin usar `#`.
+GitHub Pages no ofrece configuracion tipo `.htaccess`. El sitio usa Nuxt SSG
+para generar HTML por ruta, de modo que crawlers y redes sociales puedan leer
+titulos, descripciones, canonical y Open Graph sin ejecutar JavaScript.
 
 ## Pendiente
 

@@ -43,15 +43,17 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import { RouterLink, useRoute } from 'vue-router';
+import { RouterLink, useRoute, useRouter } from 'vue-router';
 
 import { locale, setLocale, t } from '@/i18n';
 import type { Locale } from '@/i18n';
+import { getPostBySlug, getPostPath, getPostTranslation } from '@/content/blog';
 import AppNavigation from '@/components/AppNavigation.vue';
 import BrandLogo from '@/components/BrandLogo.vue';
 
 const isMenuOpen = ref(false);
 const route = useRoute();
+const router = useRouter();
 const nextLocale = computed<Locale>(() => (locale.value === 'es' ? 'en' : 'es'));
 const nextLocaleLabel = computed(() => nextLocale.value.toUpperCase());
 
@@ -68,7 +70,23 @@ function closeMenu() {
   isMenuOpen.value = false;
 }
 
-function toggleLocale() {
+async function toggleLocale() {
   setLocale(nextLocale.value);
+  await router.push(localizedPath(nextLocale.value));
+}
+
+function localizedPath(targetLocale: Locale): string {
+  if (route.name === 'blog-post' || route.name === 'blog-post-en') {
+    const currentLang = route.name === 'blog-post-en' ? 'en' : 'es';
+    const post = getPostBySlug(String(route.params.slug), currentLang);
+    const translation = post ? getPostTranslation(post, targetLocale) : undefined;
+    if (translation) return getPostPath(translation);
+  }
+
+  if (route.path === '/blog' || route.path === '/en/blog') {
+    return targetLocale === 'en' ? '/en/blog' : '/blog';
+  }
+
+  return route.path.startsWith('/en/') ? route.path.slice(3) || '/' : route.path;
 }
 </script>

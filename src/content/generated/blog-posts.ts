@@ -8,6 +8,8 @@ export const blogPosts = [
       description: 'Nota editorial sobre el estado inicial del blog.',
       date: '2026-07-13',
       status: 'published',
+      lang: 'es',
+      translationKey: 'contenido-en-preparacion',
     },
     html: '<p>Este espacio inicia con una nota editorial breve.</p>\n<p>Las próximas entradas se construirán con evidencia verificada, revisión de\nprivacidad y aprobación humana antes de publicarse.</p>\n<p>El blog no debe usarse para publicar borradores privados, datos sensibles ni\nafirmaciones sin contexto suficiente.</p>\n',
     excerpt: 'Nota editorial sobre el estado inicial del blog.',

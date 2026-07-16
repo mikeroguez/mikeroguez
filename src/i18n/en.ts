@@ -62,9 +62,9 @@ export default {
   home: {
     eyebrow: 'Personal site',
     h1: 'Applied research, education and software.',
-    lead: 'I work at the intersection of human-computer interaction, educational technology, accessibility and software development.',
+    lead: 'I design, research and build people-centered educational technology.',
     intro:
-      'I share projects, publications and notes that connect teaching, applied research and technical practice.',
+      'My work connects human-computer interaction, accessibility, education and applied artificial intelligence.',
     sectionsLabel: 'Main sections',
     focusHeading: 'Focus',
     focusHciTitle: 'HCI & accessibility',

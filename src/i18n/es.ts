@@ -63,9 +63,9 @@ export default {
   home: {
     eyebrow: 'Sitio personal',
     h1: 'Investigación aplicada, educación y software.',
-    lead: 'Trabajo en la intersección entre interacción humano-computadora, tecnología educativa, accesibilidad y desarrollo de software.',
+    lead: 'Diseño, investigo y construyo tecnología educativa centrada en las personas.',
     intro:
-      'Comparto proyectos, publicaciones y notas que conectan docencia, investigación aplicada y práctica técnica.',
+      'Mi trabajo conecta interacción humano-computadora, accesibilidad, educación e inteligencia artificial aplicada.',
     sectionsLabel: 'Secciones principales',
     focusHeading: 'Enfoque',
     focusHciTitle: 'HCI y accesibilidad',

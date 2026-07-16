@@ -25,7 +25,7 @@
 
         <ol v-if="visiblePosts.length > 0" class="post-list">
           <li v-for="post in visiblePosts" :key="post.slug" class="post-list__item">
-            <RouterLink class="post-list__title" :to="`/blog/${post.slug}`">
+            <RouterLink class="post-list__title" :to="getPostPath(post)">
               {{ post.meta.title }}
             </RouterLink>
             <p class="post-list__meta">
@@ -111,10 +111,15 @@ import { computed, ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
 import { locale, t } from '@/i18n';
-import { getPublishedPosts } from '@/content/blog';
+import { getPostPath, getPublishedPostsByLanguage } from '@/content/blog';
+import type { BlogPostLanguage } from '@/types/blog';
+
+const props = defineProps<{
+  lang?: BlogPostLanguage;
+}>();
 
 const pageSize = 6;
-const posts = getPublishedPosts();
+const posts = getPublishedPostsByLanguage(props.lang ?? 'es');
 const query = ref('');
 const visibleCount = ref(pageSize);
 const loadMoreDescriptionId = 'blog-load-more-status';
