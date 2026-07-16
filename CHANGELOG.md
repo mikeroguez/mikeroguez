@@ -5,6 +5,13 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 0.1.2 - 2026-07-16
+
+### Changed
+
+- La imagen social generica usa el logotipo de marca como imagen default en
+  lugar de la fotografia de perfil.
+
 ## 0.1.1 - 2026-07-16
 
 ### Added
