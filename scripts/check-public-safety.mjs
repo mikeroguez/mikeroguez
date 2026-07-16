@@ -25,6 +25,8 @@ const ignoredDirs = new Set([
   '.git',
   'node_modules',
   'dist',
+  '.nuxt',
+  '.output',
   'coverage',
   '.local-context',
   '.npm-cache',

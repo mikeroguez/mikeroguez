@@ -205,6 +205,7 @@ function detectLocale(): Locale {
   } catch {
     // localStorage unavailable
   }
+  if (typeof navigator === 'undefined') return 'es';
   const langs = navigator.languages?.length ? [...navigator.languages] : [navigator.language ?? ''];
   for (const l of langs) {
     if (l.toLowerCase().startsWith('es')) return 'es';
@@ -221,6 +222,10 @@ if (typeof document !== 'undefined') {
 
 export const locale = readonly(_locale);
 
+export function localeFromPath(path: string): Locale {
+  return path === '/en' || path.startsWith('/en/') ? 'en' : 'es';
+}
+
 export function setLocale(l: Locale): void {
   _locale.value = l;
   try {
@@ -228,7 +233,9 @@ export function setLocale(l: Locale): void {
   } catch {
     // ignore
   }
-  document.documentElement.lang = l;
+  if (typeof document !== 'undefined') {
+    document.documentElement.lang = l;
+  }
 }
 
 export function t(key: string, params?: Record<string, string | number>): string {

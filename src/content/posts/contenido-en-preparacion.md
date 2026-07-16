@@ -3,6 +3,8 @@ title: 'Contenido en preparación'
 description: 'Nota editorial sobre el estado inicial del blog.'
 date: '2026-07-13'
 status: 'published'
+lang: 'es'
+translationKey: 'contenido-en-preparacion'
 ---
 
 Este espacio inicia con una nota editorial breve.

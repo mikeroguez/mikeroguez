@@ -1,11 +1,13 @@
 # Architecture
 
-El sitio es una SPA en Vue 3 con Vite y TypeScript.
+El sitio es una aplicacion Nuxt con Vue 3, TypeScript y generacion estatica para
+GitHub Pages.
 
 ## Estructura
 
-- `src/main.ts`: inicializa Vue y Router.
-- `src/router/`: rutas publicas y metadatos basicos.
+- `nuxt.config.ts`: configuracion de Nuxt, prerender y metadatos base.
+- `src/app.vue`: shell raiz de Nuxt.
+- `src/pages/`: rutas publicas prerenderizadas.
 - `src/layouts/`: estructura compartida.
 - `src/components/`: componentes reutilizables.
 - `src/views/`: paginas.
@@ -15,13 +17,16 @@ El sitio es una SPA en Vue 3 con Vite y TypeScript.
 - `tests/`: pruebas unitarias.
 - `public/`: archivos copiados al build.
 
-## Router
+## Rutas y SEO
 
-Vue Router usa history mode. GitHub Pages no reescribe rutas de SPA, por lo que
-el build crea `dist/404.html` copiando `dist/index.html`.
+Nuxt genera HTML estatico por ruta con `nuxt generate`. Esto evita depender de
+reescrituras de servidor o de metadatos inyectados solo en cliente.
 
 El blog usa rutas `/blog` y `/blog/:slug`. Cada slug corresponde a un archivo
 Markdown en `src/content/posts/`.
+
+Los metadatos SEO, canonical, Open Graph, Twitter card y RSS se definen desde
+`src/utils/seo.ts` y se aplican en `src/pages/`.
 
 El indice `/blog` tiene busqueda local, filtros por año y carga incremental en
 cliente.
@@ -49,5 +54,5 @@ madure. La base actual solo contiene placeholders editoriales.
 
 ## Despliegue
 
-GitHub Actions valida, compila `dist/`, sube el artefacto y despliega con GitHub
-Pages.
+GitHub Actions valida, genera `.output/public`, sube el artefacto y despliega con
+GitHub Pages.

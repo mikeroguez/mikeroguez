@@ -15,6 +15,7 @@ const siteTitle = 'Mikeroguez';
 const siteDescription =
   'Sitio personal de Mikeroguez. Investigación, educación, diseño y desarrollo de software.';
 const validStatuses = new Set(['draft', 'review', 'published']);
+const validLanguages = new Set(['es', 'en']);
 
 const markdown = new MarkdownIt({
   html: false,
@@ -62,10 +63,17 @@ function parseMarkdownPost(source, filename) {
     throw new Error(`${filename} has invalid status: ${status}`);
   }
 
+  const lang = values.get('lang') ?? 'es';
+  if (!validLanguages.has(lang)) {
+    throw new Error(`${filename} has invalid lang: ${lang}`);
+  }
+
   const description = values.get('description') ?? 'Entrada sin descripcion.';
 
   const title = values.get('title') ?? 'Untitled';
   const date = values.get('date') ?? '1970-01-01';
+  const translationKey = values.get('translationKey');
+  const image = values.get('image');
   const bodyText = body
     .replace(/```[\s\S]*?```/g, ' ')
     .replace(/`([^`]+)`/g, '$1')
@@ -77,6 +85,9 @@ function parseMarkdownPost(source, filename) {
       description,
       date,
       status,
+      lang,
+      ...(translationKey ? { translationKey } : {}),
+      ...(image ? { image } : {}),
     },
     html: markdown.render(body.trim()),
     excerpt: description,
@@ -102,7 +113,9 @@ function toRssDate(date) {
 }
 
 function createRssFeed(posts) {
-  const publishedPosts = posts.filter((post) => post.meta.status === 'published');
+  const publishedPosts = posts.filter(
+    (post) => post.meta.status === 'published' && post.meta.lang === 'es',
+  );
   const lastBuildDate = publishedPosts[0]?.meta.date
     ? toRssDate(publishedPosts[0].meta.date)
     : new Date().toUTCString();
@@ -138,10 +151,10 @@ ${items}
 }
 
 function createSitemap(posts) {
-  const staticRoutes = ['/', '/about', '/work', '/research', '/blog', '/contact'];
+  const staticRoutes = ['/', '/about', '/work', '/research', '/blog', '/contact', '/en/blog'];
   const publishedRoutes = posts
     .filter((post) => post.meta.status === 'published')
-    .map((post) => `/blog/${post.slug}`);
+    .map((post) => (post.meta.lang === 'en' ? `/en/blog/${post.slug}` : `/blog/${post.slug}`));
 
   const urls = [...staticRoutes, ...publishedRoutes]
     .map((pathname) => `  <url><loc>${escapeXml(absoluteUrl(pathname))}</loc></url>`)

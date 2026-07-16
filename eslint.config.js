@@ -5,7 +5,14 @@ import vue from 'eslint-plugin-vue';
 
 export default [
   {
-    ignores: ['dist/**', 'coverage/**', 'node_modules/**', '.local-context/**'],
+    ignores: [
+      'dist/**',
+      '.nuxt/**',
+      '.output/**',
+      'coverage/**',
+      'node_modules/**',
+      '.local-context/**',
+    ],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -16,6 +23,7 @@ export default [
     languageOptions: {
       globals: {
         document: 'readonly',
+        definePageMeta: 'readonly',
         window: 'readonly',
       },
       parserOptions: {

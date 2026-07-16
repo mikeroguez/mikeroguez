@@ -4,14 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "npm run generate:blog && npm run generate:research && vue-tsc --noEmit && vite build && node scripts/create-pages-fallback.mjs",
-    "preview": "vite preview",
+    "dev": "nuxt dev",
+    "build": "npm run generate:blog && npm run generate:research && nuxt generate",
+    "preview": "nuxt preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "typecheck": "vue-tsc --noEmit",
+    "typecheck": "nuxt typecheck",
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
@@ -22,6 +22,7 @@
     "validate": "npm run generate:blog && npm run generate:research && npm run format:check && npm run lint && npm run typecheck && npm run test:run && npm run check:public && npm run build"
   },
   "dependencies": {
+    "nuxt": "^4.4.8",
     "vue": "^3.5.0",
     "vue-router": "^4.5.0"
   },
@@ -44,7 +45,7 @@
     "typescript": "^5.8.0",
     "typescript-eslint": "^8.35.0",
     "vitest": "^3.2.0",
-    "vue-tsc": "^2.2.0"
+    "vue-tsc": "^3.3.7"
   },
   "engines": {
     "node": ">=22.0.0",

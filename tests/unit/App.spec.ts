@@ -1,19 +1,25 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
-import App from '@/App.vue';
+import App from '@/app.vue';
 import router from '@/router';
 
 describe('App', () => {
+  const mountApp = () =>
+    mount(App, {
+      global: {
+        plugins: [router],
+        stubs: {
+          NuxtPage: { template: '<div />' },
+        },
+      },
+    });
+
   it('mounts with the main layout', async () => {
     router.push('/');
     await router.isReady();
 
-    const wrapper = mount(App, {
-      global: {
-        plugins: [router],
-      },
-    });
+    const wrapper = mountApp();
 
     expect(wrapper.find('main#main-content').exists()).toBe(true);
     expect(wrapper.text()).toContain('Mikeroguez');
@@ -23,11 +29,7 @@ describe('App', () => {
     router.push('/');
     await router.isReady();
 
-    const wrapper = mount(App, {
-      global: {
-        plugins: [router],
-      },
-    });
+    const wrapper = mountApp();
 
     const skipLink = wrapper.get('a.skip-link');
     expect(skipLink.attributes('href')).toBe('#main-content');
@@ -38,11 +40,7 @@ describe('App', () => {
     await router.push('/');
     await router.isReady();
 
-    const wrapper = mount(App, {
-      global: {
-        plugins: [router],
-      },
-    });
+    const wrapper = mountApp();
 
     expect(wrapper.find('nav[aria-label="Ruta de navegación"]').exists()).toBe(false);
   });
@@ -51,11 +49,7 @@ describe('App', () => {
     await router.push('/work');
     await router.isReady();
 
-    const wrapper = mount(App, {
-      global: {
-        plugins: [router],
-      },
-    });
+    const wrapper = mountApp();
 
     const breadcrumb = wrapper.get('nav[aria-label="Ruta de navegación"]');
     expect(breadcrumb.text()).toContain('Inicio');
@@ -68,11 +62,7 @@ describe('App', () => {
     await router.push('/');
     await router.isReady();
 
-    const wrapper = mount(App, {
-      global: {
-        plugins: [router],
-      },
-    });
+    const wrapper = mountApp();
 
     expect(wrapper.get('footer .brand-logo--logo').attributes('aria-label')).toBe('Mikeroguez');
     expect(wrapper.get('a[href="/feed.xml"]').text()).toBe('RSS');

@@ -21,6 +21,7 @@ describe('blog content', () => {
 
     expect(post?.html).toContain('<p>');
     expect(post?.meta.status).toBe('published');
+    expect(post?.meta.image).toBeUndefined();
   });
 
   it('renders the blog index tools', async () => {
