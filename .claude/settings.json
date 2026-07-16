@@ -1,0 +1,41 @@
+{
+  "model": "claude-sonnet-4-6",
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev)",
+      "Bash(npm run build)",
+      "Bash(npm run preview)",
+      "Bash(npm run lint)",
+      "Bash(npm run lint:fix)",
+      "Bash(npm run format)",
+      "Bash(npm run format:check)",
+      "Bash(npm run typecheck)",
+      "Bash(npm run test)",
+      "Bash(npm run test:run)",
+      "Bash(npm run test:coverage)",
+      "Bash(npm run check:public)",
+      "Bash(npm run generate:blog)",
+      "Bash(npm run optimize:brand)",
+      "Bash(npm run validate)",
+      "Bash(npm install)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git show*)",
+      "Bash(git blame*)",
+      "Bash(git stash list*)",
+      "Bash(find . *)",
+      "Bash(ls *)",
+      "Bash(node scripts/*)"
+    ],
+    "deny": [
+      "Bash(git add .)",
+      "Bash(git commit*)",
+      "Bash(git push*)",
+      "Bash(git reset --hard*)",
+      "Bash(git rebase*)",
+      "Bash(git branch -D*)",
+      "Bash(rm -rf*)"
+    ]
+  }
+}

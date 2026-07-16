@@ -9,7 +9,7 @@ la privacidad y la calidad publica del proyecto.
 ## Identidad
 
 El sitio debe sentirse personal, intelectual, humano, sobrio, contemporaneo,
-riguroso y accesible. Debe conectar investigacion, educacion, diseno y software
+riguroso y accesible. Debe conectar investigación, educación, diseño y software
 sin parecer plantilla generica, startup, agencia, CV saturado o pagina de
 influencer.
 
@@ -76,6 +76,7 @@ mas correcta. Nunca almacenar credenciales ahi.
 | Publico objetivo          | `docs/audiences/`                               |
 | Contenido                 | `docs/content/`                                 |
 | UX y navegacion           | `docs/ux/`                                      |
+| Diseño visual y UI        | `docs/brand/`, `docs/ux/`, `src/assets/styles/` |
 | Arquitectura y despliegue | `docs/engineering/`                             |
 | Biografia o evidencia     | `.local-context/approved/`, `reviewed/`, `raw/` |
 | Decisiones previas        | `docs/decisions/`                               |
