@@ -1,3 +1,8 @@
+---
+name: release-readiness
+description: Validate that repository changes are ready for public review, merge, release, or deployment using checks, Git state, accessibility, and public safety review.
+---
+
 # Release Readiness
 
 ## Purpose

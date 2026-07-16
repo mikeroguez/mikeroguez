@@ -1,3 +1,8 @@
+---
+name: public-safety-review
+description: Prevent accidental publication of secrets, private data, sensitive material, risky metadata, or reputationally harmful content before commits, PRs, releases, and deployments.
+---
+
 # Public Safety Review
 
 ## Purpose

@@ -1,3 +1,8 @@
+---
+name: content-evidence-review
+description: Classify biography, project, research, affiliation, metric, and other public claims against approved evidence to prevent unsupported or sensitive content.
+---
+
 # Content Evidence Review
 
 ## Purpose

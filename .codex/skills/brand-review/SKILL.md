@@ -1,3 +1,8 @@
+---
+name: brand-review
+description: Evaluate whether public-facing copy, visual design, information architecture, and page changes support the Mikeroguez identity without unsupported or generic claims.
+---
+
 # Brand Review
 
 ## Purpose

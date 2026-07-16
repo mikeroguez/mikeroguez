@@ -1,3 +1,8 @@
+---
+name: ux-review
+description: Review whether public pages, navigation, layouts, and interactions are understandable, navigable, useful, accessible, and ready for publication.
+---
+
 # UX Review
 
 ## Purpose

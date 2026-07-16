@@ -1,3 +1,8 @@
+---
+name: accessibility-review
+description: Review UI, routing, layout, form, and content changes for accessibility blockers and WCAG-oriented improvements before publication.
+---
+
 # Accessibility Review
 
 ## Purpose
