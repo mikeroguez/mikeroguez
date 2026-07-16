@@ -8,5 +8,8 @@ are authorized for public publication and compatible with the site license plan.
 `mikeroguez-logo-mask.svg` is the optimized public logo mask used by the site.
 Its color is controlled in CSS with `currentColor`.
 
+`mikeroguez-isotype-mask.svg` is a cropped mask derived from the left side of the
+same approved logo. Use it for compact brand marks after visual review.
+
 Large editable or source logo files should remain in ignored local context until
 they are intentionally prepared for publication.

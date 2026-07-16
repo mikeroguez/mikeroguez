@@ -1,20 +1,27 @@
 # Logo Usage
 
-El sitio usa por ahora `public/brand/mikeroguez-logo-mask.svg`, un SVG optimizado
-derivado del logo aprobado y pintado desde CSS con `currentColor`.
+El sitio usa por ahora:
+
+- `public/brand/mikeroguez-logo-mask.svg`: logo horizontal optimizado.
+- `public/brand/mikeroguez-isotype-mask.svg`: isotipo recortado desde el lado
+  izquierdo del logo aprobado.
+
+Ambos se pintan desde CSS con `currentColor`.
 
 ## Variantes Previstas
 
 - Logo principal horizontal.
 - Version clara.
 - Version oscura.
-- Isotipo.
+- Isotipo derivado del logo aprobado.
 - Favicon.
 
 ## Reglas Iniciales
 
 - Mantener zona de proteccion alrededor del logo.
 - Usar el SVG optimizado como mascara para variantes de color.
+- Usar el isotipo solo en espacios compactos donde el logo horizontal pierda
+  legibilidad.
 - Cambiar color desde CSS, no duplicando SVGs.
 - Usar azul tinta sobre fondos claros.
 - Usar blanco sobre azul tinta u otros fondos oscuros aprobados.
@@ -27,5 +34,5 @@ derivado del logo aprobado y pintado desde CSS con `currentColor`.
 
 ## Pendiente
 
-Definir isotipo, favicon, zona de proteccion precisa, tamano minimo y reglas
-para usos fuera del sitio.
+Validar visualmente el recorte del isotipo, definir favicon, zona de proteccion
+precisa, tamano minimo y reglas para usos fuera del sitio.

@@ -2,7 +2,7 @@
 
 ## Proposito
 
-Construir una presencia publica que conecte investigacion, educacion, diseno y
+Construir una presencia publica que conecte investigación, educación, diseño y
 software de forma verificable, sobria y humana.
 
 ## Promesa
@@ -28,7 +28,7 @@ publico definitivo.
 ## Percepcion Deseada
 
 El sitio debe transmitir criterio, cuidado editorial, capacidad tecnica y
-relacion clara entre pensamiento, educacion, diseno y software.
+relacion clara entre pensamiento, educación, diseño y software.
 
 ## Riesgos
 
