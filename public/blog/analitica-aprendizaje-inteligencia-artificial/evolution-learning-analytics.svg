@@ -1,0 +1,128 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-labelledby="timeline-title timeline-desc"
+  viewBox="0 0 900 1120"
+>
+  <title id="timeline-title">Evolution of learning analytics</title>
+  <desc id="timeline-desc">
+    Vertical timeline summarizing how learning analytics moved from academic
+    foundations and digital platforms to predictive models, generative
+    artificial intelligence and challenges around privacy, transparency,
+    fairness and pedagogical meaning.
+  </desc>
+  <defs>
+    <style>
+      text {
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      .title {
+        fill: #20294d;
+        font-size: 34px;
+        font-weight: 820;
+      }
+      .subtitle {
+        fill: #566078;
+        font-size: 18px;
+        font-weight: 560;
+      }
+      .year {
+        fill: #20294d;
+        font-size: 15px;
+        font-weight: 820;
+        text-anchor: middle;
+      }
+      .stage {
+        fill: #f8f6f0;
+        font-size: 22px;
+        font-weight: 780;
+      }
+      .body {
+        fill: #f8f6f0;
+        font-size: 17px;
+        font-weight: 540;
+      }
+      .stage-dark {
+        fill: #20294d;
+        font-size: 22px;
+        font-weight: 780;
+      }
+      .body-dark {
+        fill: #20294d;
+        font-size: 17px;
+        font-weight: 540;
+      }
+    </style>
+  </defs>
+
+  <rect width="900" height="1120" fill="#eee8dc" />
+  <rect x="36" y="34" width="828" height="1052" rx="18" fill="#f8f6f0" stroke="#d8d0c4" />
+
+  <text class="title" x="78" y="88">Evolution of learning analytics</text>
+  <text class="subtitle" x="78" y="122">
+    From educational data traces to generative artificial intelligence.
+  </text>
+
+  <line x1="92" y1="215" x2="92" y2="1013" stroke="#d8d0c4" stroke-width="6" />
+
+  <circle cx="92" cy="253" r="15" fill="#144c9e" />
+  <rect x="124" y="236" width="150" height="34" rx="17" fill="#e7eefb" />
+  <text class="year" x="199" y="258">Before 2000</text>
+  <rect x="304" y="190" width="516" height="126" rx="12" fill="#144c9e" />
+  <text class="stage" x="336" y="228">Foundations</text>
+  <text class="body" x="336" y="262">
+    <tspan x="336" dy="0">Academic information is used</tspan>
+    <tspan x="336" dy="28">to understand how people learn.</tspan>
+  </text>
+
+  <circle cx="92" cy="405" r="15" fill="#155dc9" />
+  <rect x="124" y="388" width="150" height="34" rx="17" fill="#e7eefb" />
+  <text class="year" x="199" y="410">2000-2009</text>
+  <rect x="304" y="342" width="516" height="126" rx="12" fill="#155dc9" />
+  <text class="stage" x="336" y="380">Digital expansion</text>
+  <text class="body" x="336" y="414">
+    <tspan x="336" dy="0">Platforms leave traces:</tspan>
+    <tspan x="336" dy="28">logins, assignments, forums and videos.</tspan>
+  </text>
+
+  <circle cx="92" cy="557" r="15" fill="#1667df" />
+  <rect x="124" y="540" width="150" height="34" rx="17" fill="#e7eefb" />
+  <text class="year" x="199" y="562">2010-2015</text>
+  <rect x="304" y="494" width="516" height="126" rx="12" fill="#1667df" />
+  <text class="stage" x="336" y="532">Field consolidation</text>
+  <text class="body" x="336" y="566">
+    <tspan x="336" dy="0">Learning analytics becomes</tspan>
+    <tspan x="336" dy="28">recognized as its own field.</tspan>
+  </text>
+
+  <circle cx="92" cy="709" r="15" fill="#2876e9" />
+  <rect x="124" y="692" width="150" height="34" rx="17" fill="#e7eefb" />
+  <text class="year" x="199" y="714">2016-2020</text>
+  <rect x="304" y="646" width="516" height="126" rx="12" fill="#2876e9" />
+  <text class="stage" x="336" y="684">Predictive models</text>
+  <text class="body" x="336" y="718">
+    <tspan x="336" dy="0">Machine learning detects risk</tspan>
+    <tspan x="336" dy="28">and guides early support.</tspan>
+  </text>
+
+  <circle cx="92" cy="861" r="15" fill="#3f85ee" />
+  <rect x="124" y="844" width="150" height="34" rx="17" fill="#e7eefb" />
+  <text class="year" x="199" y="866">2022-2025</text>
+  <rect x="304" y="798" width="516" height="126" rx="12" fill="#3f85ee" />
+  <text class="stage" x="336" y="836">Generative AI</text>
+  <text class="body" x="336" y="870">
+    <tspan x="336" dy="0">Systems begin to generate</tspan>
+    <tspan x="336" dy="28">explanations and feedback.</tspan>
+  </text>
+
+  <circle cx="92" cy="1013" r="15" fill="#20294d" />
+  <rect x="124" y="996" width="150" height="34" rx="17" fill="#e7eefb" />
+  <text class="year" x="199" y="1018">Future</text>
+  <rect x="304" y="950" width="516" height="126" rx="12" fill="#eee8dc" stroke="#d8d0c4" />
+  <text class="stage-dark" x="336" y="988">Challenges</text>
+  <text class="body-dark" x="336" y="1022">
+    <tspan x="336" dy="0">Privacy, transparency, fairness</tspan>
+    <tspan x="336" dy="28">and pedagogical meaning.</tspan>
+  </text>
+</svg>

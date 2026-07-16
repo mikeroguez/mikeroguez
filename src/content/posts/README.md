@@ -38,6 +38,7 @@ Reglas para nombrar archivos:
 - evitar acentos y caracteres especiales;
 - evitar fechas en el slug salvo que sean parte importante del titulo;
 - preferir slugs cortos, claros y estables;
+- usar slugs unicos en todo el blog, sin repetirlos entre idiomas;
 - no cambiar el nombre despues de publicar salvo que aceptes romper enlaces
   existentes.
 

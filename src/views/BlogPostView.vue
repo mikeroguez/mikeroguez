@@ -1,13 +1,44 @@
 <template>
   <!-- eslint-disable vue/no-v-html -->
   <article v-if="post" class="page blog-post">
-    <RouterLink class="text-link" to="/blog">{{ t('blogPost.back') }}</RouterLink>
+    <RouterLink class="text-link" :to="blogIndexPath">{{ t('blogPost.back') }}</RouterLink>
     <p class="eyebrow">{{ t('blogPost.eyebrow') }}</p>
     <h1>{{ post.meta.title }}</h1>
     <p class="post-list__meta">
       <time :datetime="post.meta.date">{{ formatDate(post.meta.date) }}</time>
+      <span v-if="post.meta.readingTime" class="post-reading-time">
+        {{ t('blog.readingTime', { min: post.meta.readingTime }) }}
+      </span>
     </p>
+    <p class="post-byline">
+      {{ t('blogPost.authorBy') }} <strong>{{ SITE_AUTHOR }}</strong>
+    </p>
+    <ul v-if="post.meta.tags?.length" class="post-tags" :aria-label="t('blog.tagsHeading')">
+      <li v-for="tag in post.meta.tags" :key="tag">
+        <span class="post-tag">{{ tag }}</span>
+      </li>
+    </ul>
     <div class="markdown-body" v-html="post.html" />
+    <section
+      v-if="relatedPosts.length > 0"
+      class="post-related"
+      aria-labelledby="related-posts-title"
+    >
+      <p id="related-posts-title" class="post-related__heading">{{ t('blog.relatedHeading') }}</p>
+      <ul class="post-related__list">
+        <li v-for="related in relatedPosts" :key="related.slug">
+          <RouterLink class="post-related__link" :to="getPostPath(related)">
+            {{ related.meta.title }}
+          </RouterLink>
+          <p class="post-related__meta">
+            <time :datetime="related.meta.date">{{ formatDate(related.meta.date) }}</time>
+            <span v-if="related.meta.readingTime" class="post-reading-time">
+              {{ t('blog.readingTime', { min: related.meta.readingTime }) }}
+            </span>
+          </p>
+        </li>
+      </ul>
+    </section>
     <section class="share-tools" aria-labelledby="share-tools-title">
       <h2 id="share-tools-title">{{ t('blogPost.shareHeading') }}</h2>
       <div class="share-tools__actions">
@@ -53,13 +84,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 
-import { locale, t } from '@/i18n';
-import { getPostBySlug } from '@/content/blog';
+import { locale, setLocaleForRoute, t } from '@/i18n';
+import { getPostBySlug, getPostPath, getPublishedPostsByLanguage } from '@/content/blog';
 import NotFoundView from '@/views/NotFoundView.vue';
-import { absoluteUrl, SITE_NAME } from '@/utils/site';
+import { absoluteUrl, SITE_AUTHOR, SITE_NAME } from '@/utils/site';
 import type { BlogPostLanguage } from '@/types/blog';
 
 const props = defineProps<{
@@ -67,8 +98,26 @@ const props = defineProps<{
 }>();
 
 const route = useRoute();
-const post = computed(() => getPostBySlug(String(route.params.slug), props.lang ?? 'es'));
+const post = computed(() => getPostBySlug(String(route.params.slug), props.lang));
+const blogIndexPath = computed(() => (post.value?.meta.lang === 'en' ? '/en/blog' : '/blog'));
 const shareStatus = ref('');
+
+const relatedPosts = computed(() => {
+  if (!post.value?.meta.tags?.length) return [];
+  const currentTags = new Set(post.value.meta.tags);
+  return getPublishedPostsByLanguage(post.value.meta.lang)
+    .filter((p) => p.slug !== post.value!.slug && p.meta.tags?.some((t) => currentTags.has(t)))
+    .sort(
+      (a, b) =>
+        (b.meta.tags?.filter((t) => currentTags.has(t)).length ?? 0) -
+        (a.meta.tags?.filter((t) => currentTags.has(t)).length ?? 0),
+    )
+    .slice(0, 2);
+});
+
+watchEffect(() => {
+  if (post.value) setLocaleForRoute(post.value.meta.lang);
+});
 
 const postUrl = computed(() => absoluteUrl(route.path));
 const encodedPostUrl = computed(() => encodeURIComponent(postUrl.value));

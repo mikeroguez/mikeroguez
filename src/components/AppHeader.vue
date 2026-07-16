@@ -71,14 +71,15 @@ function closeMenu() {
 }
 
 async function toggleLocale() {
-  setLocale(nextLocale.value);
-  await router.push(localizedPath(nextLocale.value));
+  const targetLocale = nextLocale.value;
+  setLocale(targetLocale);
+  await router.push(localizedPath(targetLocale));
 }
 
 function localizedPath(targetLocale: Locale): string {
-  if (route.name === 'blog-post' || route.name === 'blog-post-en') {
-    const currentLang = route.name === 'blog-post-en' ? 'en' : 'es';
-    const post = getPostBySlug(String(route.params.slug), currentLang);
+  const blogPostSlug = getBlogPostSlug(route.path);
+  if (blogPostSlug) {
+    const post = getPostBySlug(blogPostSlug);
     const translation = post ? getPostTranslation(post, targetLocale) : undefined;
     if (translation) return getPostPath(translation);
   }
@@ -88,5 +89,10 @@ function localizedPath(targetLocale: Locale): string {
   }
 
   return route.path.startsWith('/en/') ? route.path.slice(3) || '/' : route.path;
+}
+
+function getBlogPostSlug(path: string): string | undefined {
+  const match = path.match(/^\/blog\/([^/]+)$/);
+  return match?.[1];
 }
 </script>

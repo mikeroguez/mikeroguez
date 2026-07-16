@@ -9,6 +9,8 @@ export interface BlogPostMeta {
   lang: BlogPostLanguage;
   translationKey?: string;
   image?: string;
+  tags?: string[];
+  readingTime?: number;
 }
 
 export interface BlogPost {

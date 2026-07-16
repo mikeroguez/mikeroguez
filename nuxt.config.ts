@@ -1,4 +1,6 @@
+import { exec } from 'node:child_process';
 import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 import { defineNuxtConfig } from 'nuxt/config';
 
@@ -14,9 +16,7 @@ const packageJson = JSON.parse(
 const staticRoutes = ['/', '/about', '/work', '/research', '/blog', '/contact', '/en/blog'];
 const blogRoutes = blogPosts
   .filter((post) => post.meta.status === 'published')
-  .map((post: BlogPost) =>
-    post.meta.lang === 'en' ? `/en/blog/${post.slug}` : `/blog/${post.slug}`,
-  );
+  .map((post: BlogPost) => `/blog/${post.slug}`);
 
 export default defineNuxtConfig({
   compatibilityDate: '2026-07-15',
@@ -40,6 +40,32 @@ export default defineNuxtConfig({
     define: {
       'import.meta.env.VITE_APP_VERSION': JSON.stringify(packageJson.version),
     },
+    plugins: [
+      {
+        name: 'blog-content-watcher',
+        configureServer(server) {
+          const postsDir = resolve('src/content/posts');
+          const pubsDir = resolve('src/content/publications');
+          server.watcher.add(postsDir);
+          server.watcher.add(pubsDir);
+          const handle = (file: string) => {
+            if (!file.endsWith('.md')) return;
+            if (file.startsWith(postsDir)) {
+              exec('node scripts/generate-blog-content.mjs', (err) => {
+                if (err) console.error('[blog-watcher] Error:', err.message);
+              });
+            } else if (file.startsWith(pubsDir)) {
+              exec('node scripts/generate-research-content.mjs', (err) => {
+                if (err) console.error('[research-watcher] Error:', err.message);
+              });
+            }
+          };
+          server.watcher.on('change', handle);
+          server.watcher.on('add', handle);
+          server.watcher.on('unlink', handle);
+        },
+      },
+    ],
   },
   nitro: {
     prerender: {

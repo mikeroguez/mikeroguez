@@ -9,19 +9,28 @@ import router from '@/router';
 describe('blog content', () => {
   it('loads published markdown posts', () => {
     const posts = getPublishedPosts();
+    const reviewPost = posts.find(
+      (post) => post.slug === 'analitica-aprendizaje-inteligencia-artificial',
+    );
 
     expect(posts.length).toBeGreaterThan(0);
-    expect(posts[0]?.slug).toBe('contenido-en-preparacion');
-    expect(posts[0]?.searchText).toContain('nota editorial');
-    expect(posts[0]?.searchText).toContain('evidencia verificada');
+    expect(reviewPost?.searchText).toContain('analitica de aprendizaje');
+    expect(reviewPost?.searchText).toContain('inteligencia artificial');
   });
 
   it('renders markdown to html without allowing raw html by default', () => {
-    const post = getPostBySlug('contenido-en-preparacion');
+    const post = getPostBySlug('analitica-aprendizaje-inteligencia-artificial');
 
     expect(post?.html).toContain('<p>');
     expect(post?.meta.status).toBe('published');
     expect(post?.meta.image).toBeUndefined();
+  });
+
+  it('keeps published posts visible while running in development mode', () => {
+    const post = getPostBySlug('analitica-aprendizaje-inteligencia-artificial');
+
+    expect(import.meta.env.MODE).not.toBe('production');
+    expect(post?.meta.status).toBe('published');
   });
 
   it('renders the blog index tools', async () => {
@@ -40,7 +49,7 @@ describe('blog content', () => {
   });
 
   it('renders social sharing tools in a blog post', async () => {
-    await router.push('/blog/contenido-en-preparacion');
+    await router.push('/blog/analitica-aprendizaje-inteligencia-artificial');
     await router.isReady();
 
     const wrapper = mount(BlogPostView, {
@@ -52,10 +61,10 @@ describe('blog content', () => {
     expect(wrapper.get('#share-tools-title').text()).toBe('Compartir esta publicación');
     expect(wrapper.text()).toContain('Copiar enlace');
     expect(wrapper.get('a[href*="linkedin.com"]').attributes('href')).toContain(
-      'https%3A%2F%2Fmikeroguez.me%2Fblog%2Fcontenido-en-preparacion',
+      'https%3A%2F%2Fmikeroguez.me%2Fblog%2Fanalitica-aprendizaje-inteligencia-artificial',
     );
     expect(wrapper.get('a[href*="facebook.com"]').attributes('href')).toContain(
-      'https%3A%2F%2Fmikeroguez.me%2Fblog%2Fcontenido-en-preparacion',
+      'https%3A%2F%2Fmikeroguez.me%2Fblog%2Fanalitica-aprendizaje-inteligencia-artificial',
     );
   });
 });

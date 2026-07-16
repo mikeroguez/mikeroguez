@@ -5,6 +5,31 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 0.2.0 - 2026-07-16
+
+### Added
+
+- Entradas bilingues del blog sobre analitica de aprendizaje e inteligencia
+  artificial, con etiquetas, tiempo de lectura, metadatos de articulo y
+  publicaciones relacionadas.
+- Catalogo ampliado de publicaciones de investigacion con citas copiables y
+  filtrado por tipo.
+- Generacion local mas completa para contenido de blog e investigacion, con
+  observadores en desarrollo y exclusion de entradas en revision durante build
+  publico.
+
+### Changed
+
+- Las rutas del blog usan slugs unicos en `/blog/{slug}` para ambos idiomas y el
+  selector de idioma cambia a la traduccion correspondiente cuando existe.
+- El indice del blog incorpora filtros por etiqueta y mantiene RSS, sitemap y
+  contenido generado sincronizados.
+
+### Fixed
+
+- Los skills locales de Codex declaran frontmatter YAML valido para volver a
+  cargarse correctamente.
+
 ## 0.1.2 - 2026-07-16
 
 ### Changed

@@ -9,6 +9,7 @@ export interface Publication {
   venue?: string;
   doi?: string;
   url?: string;
+  citation?: string;
   description: string;
   descriptionEn?: string;
   status: PublicationStatus;

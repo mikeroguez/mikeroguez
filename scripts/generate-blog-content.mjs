@@ -16,6 +16,7 @@ const siteDescription =
   'Sitio personal de Mikeroguez. Investigación, educación, diseño y desarrollo de software.';
 const validStatuses = new Set(['draft', 'review', 'published']);
 const validLanguages = new Set(['es', 'en']);
+const includeReviewPosts = process.env.BLOG_INCLUDE_REVIEW !== 'false';
 
 const markdown = new MarkdownIt({
   html: false,
@@ -74,10 +75,19 @@ function parseMarkdownPost(source, filename) {
   const date = values.get('date') ?? '1970-01-01';
   const translationKey = values.get('translationKey');
   const image = values.get('image');
+  const tagsRaw = values.get('tags');
+  const tags = tagsRaw
+    ? tagsRaw
+        .split(',')
+        .map((t) => t.trim())
+        .filter(Boolean)
+    : [];
   const bodyText = body
     .replace(/```[\s\S]*?```/g, ' ')
     .replace(/`([^`]+)`/g, '$1')
     .replace(/[#>*_[\]()!-]/g, ' ');
+  const wordCount = bodyText.trim().split(/\s+/).filter(Boolean).length;
+  const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
   return {
     meta: {
@@ -88,10 +98,14 @@ function parseMarkdownPost(source, filename) {
       lang,
       ...(translationKey ? { translationKey } : {}),
       ...(image ? { image } : {}),
+      ...(tags.length ? { tags } : {}),
+      readingTime,
     },
     html: markdown.render(body.trim()),
     excerpt: description,
-    searchText: normalizeSearchText(`${title} ${description} ${date} ${bodyText}`),
+    searchText: normalizeSearchText(
+      `${title} ${description} ${date} ${tags.join(' ')} ${bodyText}`,
+    ),
   };
 }
 
@@ -123,12 +137,17 @@ function createRssFeed(posts) {
   const items = publishedPosts
     .map((post) => {
       const url = absoluteUrl(`/blog/${post.slug}`);
+      const categories = (post.meta.tags ?? [])
+        .map((tag) => `      <category>${escapeXml(tag)}</category>`)
+        .join('\n');
       return `    <item>
       <title>${escapeXml(post.meta.title)}</title>
       <link>${escapeXml(url)}</link>
       <guid isPermaLink="true">${escapeXml(url)}</guid>
       <description>${escapeXml(post.meta.description)}</description>
       <pubDate>${escapeXml(toRssDate(post.meta.date))}</pubDate>
+      <author>maro@ucol.mx (Miguel Ángel Rodríguez Ortiz)</author>
+${categories}
     </item>`;
     })
     .join('\n');
@@ -154,7 +173,7 @@ function createSitemap(posts) {
   const staticRoutes = ['/', '/about', '/work', '/research', '/blog', '/contact', '/en/blog'];
   const publishedRoutes = posts
     .filter((post) => post.meta.status === 'published')
-    .map((post) => (post.meta.lang === 'en' ? `/en/blog/${post.slug}` : `/blog/${post.slug}`));
+    .map((post) => `/blog/${post.slug}`);
 
   const urls = [...staticRoutes, ...publishedRoutes]
     .map((pathname) => `  <url><loc>${escapeXml(absoluteUrl(pathname))}</loc></url>`)
@@ -172,22 +191,31 @@ const files = (await readdir(postsDir))
   .sort();
 
 const posts = [];
+const slugs = new Set();
 
 for (const file of files) {
   const source = await readFile(join(postsDir, file), 'utf8');
   const parsed = parseMarkdownPost(source, file);
+  const slug = basename(file, '.md');
+  if (slugs.has(slug)) {
+    throw new Error(`${file} duplicates an existing blog slug.`);
+  }
+  slugs.add(slug);
   posts.push({
-    slug: basename(file, '.md'),
+    slug,
     ...parsed,
   });
 }
 
 posts.sort((a, b) => b.meta.date.localeCompare(a.meta.date));
+const outputPosts = includeReviewPosts
+  ? posts
+  : posts.filter((post) => post.meta.status === 'published');
 
 const output = await prettier.format(
   `import type { BlogPost } from '@/types/blog';
 
-export const blogPosts = ${JSON.stringify(posts, null, 2)} satisfies BlogPost[];
+export const blogPosts: BlogPost[] = ${JSON.stringify(outputPosts, null, 2)};
 `,
   { parser: 'typescript', printWidth: 100, singleQuote: true, semi: true, trailingComma: 'all' },
 );

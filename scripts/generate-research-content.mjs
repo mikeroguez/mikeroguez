@@ -48,6 +48,7 @@ function parsePublication(source, filename) {
   const venue = values.get('venue');
   const doi = values.get('doi');
   const url = values.get('url');
+  const citation = values.get('citation');
   const descriptionEn = values.get('descriptionEn');
   const description = body.trim().replace(/\n+/g, ' ');
 
@@ -58,6 +59,7 @@ function parsePublication(source, filename) {
     ...(venue ? { venue } : {}),
     ...(doi ? { doi } : {}),
     ...(url ? { url } : {}),
+    ...(citation ? { citation } : {}),
     description,
     ...(descriptionEn ? { descriptionEn } : {}),
     status,

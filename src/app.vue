@@ -11,11 +11,13 @@ import { watchEffect } from 'vue';
 
 import SkipLink from '@/components/SkipLink.vue';
 import DefaultLayout from '@/layouts/DefaultLayout.vue';
-import { localeFromPath, setLocale } from '@/i18n';
+import { hasStoredLocale, localeFromPath, setLocaleForRoute } from '@/i18n';
 
 const route = useRoute();
 
 watchEffect(() => {
-  setLocale(localeFromPath(route.path));
+  if (!hasStoredLocale()) {
+    setLocaleForRoute(localeFromPath(route.path));
+  }
 });
 </script>

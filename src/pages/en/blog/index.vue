@@ -6,10 +6,10 @@
 import { definePageMeta } from '#imports';
 
 import BlogIndexView from '@/views/BlogIndexView.vue';
-import { setLocale } from '@/i18n';
+import { setLocaleForRoute } from '@/i18n';
 import { usePageSeo } from '@/utils/seo';
 
 definePageMeta({ name: 'blog-en' });
-setLocale('en');
+setLocaleForRoute('en');
 usePageSeo('meta.blogTitle', 'meta.blogDesc', '/en/blog');
 </script>

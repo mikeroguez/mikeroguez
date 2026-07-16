@@ -36,6 +36,29 @@
           />
         </form>
 
+        <div class="pub-tabs" role="group" :aria-label="t('research.typeFilterHeading')">
+          <button
+            class="pub-tabs__tab"
+            type="button"
+            :aria-pressed="!activeType"
+            @click="clearSearch"
+          >
+            {{ t('research.typeAll') }}
+            <span class="pub-tabs__count" aria-hidden="true">{{ publications.length }}</span>
+          </button>
+          <button
+            v-for="tp in types"
+            :key="tp.type"
+            class="pub-tabs__tab"
+            type="button"
+            :aria-pressed="activeType === tp.type"
+            @click="filterByType(tp.type)"
+          >
+            {{ typeLabel(tp.type) }}
+            <span class="pub-tabs__count" aria-hidden="true">{{ tp.count }}</span>
+          </button>
+        </div>
+
         <p class="post-list__meta" aria-live="polite">{{ resultSummary }}</p>
 
         <ol v-if="visiblePubs.length > 0" class="publication-list">
@@ -46,19 +69,29 @@
                 <p class="publication-list__meta">{{ typeLabel(pub.type) }}</p>
                 <h3>{{ pub.title }}</h3>
                 <p>{{ publicationDescription(pub) }}</p>
-                <a
-                  v-if="pub.doi"
-                  :href="`https://doi.org/${pub.doi}`"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  DOI: {{ pub.doi }}
-                  <span class="visually-hidden">{{ t('a11y.openNewTab') }}</span>
-                </a>
-                <a v-else-if="pub.url" :href="pub.url" rel="noopener noreferrer" target="_blank">
-                  {{ t('research.viewAll') }}
-                  <span class="visually-hidden">{{ t('a11y.openNewTab') }}</span>
-                </a>
+                <div class="publication-list__links">
+                  <a
+                    v-if="pub.doi"
+                    :href="`https://doi.org/${pub.doi}`"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    DOI: {{ pub.doi }}
+                    <span class="visually-hidden">{{ t('a11y.openNewTab') }}</span>
+                  </a>
+                  <a v-else-if="pub.url" :href="pub.url" rel="noopener noreferrer" target="_blank">
+                    {{ t('research.viewPublication') }}
+                    <span class="visually-hidden">{{ t('a11y.openNewTab') }}</span>
+                  </a>
+                  <button
+                    v-if="pub.citation"
+                    class="cite-trigger"
+                    type="button"
+                    @click="openCiteDialog(pub)"
+                  >
+                    {{ t('research.cite') }}
+                  </button>
+                </div>
               </div>
             </article>
           </li>
@@ -109,27 +142,6 @@
         </div>
       </dl>
 
-      <section aria-labelledby="research-types-title">
-        <h3 id="research-types-title">{{ t('research.typeFilterHeading') }}</h3>
-        <ul class="blog-sidebar__list">
-          <li v-if="activeType || query">
-            <button class="blog-sidebar__button" type="button" @click="clearSearch">
-              {{ t('research.viewAll') }} <span aria-hidden="true">×</span>
-            </button>
-          </li>
-          <li v-for="tp in types" :key="tp.type">
-            <button
-              class="blog-sidebar__button"
-              type="button"
-              :aria-pressed="activeType === tp.type"
-              @click="filterByType(tp.type)"
-            >
-              {{ typeLabel(tp.type) }} <span>{{ tp.count }}</span>
-            </button>
-          </li>
-        </ul>
-      </section>
-
       <section aria-labelledby="research-profiles-title">
         <h3 id="research-profiles-title">{{ t('research.profilesHeading') }}</h3>
         <ul class="blog-sidebar__list">
@@ -159,6 +171,22 @@
       </section>
     </aside>
   </div>
+
+  <dialog ref="citeDialog" class="cite-dialog" @click.self="closeCiteDialog">
+    <div class="cite-dialog__inner">
+      <p class="cite-dialog__heading">{{ t('research.citeTitle') }}</p>
+      <p v-if="activePub" class="cite-dialog__pub-title">{{ activePub.title }}</p>
+      <pre v-if="activePub?.citation" class="cite-dialog__text">{{ activePub.citation }}</pre>
+      <div class="cite-dialog__actions">
+        <button class="load-more__button" type="button" @click="copyCitation">
+          {{ copyLabel }}
+        </button>
+        <button class="load-more__button" type="button" @click="closeCiteDialog">
+          {{ t('research.citeClose') }}
+        </button>
+      </div>
+    </div>
+  </dialog>
 </template>
 
 <script setup lang="ts">
@@ -166,7 +194,7 @@ import { computed, ref } from 'vue';
 
 import { locale, t } from '@/i18n';
 import { getPublishedPublications } from '@/content/research';
-import type { PublicationType } from '@/types/research';
+import type { Publication, PublicationType } from '@/types/research';
 
 const pageSize = 8;
 const publications = getPublishedPublications();
@@ -174,6 +202,38 @@ const query = ref('');
 const activeType = ref<PublicationType | null>(null);
 const visibleCount = ref(pageSize);
 const loadMoreStatusId = 'research-load-more-status';
+
+const citeDialog = ref<{ showModal: () => void; close: () => void } | null>(null);
+const activePub = ref<Publication | null>(null);
+const copied = ref(false);
+
+const copyLabel = computed(() =>
+  copied.value ? t('research.citeCopied') : t('research.citeCopy'),
+);
+
+function openCiteDialog(pub: Publication) {
+  activePub.value = pub;
+  copied.value = false;
+  citeDialog.value?.showModal();
+}
+
+function closeCiteDialog() {
+  citeDialog.value?.close();
+  activePub.value = null;
+}
+
+async function copyCitation() {
+  if (!activePub.value?.citation) return;
+  try {
+    await window.navigator.clipboard.writeText(activePub.value.citation);
+    copied.value = true;
+    window.setTimeout(() => {
+      copied.value = false;
+    }, 2000);
+  } catch {
+    // clipboard not available
+  }
+}
 
 const typeKeys: Record<PublicationType, string> = {
   journal: 'research.typeJournal',

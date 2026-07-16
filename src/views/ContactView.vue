@@ -3,11 +3,14 @@
     <p class="eyebrow">{{ t('contact.eyebrow') }}</p>
     <h1>{{ t('contact.h1') }}</h1>
     <p class="lead">{{ t('contact.lead') }}</p>
-    <p>{{ t('contact.note') }}</p>
 
     <section class="content-section" aria-labelledby="contact-links">
       <h2 id="contact-links">{{ t('contact.linksHeading') }}</h2>
       <ul class="link-list">
+        <li>
+          <a href="mailto:maro@ucol.mx?subject=Contacto%20desde%20mikeroguez.me"> maro@ucol.mx </a>
+          <span class="contact-link__context">{{ t('contact.emailContext') }}</span>
+        </li>
         <li>
           <a
             href="https://www.linkedin.com/in/mikeroguez/"

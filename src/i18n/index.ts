@@ -142,11 +142,18 @@ export interface Messages {
     emptySearch: string;
     clearSearch: string;
     viewAll: string;
+    viewPublication: string;
+    cite: string;
+    citeTitle: string;
+    citeCopy: string;
+    citeCopied: string;
+    citeClose: string;
     sidebarHeading: string;
     totalLabel: string;
     visibleLabel: string;
     typeFilterHeading: string;
     profilesHeading: string;
+    typeAll: string;
     typeJournal: string;
     typeConference: string;
     typeChapter: string;
@@ -156,7 +163,6 @@ export interface Messages {
   blog: {
     eyebrow: string;
     h1: string;
-    lead: string;
     postsHeading: string;
     searchLabel: string;
     searchPlaceholder: string;
@@ -171,6 +177,10 @@ export interface Messages {
     clearSearch: string;
     viewAll: string;
     yearsHeading: string;
+    tagsHeading: string;
+    tagsAll: string;
+    readingTime: string;
+    relatedHeading: string;
     sidebarHeading: string;
     statsTotal: string;
     statsVisible: string;
@@ -179,6 +189,7 @@ export interface Messages {
   blogPost: {
     back: string;
     eyebrow: string;
+    authorBy: string;
     shareHeading: string;
     share: string;
     copyLink: string;
@@ -189,8 +200,8 @@ export interface Messages {
     eyebrow: string;
     h1: string;
     lead: string;
-    note: string;
     linksHeading: string;
+    emailContext: string;
   };
   notFound: { eyebrow: string; h1: string; lead: string; back: string };
 }
@@ -198,13 +209,20 @@ export interface Messages {
 const STORAGE_KEY = 'locale';
 const all: Record<Locale, Messages> = { es, en };
 
-function detectLocale(): Locale {
+function getStoredLocale(): Locale | undefined {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored === 'es' || stored === 'en') return stored;
   } catch {
     // localStorage unavailable
   }
+  return undefined;
+}
+
+function detectLocale(): Locale {
+  const stored = getStoredLocale();
+  if (stored) return stored;
+
   if (typeof navigator === 'undefined') return 'es';
   const langs = navigator.languages?.length ? [...navigator.languages] : [navigator.language ?? ''];
   for (const l of langs) {
@@ -226,16 +244,28 @@ export function localeFromPath(path: string): Locale {
   return path === '/en' || path.startsWith('/en/') ? 'en' : 'es';
 }
 
-export function setLocale(l: Locale): void {
+function applyLocale(l: Locale): void {
   _locale.value = l;
+  if (typeof document !== 'undefined') {
+    document.documentElement.lang = l;
+  }
+}
+
+export function hasStoredLocale(): boolean {
+  return Boolean(getStoredLocale());
+}
+
+export function setLocale(l: Locale): void {
+  applyLocale(l);
   try {
     localStorage.setItem(STORAGE_KEY, l);
   } catch {
     // ignore
   }
-  if (typeof document !== 'undefined') {
-    document.documentElement.lang = l;
-  }
+}
+
+export function setLocaleForRoute(l: Locale): void {
+  applyLocale(l);
 }
 
 export function t(key: string, params?: Record<string, string | number>): string {

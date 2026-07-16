@@ -8,6 +8,7 @@ Object.defineProperty(window, 'scrollTo', {
 });
 
 beforeEach(() => {
+  window.localStorage.clear();
   setLocale('es');
 });
 

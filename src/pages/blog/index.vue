@@ -1,5 +1,5 @@
 <template>
-  <BlogIndexView lang="es" />
+  <BlogIndexView />
 </template>
 
 <script setup lang="ts">

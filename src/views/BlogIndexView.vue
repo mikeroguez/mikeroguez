@@ -3,10 +3,9 @@
     <article class="page blog-index">
       <p class="eyebrow">{{ t('blog.eyebrow') }}</p>
       <h1>{{ t('blog.h1') }}</h1>
-      <p class="lead">{{ t('blog.lead') }}</p>
 
       <section class="content-section" aria-labelledby="blog-list-title">
-        <h2 id="blog-list-title">{{ t('blog.postsHeading') }}</h2>
+        <h2 id="blog-list-title" class="visually-hidden">{{ t('blog.postsHeading') }}</h2>
         <form class="blog-search" role="search" @submit.prevent>
           <label class="blog-search__label" for="blog-search">{{ t('blog.searchLabel') }}</label>
           <input
@@ -19,6 +18,35 @@
             @input="resetVisiblePosts"
           />
         </form>
+
+        <div
+          v-if="allTags.length > 0"
+          class="pub-tabs"
+          role="group"
+          :aria-label="t('blog.tagsHeading')"
+        >
+          <button
+            class="pub-tabs__tab"
+            type="button"
+            :aria-pressed="!activeTag"
+            @click="clearTagFilter"
+          >
+            {{ t('blog.tagsAll') }}
+            <span class="pub-tabs__count" aria-hidden="true">{{ posts.length }}</span>
+          </button>
+          <button
+            v-for="tag in allTags"
+            :key="tag.label"
+            class="pub-tabs__tab"
+            type="button"
+            :aria-pressed="activeTag === tag.label"
+            @click="filterByTag(tag.label)"
+          >
+            {{ tag.label }}
+            <span class="pub-tabs__count" aria-hidden="true">{{ tag.count }}</span>
+          </button>
+        </div>
+
         <p class="post-list__meta" aria-live="polite">
           {{ resultSummary }}
         </p>
@@ -30,8 +58,23 @@
             </RouterLink>
             <p class="post-list__meta">
               <time :datetime="post.meta.date">{{ formatDate(post.meta.date) }}</time>
+              <span v-if="post.meta.readingTime" class="post-reading-time">
+                {{ t('blog.readingTime', { min: post.meta.readingTime }) }}
+              </span>
             </p>
             <p>{{ post.excerpt }}</p>
+            <ul v-if="post.meta.tags?.length" class="post-tags" aria-label="Etiquetas">
+              <li v-for="tag in post.meta.tags" :key="tag">
+                <button
+                  class="post-tag"
+                  type="button"
+                  :aria-pressed="activeTag === tag"
+                  @click.prevent="filterByTag(tag)"
+                >
+                  {{ tag }}
+                </button>
+              </li>
+            </ul>
           </li>
         </ol>
         <p v-else-if="posts.length === 0">{{ t('blog.empty') }}</p>
@@ -119,16 +162,31 @@ const props = defineProps<{
 }>();
 
 const pageSize = 6;
-const posts = getPublishedPostsByLanguage(props.lang ?? 'es');
+const activeLang = computed(() => props.lang ?? locale.value);
+const posts = computed(() => getPublishedPostsByLanguage(activeLang.value));
 const query = ref('');
+const activeTag = ref<string | null>(null);
 const visibleCount = ref(pageSize);
 const loadMoreDescriptionId = 'blog-load-more-status';
 
 const normalizedQuery = computed(() => normalizeSearchText(query.value));
 
+const allTags = computed(() => {
+  const counts = new Map<string, number>();
+  for (const post of posts.value) {
+    for (const tag of post.meta.tags ?? []) {
+      counts.set(tag, (counts.get(tag) ?? 0) + 1);
+    }
+  }
+  return Array.from(counts.entries()).map(([label, count]) => ({ label, count }));
+});
+
 const filteredPosts = computed(() => {
-  if (!normalizedQuery.value) return posts;
-  return posts.filter((post) => post.searchText.includes(normalizedQuery.value));
+  let result = posts.value;
+  if (activeTag.value) result = result.filter((p) => p.meta.tags?.includes(activeTag.value!));
+  if (normalizedQuery.value)
+    result = result.filter((p) => p.searchText.includes(normalizedQuery.value));
+  return result;
 });
 
 const visiblePosts = computed(() => filteredPosts.value.slice(0, visibleCount.value));
@@ -136,7 +194,7 @@ const hasMorePosts = computed(() => visiblePosts.value.length < filteredPosts.va
 
 const years = computed(() => {
   const counts = new Map<string, number>();
-  for (const post of posts) {
+  for (const post of posts.value) {
     const year = post.meta.date.slice(0, 4);
     counts.set(year, (counts.get(year) ?? 0) + 1);
   }
@@ -172,8 +230,19 @@ function filterByYear(year: string) {
   resetVisiblePosts();
 }
 
+function filterByTag(tag: string) {
+  activeTag.value = activeTag.value === tag ? null : tag;
+  resetVisiblePosts();
+}
+
+function clearTagFilter() {
+  activeTag.value = null;
+  resetVisiblePosts();
+}
+
 function clearSearch() {
   query.value = '';
+  activeTag.value = null;
   resetVisiblePosts();
 }
 
@@ -182,7 +251,7 @@ function showMorePosts() {
 }
 
 function formatDate(date: string) {
-  return new Intl.DateTimeFormat(locale.value === 'es' ? 'es-MX' : 'en-US', {
+  return new Intl.DateTimeFormat(activeLang.value === 'es' ? 'es-MX' : 'en-US', {
     dateStyle: 'long',
     timeZone: 'UTC',
   }).format(new Date(`${date}T00:00:00Z`));

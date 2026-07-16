@@ -28,10 +28,10 @@ const route = useRoute();
 const items = computed<BreadcrumbItem[]>(() => {
   if (route.name === 'home') return [];
 
-  if (route.name === 'blog-post' || route.name === 'blog-post-en') {
+  if (route.name === 'blog-post') {
     const slug = String(route.params.slug);
-    const isEnglish = route.name === 'blog-post-en';
-    const post = getPostBySlug(slug, isEnglish ? 'en' : 'es');
+    const post = getPostBySlug(slug);
+    const isEnglish = post?.meta.lang === 'en';
     return [
       { label: t('breadcrumb.home'), to: '/' },
       { label: t('breadcrumb.blog'), to: isEnglish ? '/en/blog' : '/blog' },
