@@ -33,7 +33,7 @@ export default {
     about: 'Sobre mí',
     work: 'Trabajo',
     research: 'Investigación',
-    blog: 'Publicaciones',
+    blog: 'Blog',
     contact: 'Contacto',
     notFound: 'Página no encontrada',
     publication: 'Publicación',
@@ -89,6 +89,9 @@ export default {
     line2: 'Formación en Ingeniería en Sistemas Computacionales y Maestría en Computación.',
     line3: 'Producción académica relacionada con HCI, accesibilidad y juegos serios.',
     line4: 'Experiencia en desarrollo de software y recursos educativos digitales.',
+    ctaLabel: 'Explorar más',
+    ctaResearch: 'Investigación',
+    ctaWork: 'Trabajo y proyectos',
   },
   work: {
     eyebrow: 'Proyectos',

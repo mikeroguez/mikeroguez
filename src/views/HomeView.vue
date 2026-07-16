@@ -2,7 +2,6 @@
   <article class="page page--wide">
     <header class="page-hero">
       <div class="page-hero__title">
-        <BrandLogo mark="isotype" size="bg" decorative class="page-hero__mark" />
         <p class="eyebrow">{{ t('home.eyebrow') }}</p>
         <h1>{{ t('home.h1') }}</h1>
       </div>
@@ -48,5 +47,4 @@
 import { RouterLink } from 'vue-router';
 
 import { t } from '@/i18n';
-import BrandLogo from '@/components/BrandLogo.vue';
 </script>

@@ -31,10 +31,21 @@
         <li>{{ t('about.line3') }}</li>
         <li>{{ t('about.line4') }}</li>
       </ul>
+
+      <ul class="action-list" :aria-label="t('about.ctaLabel')">
+        <li>
+          <RouterLink to="/research">{{ t('about.ctaResearch') }}</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/work">{{ t('about.ctaWork') }}</RouterLink>
+        </li>
+      </ul>
     </section>
   </article>
 </template>
 
 <script setup lang="ts">
+import { RouterLink } from 'vue-router';
+
 import { t } from '@/i18n';
 </script>

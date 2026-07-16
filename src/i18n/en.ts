@@ -33,7 +33,7 @@ export default {
     about: 'About',
     work: 'Work',
     research: 'Research',
-    blog: 'Posts',
+    blog: 'Blog',
     contact: 'Contact',
     notFound: 'Page not found',
     publication: 'Post',
@@ -88,6 +88,9 @@ export default {
     line2: "Degree in Computer Systems Engineering and Master's in Computer Science.",
     line3: 'Academic work in HCI, accessibility and serious games.',
     line4: 'Experience in software development and digital educational resources.',
+    ctaLabel: 'Explore more',
+    ctaResearch: 'Research',
+    ctaWork: 'Work & projects',
   },
   work: {
     eyebrow: 'Projects',

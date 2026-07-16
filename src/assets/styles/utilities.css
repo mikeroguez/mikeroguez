@@ -2,7 +2,7 @@
   position: fixed;
   top: var(--space-3);
   left: var(--space-3);
-  z-index: 100;
+  z-index: 200;
   transform: translateY(-150%);
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-small);

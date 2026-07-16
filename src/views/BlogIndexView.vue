@@ -74,7 +74,7 @@
         </div>
         <div>
           <dt>{{ t('blog.statsVisible') }}</dt>
-          <dd>{{ visiblePosts.length }} de {{ filteredPosts.length }}</dd>
+          <dd>{{ visiblePosts.length }}</dd>
         </div>
       </dl>
 

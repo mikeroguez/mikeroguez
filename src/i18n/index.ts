@@ -88,6 +88,9 @@ export interface Messages {
     line2: string;
     line3: string;
     line4: string;
+    ctaLabel: string;
+    ctaResearch: string;
+    ctaWork: string;
   };
   work: {
     eyebrow: string;

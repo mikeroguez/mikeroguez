@@ -79,11 +79,9 @@ const appVersion = import.meta.env.VITE_APP_VERSION;
 const changelogUrl = 'https://github.com/mikeroguez/mikeroguez/blob/main/CHANGELOG.md';
 
 const siteLinks = computed(() => [
-  { href: '/', label: t('nav.home') },
   { href: '/about', label: t('nav.about') },
   { href: '/work', label: t('nav.work') },
   { href: '/research', label: t('nav.research') },
-  { href: '/blog', label: t('nav.blog') },
   { href: '/contact', label: t('nav.contact') },
 ]);
 
