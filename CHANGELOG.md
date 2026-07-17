@@ -5,6 +5,22 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 0.2.1 - 2026-07-17
+
+### Added
+
+- Fichas ampliadas de proyectos seleccionados con logos y enlaces publicos para
+  EvPraxis 2.0 y REDI.
+- Tesis de maestria de El Encanto como publicacion enlazada desde la seccion de
+  investigacion.
+- Seccion de comunidad academica en investigacion con participacion en AMexIHC,
+  LAIHC, MexIHC y CLIHC.
+
+### Changed
+
+- Las descripciones de EvPraxis, REDI y El Encanto incorporan roles y contexto
+  verificados desde evidencia aprobada.
+
 ## 0.2.0 - 2026-07-16
 
 ### Added
