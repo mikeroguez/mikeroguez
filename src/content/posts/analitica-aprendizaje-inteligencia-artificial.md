@@ -101,12 +101,14 @@ aprendizaje automático. Estos modelos buscan patrones en los datos. Algunos
 clasifican estudiantes según su nivel de riesgo, otros predicen resultados y
 otros agrupan comportamientos parecidos.
 
-El campo no apareció de la nada. Siemens muestra que la analítica de aprendizaje
-tiene raíces en varias áreas: análisis de citas, análisis de redes sociales,
-modelado de usuarios, tutores inteligentes, descubrimiento de conocimiento en
-bases de datos, hipermedia adaptativa y educación en línea. En otras palabras, no
-es solo "usar estadísticas en la escuela"; es un campo que mezcla educación,
-computación, diseño de sistemas y ciencias sociales.
+El campo no apareció de la nada. George Siemens, uno de los investigadores que
+ayudó a definir este campo, muestra que la analítica de aprendizaje tiene raíces
+en varias áreas: análisis de citas, análisis de redes sociales, modelado de
+usuarios, tutores inteligentes, descubrimiento de conocimiento en bases de datos
+(encontrar patrones en grandes volúmenes de datos), hipermedia adaptativa
+(materiales que se ajustan a cada persona) y educación en línea. En otras
+palabras, no es solo "usar estadísticas en la escuela"; es un campo que mezcla
+educación, computación, diseño de sistemas y ciencias sociales.
 
 ![Línea del tiempo que resume cómo la analítica de aprendizaje pasó de bases académicas y plataformas digitales a modelos predictivos, inteligencia artificial generativa y retos de privacidad, transparencia y equidad.](/blog/analitica-aprendizaje-inteligencia-artificial/evolucion-analitica-aprendizaje.svg)
 
@@ -117,7 +119,7 @@ educación superior._
 En la revisión, la mayoría de los estudios tradicionales se concentraron en tres
 áreas: predicción del desempeño académico, detección de abandono y análisis de
 participación. Muchos usaron modelos conocidos como _Random Forest_, máquinas de
-soporte vectorial, árboles de decisión, regresión logística o redes neuronales.
+vectores de soporte, árboles de decisión, regresión logística o redes neuronales.
 
 Estos nombres pueden sonar complicados, pero la idea general es esta: el sistema
 aprende de ejemplos anteriores y trata de reconocer señales parecidas en nuevos

@@ -96,11 +96,13 @@ For several years, learning analytics relied heavily on machine learning models.
 These models look for patterns in data. Some classify students by risk level,
 others predict outcomes and others group similar behaviors.
 
-The field did not appear from nowhere. Siemens shows that learning analytics has
-roots in several areas: citation analysis, social network analysis, user modeling,
-intelligent tutors, knowledge discovery in databases, adaptive hypermedia and
-online learning. In other words, it is not simply "using statistics in school"; it
-is a field that combines education, computing, system design and social sciences.
+The field did not appear from nowhere. George Siemens, one of the researchers who
+helped define this field, shows that learning analytics has roots in several
+areas: citation analysis, social network analysis, user modeling, intelligent
+tutors, knowledge discovery in databases (finding patterns in large volumes of
+data), adaptive hypermedia (materials that adjust to each person) and online
+learning. In other words, it is not simply "using statistics in school"; it is a
+field that combines education, computing, system design and social sciences.
 
 ![Timeline summarizing how learning analytics moved from academic foundations and digital platforms to predictive models, generative artificial intelligence and challenges around privacy, transparency and fairness.](/blog/analitica-aprendizaje-inteligencia-artificial/evolution-learning-analytics.svg)
 
