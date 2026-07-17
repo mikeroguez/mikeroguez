@@ -314,6 +314,24 @@ export const researchPublications = [
       'juego serio con interaccion natural para la activacion fisica en ninos de primaria propuesta de juego serio con interaccion natural por movimiento corporal para motivar la activacion fisica en ninos de primaria usando contenidos de historia de mexico como contexto narrativo el diseno responde a que mexico ocupa el cuarto lugar mundial en obesidad infantil buscando contribuir a una vida mas saludable a traves de una alternativa tecnologica ludica y activa 2014 congreso internacional en ciencias de la educacion',
   },
   {
+    slug: 'el-encanto-tesis-maestria',
+    title:
+      'El Encanto: Juego serio para desarrollar competencias de intervención en comunidad para alumnos de trabajo social',
+    year: '2013',
+    type: 'thesis',
+    venue: 'Tesis de Maestría en Computación, Universidad de Colima',
+    url: '/documents/el-encanto-tesis-maestria.pdf',
+    citation:
+      'Rodríguez Ortiz, M. Á. (2013). El Encanto: Juego serio para desarrollar competencias de intervención en comunidad para alumnos de trabajo social [Tesis de Maestría en Computación, Universidad de Colima].',
+    description:
+      'Tesis de maestría que presenta el diseño y desarrollo de El Encanto, un juego serio orientado a apoyar la adquisición de competencias de intervención en comunidad en estudiantes de Trabajo Social. El trabajo combina juegos serios, diseño centrado en el usuario y software educativo como entrenamiento técnico previo al trabajo de campo en comunidades rurales.',
+    descriptionEn:
+      'Master’s thesis presenting the design and development of El Encanto, a serious game for supporting community intervention competencies in Social Work students. The work combines serious games, user-centered design and educational software as technical training before fieldwork in rural communities.',
+    status: 'published',
+    searchText:
+      'el encanto juego serio para desarrollar competencias de intervencion en comunidad para alumnos de trabajo social tesis de maestria que presenta el diseno y desarrollo de el encanto un juego serio orientado a apoyar la adquisicion de competencias de intervencion en comunidad en estudiantes de trabajo social el trabajo combina juegos serios diseno centrado en el usuario y software educativo como entrenamiento tecnico previo al trabajo de campo en comunidades rurales master s thesis presenting the design and development of el encanto a serious game for supporting community intervention competencies in social work students the work combines serious games user-centered design and educational software as technical training before fieldwork in rural communities 2013 tesis de maestria en computacion universidad de colima',
+  },
+  {
     slug: 'el-encanto-juego-serio-comie-2013',
     title:
       'El Encanto: juego serio para el aprendizaje de intervención comunitaria para estudiantes de trabajo social',

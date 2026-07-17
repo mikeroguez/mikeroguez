@@ -18,6 +18,23 @@
         </ul>
       </section>
 
+      <section class="content-section" aria-labelledby="research-community">
+        <h2 id="research-community">{{ t('research.communityHeading') }}</h2>
+        <p>{{ t('research.communityLead') }}</p>
+        <ul class="clean-list research-community__list">
+          <li>
+            <a href="https://amexihc.org/" rel="noopener noreferrer">
+              {{ t('research.communityAmexihc') }}
+            </a>
+          </li>
+          <li>
+            <a href="https://www.laihc.org/" rel="noopener noreferrer">
+              {{ t('research.communityLaihc') }}
+            </a>
+          </li>
+        </ul>
+      </section>
+
       <section class="content-section" aria-labelledby="research-publications">
         <h2 id="research-publications">{{ t('research.publicationsHeading') }}</h2>
 

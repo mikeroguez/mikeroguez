@@ -611,8 +611,62 @@ p {
   font-weight: 700;
 }
 
+.project-card__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(11rem, 100%);
+  min-height: 3.75rem;
+  margin-bottom: var(--space-3);
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
+  background: #fff;
+}
+
+.project-card__logo {
+  display: block;
+  width: 100%;
+  max-height: 2.8rem;
+  object-fit: contain;
+}
+
+.project-card__monogram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--color-brand);
+  color: var(--color-surface);
+  font-size: var(--font-size-0);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
 .project-card__body {
   min-width: 0;
+}
+
+.project-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: flex-start;
+  margin-top: var(--space-4);
+}
+
+.project-card__actions a {
+  color: var(--color-brand);
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.24em;
+}
+
+.project-card__actions a:hover {
+  color: var(--color-brand-strong);
 }
 
 .tag-list {
@@ -656,6 +710,14 @@ p {
 .publication-list a {
   color: var(--color-brand);
   font-weight: 700;
+}
+
+.research-community__list a {
+  color: var(--color-brand);
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.24em;
 }
 
 .contact-link__context {
@@ -1324,14 +1386,26 @@ button.post-tag[aria-pressed='true'] {
 
   .project-card {
     display: grid;
-    grid-template-columns: minmax(9rem, 0.36fr) minmax(0, 1fr);
+    grid-template-columns: minmax(8rem, 0.22fr) minmax(0, 1fr) minmax(9rem, 0.22fr);
     column-gap: var(--space-6);
     align-items: start;
     padding: var(--space-5) 0;
   }
 
-  .project-card__type {
+  .project-card__mark {
+    width: 100%;
     margin-bottom: 0;
+  }
+
+  .project-card__type,
+  .project-card__actions {
+    margin-bottom: 0;
+  }
+
+  .project-card__actions {
+    justify-content: flex-end;
+    margin-top: 0;
+    text-align: right;
   }
 
   .publication-list article {

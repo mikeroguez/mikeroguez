@@ -108,21 +108,33 @@ export default {
     areaGamesDesc:
       'Entornos de práctica y evaluación para comprender competencias en contextos formativos.',
     projectsHeading: 'Proyectos seleccionados',
+    projectVisit: 'Visitar {name}',
+    projectResearch: 'Ver publicaciones relacionadas',
+    projectLinksLabel: 'Enlaces de {name}',
     evpraxisType: 'Evaluación en línea',
     evpraxisTitle: 'EvPraxis 2.0',
     evpraxisDesc:
-      'Desarrollé EvPraxis 2.0, una versión de la plataforma institucional de evaluación en línea de la Universidad de Colima, con énfasis en rediseño, experiencia de usuario y operación académica.',
+      'Diseñé y desarrollé EvPraxis 2.0, la versión de la plataforma institucional de evaluación en línea de la Universidad de Colima que descentralizó la creación, organización y aplicación de exámenes. Coordiné su operación y mantenimiento hasta marzo de 2025.',
     evpraxisTagsLabel: 'Ejes de EvPraxis',
+    evpraxisTag1: 'Tecnología educativa',
+    evpraxisTag2: 'Evaluación institucional',
+    evpraxisTag3: 'Rediseño de procesos',
     rediType: 'Recursos educativos digitales',
     rediTitle: 'REDI',
     rediDesc:
-      'REDI permite leer la tecnología educativa como un proceso completo: creación, revisión, publicación y circulación de recursos digitales con criterios de calidad.',
+      'Diseñé y desarrollé la primera versión de producción de REDI y después coordiné su evolución de experiencia de usuario: metadatos más simples, revisión académica por niveles y un modelo de publicación con reconocimientos para autores, revisores y unidades académicas.',
     rediTagsLabel: 'Ejes de REDI',
+    rediTag1: 'Repositorio',
+    rediTag2: 'Experiencia de usuario',
+    rediTag3: 'Validación académica',
     encantoType: 'Juego serio',
     encantoTitle: 'El Encanto',
     encantoDesc:
-      'En mi maestría desarrollé El Encanto, un juego serio para apoyar la formación de estudiantes de Trabajo Social en intervención comunitaria.',
+      'Coordiné el diseño y desarrollo pedagógico y técnico de El Encanto, un juego serio de investigación y desarrollo para apoyar la formación en intervención comunitaria de estudiantes de Trabajo Social. De este proyecto derivaron mi tesis de maestría y varias publicaciones.',
     encantoTagsLabel: 'Ejes de El Encanto',
+    encantoTag1: 'Juegos serios',
+    encantoTag2: 'Trabajo Social',
+    encantoTag3: 'Investigación aplicada',
   },
   research: {
     eyebrow: 'Investigación',
@@ -136,6 +148,13 @@ export default {
     line5: 'Tecnología educativa',
     line6: 'Juegos serios',
     line7: 'Diseño centrado en las personas',
+    communityHeading: 'Comunidad académica',
+    communityLead:
+      'Participo en comunidades de interacción humano-computadora en México y América Latina, principalmente en trabajo de comunicación digital, web y accesibilidad para eventos académicos.',
+    communityAmexihc:
+      'AMexIHC: colaboración en organización web y accesibilidad de MexIHC 2021, 2022, 2024 y 2026.',
+    communityLaihc:
+      'LAIHC: colaboración en organización web y accesibilidad de CLIHC 2021, 2023 y 2026.',
     publicationsHeading: 'Publicaciones',
     searchLabel: 'Buscar publicaciones',
     searchPlaceholder: 'Buscar por título, tema o revista',
