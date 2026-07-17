@@ -9,13 +9,14 @@ tags: 'learning analytics, artificial intelligence, higher education, generative
 ---
 
 Learning analytics is a way to study what happens when a person learns by using
-data. In the definition popularized by the LAK community (2011), it is a field
-that measures, collects, analyzes and reports data about learners and their
-contexts in order to understand and improve learning and the environments where it
-takes place. Put simply: if a
-school, platform or course can observe certain signals from the learning process,
-it can better understand when someone is making progress, when they are stuck and
-what kind of support they may need.
+data. In the definition popularized in 2011 by the community around LAK
+(_Learning Analytics and Knowledge_), an international conference on learning
+analytics, it is a field that measures, collects, analyzes and reports data about
+learners and their contexts in order to understand and improve learning and the
+environments where it takes place. Put simply: if a school, platform or course
+can observe certain signals from the learning process, it can better understand
+when someone is making progress, when they are stuck and what kind of support
+they may need.
 
 It is not just about counting grades. Learning is not only passing an exam. It
 also matters whether a person participates, submits activities, views materials,

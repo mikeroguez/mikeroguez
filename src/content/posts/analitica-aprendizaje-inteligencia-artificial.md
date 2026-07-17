@@ -9,10 +9,11 @@ tags: 'analítica de aprendizaje, inteligencia artificial, educación superior, 
 ---
 
 La analítica de aprendizaje es una forma de estudiar lo que pasa cuando una
-persona aprende usando datos. En la definición que popularizó la comunidad de LAK
-(2011), es un campo que mide, recoge, analiza y comunica datos sobre estudiantes
-y sus contextos para entender y mejorar el aprendizaje y los ambientes donde
-ocurre. Dicho de forma sencilla:
+persona aprende usando datos. En la definición que popularizó en 2011 la
+comunidad reunida alrededor de LAK (_Learning Analytics and Knowledge_), una
+conferencia internacional sobre analítica de aprendizaje, es un campo que mide,
+recoge, analiza y comunica datos sobre estudiantes y sus contextos para entender
+y mejorar el aprendizaje y los ambientes donde ocurre. Dicho de forma sencilla:
 si una escuela, una plataforma o un curso puede observar ciertas señales del
 proceso de aprendizaje, puede entender mejor cuándo alguien avanza, cuándo se
 atora y qué tipo de apoyo podría necesitar.
