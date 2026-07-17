@@ -256,19 +256,11 @@ if (typeof document !== 'undefined') {
 
 export const locale = readonly(_locale);
 
-export function localeFromPath(path: string): Locale {
-  return path === '/en' || path.startsWith('/en/') ? 'en' : 'es';
-}
-
 function applyLocale(l: Locale): void {
   _locale.value = l;
   if (typeof document !== 'undefined') {
     document.documentElement.lang = l;
   }
-}
-
-export function hasStoredLocale(): boolean {
-  return Boolean(getStoredLocale());
 }
 
 export function setLocale(l: Locale): void {

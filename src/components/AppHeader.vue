@@ -84,15 +84,13 @@ function localizedPath(targetLocale: Locale): string {
     if (translation) return getPostPath(translation);
   }
 
-  if (route.path === '/blog' || route.path === '/en/blog') {
-    return targetLocale === 'en' ? '/en/blog' : '/blog';
-  }
+  if (route.path === '/blog') return '/blog';
 
-  return route.path.startsWith('/en/') ? route.path.slice(3) || '/' : route.path;
+  return route.path;
 }
 
 function getBlogPostSlug(path: string): string | undefined {
-  const match = path.match(/^\/blog\/([^/]+)$/);
+  const match = path.match(/^\/blog\/([^/]+)\/?$/);
   return match?.[1];
 }
 </script>

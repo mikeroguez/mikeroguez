@@ -6,18 +6,22 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
 import { watchEffect } from 'vue';
+import { useRoute } from 'vue-router';
 
 import SkipLink from '@/components/SkipLink.vue';
 import DefaultLayout from '@/layouts/DefaultLayout.vue';
-import { hasStoredLocale, localeFromPath, setLocaleForRoute } from '@/i18n';
+import { getPostBySlug } from '@/content/blog';
+import { setLocaleForRoute } from '@/i18n';
 
 const route = useRoute();
 
 watchEffect(() => {
-  if (!hasStoredLocale()) {
-    setLocaleForRoute(localeFromPath(route.path));
-  }
+  const match = route.path.match(/^\/blog\/([^/]+)\/?$/);
+  const slug = match?.[1];
+  if (!slug) return;
+
+  const post = getPostBySlug(slug);
+  if (post) setLocaleForRoute(post.meta.lang);
 });
 </script>

@@ -13,7 +13,7 @@ const packageJson = JSON.parse(
   version: string;
 };
 
-const staticRoutes = ['/', '/about', '/work', '/research', '/blog', '/contact', '/en/blog'];
+const staticRoutes = ['/', '/about', '/work', '/research', '/blog', '/contact'];
 const blogRoutes = blogPosts
   .filter((post) => post.meta.status === 'published')
   .map((post: BlogPost) => `/blog/${post.slug}`);

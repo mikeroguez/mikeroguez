@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 
-import { getPostBySlug, getPublishedPosts } from '@/content/blog';
+import { getPostBySlug, getPostPath, getPublishedPosts } from '@/content/blog';
+import { setLocale } from '@/i18n';
 import BlogIndexView from '@/views/BlogIndexView.vue';
 import BlogPostView from '@/views/BlogPostView.vue';
 import router from '@/router';
@@ -26,6 +27,18 @@ describe('blog content', () => {
     expect(post?.meta.image).toBeUndefined();
   });
 
+  it('keeps translated posts under the shared blog path', () => {
+    const spanishPost = getPostBySlug('analitica-aprendizaje-inteligencia-artificial');
+    const englishPost = getPostBySlug('what-is-learning-analytics-ai');
+
+    expect(spanishPost ? getPostPath(spanishPost) : undefined).toBe(
+      '/blog/analitica-aprendizaje-inteligencia-artificial',
+    );
+    expect(englishPost ? getPostPath(englishPost) : undefined).toBe(
+      '/blog/what-is-learning-analytics-ai',
+    );
+  });
+
   it('keeps published posts visible while running in development mode', () => {
     const post = getPostBySlug('analitica-aprendizaje-inteligencia-artificial');
 
@@ -34,6 +47,7 @@ describe('blog content', () => {
   });
 
   it('renders the blog index tools', async () => {
+    setLocale('es');
     await router.push('/blog');
     await router.isReady();
 
@@ -46,6 +60,22 @@ describe('blog content', () => {
     expect(wrapper.get('aside[aria-labelledby="blog-index-title"]').text()).toContain('Índice');
     expect(wrapper.find('input[type="search"]').exists()).toBe(true);
     expect(wrapper.get('a[href="/feed.xml"]').text()).toBe('RSS');
+  });
+
+  it('renders English posts on the shared blog index when locale is English', async () => {
+    setLocale('en');
+    await router.push('/blog');
+    await router.isReady();
+
+    const wrapper = mount(BlogIndexView, {
+      global: {
+        plugins: [router],
+      },
+    });
+
+    expect(router.currentRoute.value.path).toBe('/blog');
+    expect(wrapper.text()).toContain('What is learning analytics');
+    expect(wrapper.text()).not.toContain('Qué es la analítica de aprendizaje');
   });
 
   it('renders social sharing tools in a blog post', async () => {

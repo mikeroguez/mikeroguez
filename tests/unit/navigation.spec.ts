@@ -44,4 +44,21 @@ describe('navigation', () => {
 
     expect(router.currentRoute.value.path).toBe('/blog/what-is-learning-analytics-ai');
   });
+
+  it('switches blog posts to the translated slug from trailing slash urls', async () => {
+    setLocale('es');
+    await router.push('/blog/analitica-aprendizaje-inteligencia-artificial/');
+    await router.isReady();
+
+    const wrapper = mount(AppHeader, {
+      global: {
+        plugins: [router],
+      },
+    });
+
+    await wrapper.get('.site-header__lang-toggle').trigger('click');
+    await flushPromises();
+
+    expect(router.currentRoute.value.path).toBe('/blog/what-is-learning-analytics-ai');
+  });
 });

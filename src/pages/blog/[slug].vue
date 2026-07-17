@@ -31,6 +31,7 @@ useSiteSeo({
   ),
   description: computed(() => post.value?.meta.description ?? t('meta.blogPostDesc')),
   path: `/blog/${slug.value}`,
+  lang: computed(() => post.value?.meta.lang),
   type: 'article',
   imagePath: computed(() => post.value?.meta.image),
 });

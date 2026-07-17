@@ -9,6 +9,7 @@ interface SeoOptions {
   title: MaybeRefOrGetter<string>;
   description: MaybeRefOrGetter<string>;
   path: string;
+  lang?: MaybeRefOrGetter<'es' | 'en' | undefined>;
   type?: 'website' | 'article' | 'profile';
   imagePath?: MaybeRefOrGetter<string | undefined>;
 }
@@ -17,6 +18,7 @@ export function useSiteSeo({
   title,
   description,
   path,
+  lang,
   type = 'website',
   imagePath = SOCIAL_IMAGE_PATH,
 }: SeoOptions) {
@@ -27,7 +29,7 @@ export function useSiteSeo({
 
   useHead({
     htmlAttrs: {
-      lang: computed(() => (locale.value === 'es' ? 'es-MX' : 'en')),
+      lang: computed(() => ((toValue(lang) ?? locale.value) === 'es' ? 'es-MX' : 'en')),
     },
     link: [
       { rel: 'canonical', href: canonicalUrl },

@@ -99,7 +99,7 @@ const props = defineProps<{
 
 const route = useRoute();
 const post = computed(() => getPostBySlug(String(route.params.slug), props.lang));
-const blogIndexPath = computed(() => (post.value?.meta.lang === 'en' ? '/en/blog' : '/blog'));
+const blogIndexPath = computed(() => '/blog');
 const shareStatus = ref('');
 
 const relatedPosts = computed(() => {
