@@ -27,7 +27,7 @@ describe('blog content', () => {
     expect(post?.meta.image).toBeUndefined();
   });
 
-  it('keeps translated posts under the shared blog path', () => {
+  it('uses language-specific paths for translated posts', () => {
     const spanishPost = getPostBySlug('analitica-aprendizaje-inteligencia-artificial');
     const englishPost = getPostBySlug('what-is-learning-analytics-ai');
 
@@ -48,7 +48,7 @@ describe('blog content', () => {
 
   it('renders the blog index tools', async () => {
     setLocale('es');
-    await router.push('/blog');
+    await router.push('/publicaciones');
     await router.isReady();
 
     const wrapper = mount(BlogIndexView, {
@@ -62,7 +62,7 @@ describe('blog content', () => {
     expect(wrapper.get('a[href="/feed.xml"]').text()).toBe('RSS');
   });
 
-  it('renders English posts on the shared blog index when locale is English', async () => {
+  it('renders English posts on the English blog index', async () => {
     setLocale('en');
     await router.push('/blog');
     await router.isReady();
@@ -76,6 +76,7 @@ describe('blog content', () => {
     expect(router.currentRoute.value.path).toBe('/blog');
     expect(wrapper.text()).toContain('What is learning analytics');
     expect(wrapper.text()).not.toContain('Qué es la analítica de aprendizaje');
+    expect(wrapper.get('a[href="/feed-en.xml"]').text()).toBe('RSS');
   });
 
   it('renders social sharing tools in a blog post', async () => {

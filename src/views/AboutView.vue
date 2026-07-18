@@ -8,6 +8,7 @@
         <p>{{ t('about.bio1') }}</p>
         <p>{{ t('about.bio2') }}</p>
         <p>{{ t('about.bio3') }}</p>
+        <p>{{ t('about.bio4') }}</p>
       </div>
       <div class="about-intro__media">
         <picture>
@@ -34,10 +35,12 @@
 
       <ul class="action-list" :aria-label="t('about.ctaLabel')">
         <li>
-          <RouterLink to="/research">{{ t('about.ctaResearch') }}</RouterLink>
+          <RouterLink :to="localizedPath('/research', locale)">{{
+            t('about.ctaResearch')
+          }}</RouterLink>
         </li>
         <li>
-          <RouterLink to="/work">{{ t('about.ctaWork') }}</RouterLink>
+          <RouterLink :to="localizedPath('/work', locale)">{{ t('about.ctaWork') }}</RouterLink>
         </li>
       </ul>
     </section>
@@ -47,5 +50,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
 
-import { t } from '@/i18n';
+import { locale, t } from '@/i18n';
+import { localizedPath } from '@/utils/routes';
 </script>

@@ -1,15 +1,15 @@
 <template>
-  <HomeView />
+  <AboutView />
 </template>
 
 <script setup lang="ts">
 import { definePageMeta } from '#imports';
 
-import HomeView from '@/views/HomeView.vue';
+import AboutView from '@/views/AboutView.vue';
 import { setLocaleForRoute } from '@/i18n';
 import { usePageSeo } from '@/utils/seo';
 
-definePageMeta({ name: 'home' });
+definePageMeta({ name: 'about' });
 setLocaleForRoute('es');
-usePageSeo('meta.homeTitle', 'meta.homeDesc', '/', 'es');
+usePageSeo('meta.aboutTitle', 'meta.aboutDesc', '/sobre-mi', 'es');
 </script>

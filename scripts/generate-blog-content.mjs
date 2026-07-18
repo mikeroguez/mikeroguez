@@ -9,11 +9,24 @@ const outputDir = resolve('src/content/generated');
 const outputPath = join(outputDir, 'blog-posts.ts');
 const publicDir = resolve('public');
 const feedPath = join(publicDir, 'feed.xml');
+const feedEnPath = join(publicDir, 'feed-en.xml');
 const sitemapPath = join(publicDir, 'sitemap.xml');
 const siteUrl = 'https://mikeroguez.me';
 const siteTitle = 'Mikeroguez';
-const siteDescription =
-  'Sitio personal de Mikeroguez. Investigación, educación, diseño y desarrollo de software.';
+const feedConfig = {
+  es: {
+    path: '/feed.xml',
+    description:
+      'Sitio personal de Mikeroguez. Investigación, educación, diseño y desarrollo de software.',
+    language: 'es-MX',
+  },
+  en: {
+    path: '/feed-en.xml',
+    description:
+      'Personal site of Mikeroguez. Research, education, design and software development.',
+    language: 'en',
+  },
+};
 const validStatuses = new Set(['draft', 'review', 'published']);
 const validLanguages = new Set(['es', 'en']);
 const includeReviewPosts = process.env.BLOG_INCLUDE_REVIEW !== 'false';
@@ -122,13 +135,18 @@ function absoluteUrl(pathname) {
   return new globalThis.URL(pathname, siteUrl).toString();
 }
 
+function postPath(post) {
+  return `/blog/${post.slug}`;
+}
+
 function toRssDate(date) {
   return new Date(`${date}T00:00:00Z`).toUTCString();
 }
 
-function createRssFeed(posts) {
+function createRssFeed(posts, lang) {
+  const config = feedConfig[lang];
   const publishedPosts = posts.filter(
-    (post) => post.meta.status === 'published' && post.meta.lang === 'es',
+    (post) => post.meta.status === 'published' && post.meta.lang === lang,
   );
   const lastBuildDate = publishedPosts[0]?.meta.date
     ? toRssDate(publishedPosts[0].meta.date)
@@ -136,7 +154,7 @@ function createRssFeed(posts) {
 
   const items = publishedPosts
     .map((post) => {
-      const url = absoluteUrl(`/blog/${post.slug}`);
+      const url = absoluteUrl(postPath(post));
       const categories = (post.meta.tags ?? [])
         .map((tag) => `      <category>${escapeXml(tag)}</category>`)
         .join('\n');
@@ -157,11 +175,11 @@ ${categories}
   <channel>
     <title>${escapeXml(siteTitle)}</title>
     <link>${escapeXml(siteUrl)}</link>
-    <description>${escapeXml(siteDescription)}</description>
-    <language>es-MX</language>
+    <description>${escapeXml(config.description)}</description>
+    <language>${escapeXml(config.language)}</language>
     <lastBuildDate>${escapeXml(lastBuildDate)}</lastBuildDate>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="${escapeXml(
-      absoluteUrl('/feed.xml'),
+      absoluteUrl(config.path),
     )}" rel="self" type="application/rss+xml" />
 ${items}
   </channel>
@@ -170,10 +188,27 @@ ${items}
 }
 
 function createSitemap(posts) {
-  const staticRoutes = ['/', '/about', '/work', '/research', '/blog', '/contact', '/en/blog'];
-  const publishedRoutes = posts
-    .filter((post) => post.meta.status === 'published')
-    .map((post) => `/blog/${post.slug}`);
+  const staticRoutes = [
+    '/',
+    '/sobre-mi',
+    '/trabajo',
+    '/investigacion',
+    '/publicaciones',
+    '/contacto',
+    '/privacidad',
+    '/aviso-de-cookies',
+    '/licencia',
+    '/home',
+    '/about',
+    '/work',
+    '/research',
+    '/blog',
+    '/contact',
+    '/privacy',
+    '/cookies',
+    '/license',
+  ];
+  const publishedRoutes = posts.filter((post) => post.meta.status === 'published').map(postPath);
 
   const urls = [...staticRoutes, ...publishedRoutes]
     .map((pathname) => `  <url><loc>${escapeXml(absoluteUrl(pathname))}</loc></url>`)
@@ -222,7 +257,8 @@ export const blogPosts: BlogPost[] = ${JSON.stringify(outputPosts, null, 2)};
 
 await mkdir(outputDir, { recursive: true });
 await writeFile(outputPath, output, 'utf8');
-await writeFile(feedPath, createRssFeed(posts), 'utf8');
+await writeFile(feedPath, createRssFeed(posts, 'es'), 'utf8');
+await writeFile(feedEnPath, createRssFeed(posts, 'en'), 'utf8');
 await writeFile(sitemapPath, createSitemap(posts), 'utf8');
 
 console.log(`Generated ${posts.length} blog post(s), RSS feed, and sitemap.`);

@@ -768,6 +768,16 @@ p {
   list-style: none;
 }
 
+.publication-feature {
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--width-reading);
+  margin-top: var(--space-5);
+  padding: var(--space-4) 0;
+  border-top: 2px solid var(--color-brand-alpha-28);
+  border-bottom: 1px solid var(--color-border);
+}
+
 .publication-list li {
   padding-bottom: var(--space-5);
   border-bottom: 1px solid var(--color-border);
@@ -1430,6 +1440,11 @@ button.post-tag[aria-pressed='true'] {
 .markdown-body pre code {
   padding: 0;
   background: transparent;
+}
+
+.legal-page__updated {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-0);
 }
 
 .text-link {

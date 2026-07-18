@@ -28,6 +28,9 @@ export default {
     socialHeading: 'Redes',
     repositoryLabel: 'Repositorio',
     cookiePreferences: 'Preferencias de cookies',
+    privacyLabel: 'Privacidad',
+    cookiesLabel: 'Cookies',
+    licenseLabel: 'Licencia',
   },
   breadcrumb: {
     home: 'Inicio',
@@ -36,6 +39,9 @@ export default {
     research: 'Investigación',
     blog: 'Blog',
     contact: 'Contacto',
+    privacy: 'Privacidad',
+    cookies: 'Cookies',
+    license: 'Licencia',
     notFound: 'Página no encontrada',
     publication: 'Publicación',
   },
@@ -58,15 +64,22 @@ export default {
     blogPostDesc: 'Publicación del blog de Mikeroguez.',
     contactTitle: 'Contacto | Mikeroguez',
     contactDesc: 'Enlaces profesionales y académicos de Mikeroguez.',
+    privacyTitle: 'Privacidad | Mikeroguez',
+    privacyDesc: 'Aviso de privacidad del sitio personal de Mikeroguez.',
+    cookiesTitle: 'Cookies | Mikeroguez',
+    cookiesDesc: 'Aviso de cookies y preferencias de analítica de Mikeroguez.',
+    licenseTitle: 'Licencia | Mikeroguez',
+    licenseDesc:
+      'Licencias de contenido, código con atribución y reglas de reutilización de Mikeroguez.',
     notFoundTitle: 'Página no encontrada | Mikeroguez',
     notFoundDesc: 'Ruta no encontrada en el sitio personal de Mikeroguez.',
   },
   home: {
     eyebrow: 'Sitio personal',
-    h1: 'Investigación aplicada, educación y software.',
-    lead: 'Diseño, investigo y construyo tecnología educativa centrada en las personas.',
+    h1: 'Educación, diseño de interacción y software.',
+    lead: 'Trabajo entre educación, diseño de interacción y desarrollo de software, con interés particular en accesibilidad, Learning Analytics, colaboración humano-IA y sistemas para educación superior.',
     intro:
-      'Mi trabajo conecta interacción humano-computadora, accesibilidad, educación e inteligencia artificial aplicada.',
+      'Este sitio reúne una selección de proyectos, publicaciones y notas construidas a partir de evidencia revisada. No busca ser un currículum completo, sino una síntesis pública de trabajo, investigación y aprendizaje.',
     sectionsLabel: 'Secciones principales',
     focusHeading: 'Enfoque',
     focusHciTitle: 'HCI y accesibilidad',
@@ -85,6 +98,7 @@ export default {
     bio1: 'Soy Miguel Ángel Rodríguez Ortiz. Trabajo públicamente como Mikeroguez y mi trayectoria se ha desarrollado entre la docencia universitaria, la interacción humano-computadora, la accesibilidad digital y el software para contextos educativos.',
     bio2: 'He participado en sistemas, plataformas y recursos digitales para educación superior. En mi trabajo reciente aparecen Learning Analytics, inteligencia artificial aplicada a educación y apoyo a decisiones pedagógicas.',
     bio3: 'Me interesa una práctica profesional basada en evidencia, claridad, accesibilidad y responsabilidad pública.',
+    bio4: 'Me interesa entender cómo las decisiones de diseño, datos y software afectan experiencias reales de aprendizaje.',
     linesHeading: 'Líneas de trabajo',
     line1: 'Docencia universitaria desde 2003.',
     line2: 'Formación en Ingeniería en Sistemas Computacionales y Maestría en Computación.',
@@ -115,7 +129,7 @@ export default {
     evpraxisType: 'Evaluación en línea',
     evpraxisTitle: 'EvPraxis 2.0',
     evpraxisDesc:
-      'Diseñé y desarrollé EvPraxis 2.0, la versión de la plataforma institucional de evaluación en línea de la Universidad de Colima que descentralizó la creación, organización y aplicación de exámenes. Coordiné su operación y mantenimiento hasta marzo de 2025.',
+      'Desarrollé EvPraxis 2.0, una versión de la plataforma institucional de evaluación en línea de la Universidad de Colima, con énfasis en rediseño, experiencia de usuario y operación académica.',
     evpraxisTagsLabel: 'Ejes de EvPraxis',
     evpraxisTag1: 'Tecnología educativa',
     evpraxisTag2: 'Evaluación institucional',
@@ -123,7 +137,7 @@ export default {
     rediType: 'Recursos educativos digitales',
     rediTitle: 'REDI',
     rediDesc:
-      'Diseñé y desarrollé la primera versión de producción de REDI y después coordiné su evolución de experiencia de usuario: metadatos más simples, revisión académica por niveles y un modelo de publicación con reconocimientos para autores, revisores y unidades académicas.',
+      'Participé en el ecosistema institucional de recursos educativos digitales de la Universidad de Colima, donde REDI representa una capa de publicación, validación y circulación de materiales educativos.',
     rediTagsLabel: 'Ejes de REDI',
     rediTag1: 'Repositorio',
     rediTag2: 'Experiencia de usuario',
@@ -131,7 +145,7 @@ export default {
     encantoType: 'Juego serio',
     encantoTitle: 'El Encanto',
     encantoDesc:
-      'Coordiné el diseño y desarrollo pedagógico y técnico de El Encanto, un juego serio de investigación y desarrollo para apoyar la formación en intervención comunitaria de estudiantes de Trabajo Social. De este proyecto derivaron mi tesis de maestría y varias publicaciones.',
+      'En mi maestría desarrollé El Encanto, un juego serio para apoyar la formación de estudiantes de Trabajo Social en intervención comunitaria. De este proyecto derivaron publicaciones académicas relacionadas.',
     encantoTagsLabel: 'Ejes de El Encanto',
     encantoTag1: 'Juegos serios',
     encantoTag2: 'Trabajo Social',
@@ -157,6 +171,8 @@ export default {
     communityLaihc:
       'LAIHC: colaboración en organización web y accesibilidad de CLIHC 2021, 2023 y 2026.',
     publicationsHeading: 'Publicaciones',
+    publicationsNote:
+      'La lista distingue artículos, conferencias, capítulos, tesis, reportes y preprints cuando aplica. Los enlaces DOI y perfiles académicos permiten revisar la fuente original.',
     searchLabel: 'Buscar publicaciones',
     searchPlaceholder: 'Buscar por título, tema o revista',
     totalOne: '1 publicación.',
@@ -186,6 +202,7 @@ export default {
     typeChapter: 'Capítulo de libro',
     typeThesis: 'Tesis',
     typeReport: 'Reporte técnico',
+    typePreprint: 'Preprint',
   },
   blog: {
     eyebrow: 'Blog',

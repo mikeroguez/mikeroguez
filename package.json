@@ -1,7 +1,8 @@
 {
   "name": "mikeroguez",
-  "version": "0.2.2",
+  "version": "0.2.4",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "npm run generate:blog && npm run generate:research && nuxt dev",

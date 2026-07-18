@@ -24,7 +24,9 @@
       class="post-related"
       aria-labelledby="related-posts-title"
     >
-      <p id="related-posts-title" class="post-related__heading">{{ t('blog.relatedHeading') }}</p>
+      <h2 id="related-posts-title" class="post-related__heading">
+        {{ t('blog.relatedHeading') }}
+      </h2>
       <ul class="post-related__list">
         <li v-for="related in relatedPosts" :key="related.slug">
           <RouterLink class="post-related__link" :to="getPostPath(related)">
@@ -99,7 +101,7 @@ const props = defineProps<{
 
 const route = useRoute();
 const post = computed(() => getPostBySlug(String(route.params.slug), props.lang));
-const blogIndexPath = computed(() => '/blog');
+const blogIndexPath = computed(() => (post.value?.meta.lang === 'en' ? '/blog' : '/publicaciones'));
 const shareStatus = ref('');
 
 const relatedPosts = computed(() => {

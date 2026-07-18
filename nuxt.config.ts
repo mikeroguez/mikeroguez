@@ -13,7 +13,26 @@ const packageJson = JSON.parse(
   version: string;
 };
 
-const staticRoutes = ['/', '/about', '/work', '/research', '/blog', '/contact'];
+const staticRoutes = [
+  '/',
+  '/sobre-mi',
+  '/trabajo',
+  '/investigacion',
+  '/publicaciones',
+  '/contacto',
+  '/privacidad',
+  '/aviso-de-cookies',
+  '/licencia',
+  '/home',
+  '/about',
+  '/work',
+  '/research',
+  '/blog',
+  '/contact',
+  '/privacy',
+  '/cookies',
+  '/license',
+];
 const blogRoutes = blogPosts
   .filter((post) => post.meta.status === 'published')
   .map((post: BlogPost) => `/blog/${post.slug}`);

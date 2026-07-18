@@ -6,9 +6,11 @@
 import { definePageMeta, setResponseStatus } from '#imports';
 
 import NotFoundView from '@/views/NotFoundView.vue';
+import { setLocaleForRoute } from '@/i18n';
 import { usePageSeo } from '@/utils/seo';
 
 definePageMeta({ name: 'not-found' });
 setResponseStatus(404);
-usePageSeo('meta.notFoundTitle', 'meta.notFoundDesc', '/404');
+setLocaleForRoute('es');
+usePageSeo('meta.notFoundTitle', 'meta.notFoundDesc', '/404', 'es');
 </script>

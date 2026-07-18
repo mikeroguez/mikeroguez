@@ -7,8 +7,8 @@ import { setLocale } from '@/i18n';
 import router from '@/router';
 
 describe('CookieConsentBanner', () => {
-  async function mountBanner() {
-    await router.push('/');
+  async function mountBanner(path = '/') {
+    await router.push(path);
     await router.isReady();
 
     return mount(CookieConsentBanner, {
@@ -20,7 +20,7 @@ describe('CookieConsentBanner', () => {
 
   it('uses the currently selected language', async () => {
     setLocale('en');
-    const wrapper = await mountBanner();
+    const wrapper = await mountBanner('/home');
 
     expect(wrapper.text()).toContain('Privacy and cookies');
     expect(wrapper.text()).toContain('Allow Google Analytics');

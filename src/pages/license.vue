@@ -1,15 +1,15 @@
 <template>
-  <ContactView />
+  <LicenseView />
 </template>
 
 <script setup lang="ts">
 import { definePageMeta } from '#imports';
 
-import ContactView from '@/views/ContactView.vue';
+import LicenseView from '@/views/LicenseView.vue';
 import { setLocaleForRoute } from '@/i18n';
 import { usePageSeo } from '@/utils/seo';
 
-definePageMeta({ name: 'contact-en' });
+definePageMeta({ name: 'license-en' });
 setLocaleForRoute('en');
-usePageSeo('meta.contactTitle', 'meta.contactDesc', '/contact', 'en');
+usePageSeo('meta.licenseTitle', 'meta.licenseDesc', '/license', 'en');
 </script>

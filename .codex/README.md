@@ -19,3 +19,5 @@ material.
 - `accessibility-reviewer.md`: WCAG-oriented review.
 - `seo-performance-reviewer.md`: metadata, performance and search quality.
 - `public-repository-guardian.md`: privacy and public repository safety.
+- `web-legal-compliance-reviewer.md`: web legal risk, privacy, cookies,
+  analytics, copyright, licensing and compliance review.

@@ -37,6 +37,39 @@
 
       <section class="content-section" aria-labelledby="research-publications">
         <h2 id="research-publications">{{ t('research.publicationsHeading') }}</h2>
+        <p>{{ t('research.publicationsNote') }}</p>
+
+        <article
+          v-if="thesisPublication"
+          class="publication-feature"
+          aria-labelledby="research-thesis-title"
+        >
+          <p class="publication-list__year">{{ thesisPublication.year }}</p>
+          <div>
+            <p class="publication-list__meta">{{ publicationTypeLabel(thesisPublication) }}</p>
+            <h3 id="research-thesis-title">{{ thesisPublication.title }}</h3>
+            <p>{{ publicationDescription(thesisPublication) }}</p>
+            <div class="publication-list__links">
+              <a
+                v-if="thesisPublication.url"
+                :href="thesisPublication.url"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {{ t('research.viewPublication') }}
+                <span class="visually-hidden">{{ t('a11y.openNewTab') }}</span>
+              </a>
+              <button
+                v-if="thesisPublication.citation"
+                class="cite-trigger"
+                type="button"
+                @click="openCiteDialog(thesisPublication)"
+              >
+                {{ t('research.cite') }}
+              </button>
+            </div>
+          </div>
+        </article>
 
         <form class="blog-search" role="search" @submit.prevent>
           <label class="blog-search__label" for="research-search">{{
@@ -83,7 +116,7 @@
             <article>
               <p class="publication-list__year">{{ pub.year }}</p>
               <div>
-                <p class="publication-list__meta">{{ typeLabel(pub.type) }}</p>
+                <p class="publication-list__meta">{{ publicationTypeLabel(pub) }}</p>
                 <h3>{{ pub.title }}</h3>
                 <p>{{ publicationDescription(pub) }}</p>
                 <div class="publication-list__links">
@@ -176,7 +209,7 @@
           <li>
             <a
               class="blog-sidebar__link"
-              href="https://scholar.google.com/citations?user=LoAMxRIAAAAJ&hl=en"
+              :href="scholarUrl"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -189,9 +222,14 @@
     </aside>
   </div>
 
-  <dialog ref="citeDialog" class="cite-dialog" @click.self="closeCiteDialog">
+  <dialog
+    ref="citeDialog"
+    class="cite-dialog"
+    aria-labelledby="cite-dialog-title"
+    @click.self="closeCiteDialog"
+  >
     <div class="cite-dialog__inner">
-      <p class="cite-dialog__heading">{{ t('research.citeTitle') }}</p>
+      <h2 id="cite-dialog-title" class="cite-dialog__heading">{{ t('research.citeTitle') }}</h2>
       <p v-if="activePub" class="cite-dialog__pub-title">{{ activePub.title }}</p>
       <pre v-if="activePub?.citation" class="cite-dialog__text">{{ activePub.citation }}</pre>
       <div class="cite-dialog__actions">
@@ -215,10 +253,14 @@ import type { Publication, PublicationType } from '@/types/research';
 
 const pageSize = 8;
 const publications = getPublishedPublications();
+const thesisPublication = publications.find((pub) => pub.slug === 'el-encanto-tesis-maestria');
 const query = ref('');
 const activeType = ref<PublicationType | null>(null);
 const visibleCount = ref(pageSize);
 const loadMoreStatusId = 'research-load-more-status';
+const scholarUrl = computed(
+  () => `https://scholar.google.com/citations?user=LoAMxRIAAAAJ&hl=${locale.value}`,
+);
 
 const citeDialog = ref<{ showModal: () => void; close: () => void } | null>(null);
 const activePub = ref<Publication | null>(null);
@@ -262,6 +304,11 @@ const typeKeys: Record<PublicationType, string> = {
 
 function typeLabel(type: PublicationType | string): string {
   return t(typeKeys[type as PublicationType] ?? type);
+}
+
+function publicationTypeLabel(pub: Publication): string {
+  if (pub.venue?.toLowerCase() === 'preprints') return t('research.typePreprint');
+  return typeLabel(pub.type);
 }
 
 function publicationDescription(pub: (typeof publications)[number]): string {

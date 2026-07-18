@@ -33,6 +33,9 @@ export interface Messages {
     socialHeading: string;
     repositoryLabel: string;
     cookiePreferences: string;
+    privacyLabel: string;
+    cookiesLabel: string;
+    licenseLabel: string;
   };
   breadcrumb: {
     home: string;
@@ -41,6 +44,9 @@ export interface Messages {
     research: string;
     blog: string;
     contact: string;
+    privacy: string;
+    cookies: string;
+    license: string;
     notFound: string;
     publication: string;
   };
@@ -59,6 +65,12 @@ export interface Messages {
     blogPostDesc: string;
     contactTitle: string;
     contactDesc: string;
+    privacyTitle: string;
+    privacyDesc: string;
+    cookiesTitle: string;
+    cookiesDesc: string;
+    licenseTitle: string;
+    licenseDesc: string;
     notFoundTitle: string;
     notFoundDesc: string;
   };
@@ -84,6 +96,7 @@ export interface Messages {
     bio1: string;
     bio2: string;
     bio3: string;
+    bio4: string;
     linesHeading: string;
     line1: string;
     line2: string;
@@ -147,6 +160,7 @@ export interface Messages {
     communityAmexihc: string;
     communityLaihc: string;
     publicationsHeading: string;
+    publicationsNote: string;
     searchLabel: string;
     searchPlaceholder: string;
     totalOne: string;
@@ -176,6 +190,7 @@ export interface Messages {
     typeChapter: string;
     typeThesis: string;
     typeReport: string;
+    typePreprint: string;
   };
   blog: {
     eyebrow: string;
@@ -253,6 +268,14 @@ function detectLocale(): Locale {
   const stored = getStoredLocale();
   if (stored) return stored;
 
+  return detectNavigatorLocale();
+}
+
+export function hasStoredLocalePreference(): boolean {
+  return getStoredLocale() !== undefined;
+}
+
+export function detectNavigatorLocale(): Locale {
   if (typeof navigator === 'undefined') return 'es';
   const langs = navigator.languages?.length ? [...navigator.languages] : [navigator.language ?? ''];
   for (const l of langs) {
@@ -290,8 +313,12 @@ export function setLocaleForRoute(l: Locale): void {
   applyLocale(l);
 }
 
-export function t(key: string, params?: Record<string, string | number>): string {
-  const msg = all[_locale.value] as unknown as Record<string, unknown>;
+export function translate(
+  key: string,
+  targetLocale: Locale,
+  params?: Record<string, string | number>,
+): string {
+  const msg = all[targetLocale] as unknown as Record<string, unknown>;
   const value = key.split('.').reduce<unknown>((obj, k) => {
     if (obj != null && typeof obj === 'object') return (obj as Record<string, unknown>)[k];
     return undefined;
@@ -300,6 +327,10 @@ export function t(key: string, params?: Record<string, string | number>): string
   if (typeof value !== 'string') return key;
   if (!params) return value;
   return value.replace(/\{(\w+)\}/g, (_, k) => String(params[k] ?? `{${k}}`));
+}
+
+export function t(key: string, params?: Record<string, string | number>): string {
+  return translate(key, _locale.value, params);
 }
 
 export function useLocale() {

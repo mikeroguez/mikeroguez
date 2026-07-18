@@ -14,18 +14,19 @@
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 
-import { t } from '@/i18n';
+import { locale, t } from '@/i18n';
+import { localizedPath } from '@/utils/routes';
 
 defineEmits<{
   navigate: [];
 }>();
 
 const navigationItems = computed(() => [
-  { to: '/', label: t('nav.home') },
-  { to: '/about', label: t('nav.about') },
-  { to: '/work', label: t('nav.work') },
-  { to: '/research', label: t('nav.research') },
-  { to: '/blog', label: t('nav.blog') },
-  { to: '/contact', label: t('nav.contact') },
+  { to: localizedPath('/', locale.value), label: t('nav.home') },
+  { to: localizedPath('/about', locale.value), label: t('nav.about') },
+  { to: localizedPath('/work', locale.value), label: t('nav.work') },
+  { to: localizedPath('/research', locale.value), label: t('nav.research') },
+  { to: localizedPath('/blog', locale.value), label: t('nav.blog') },
+  { to: localizedPath('/contact', locale.value), label: t('nav.contact') },
 ]);
 </script>

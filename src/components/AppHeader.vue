@@ -3,7 +3,7 @@
     <div class="site-header__inner">
       <RouterLink
         class="site-header__brand"
-        to="/"
+        :to="toLocalizedPath('/', locale)"
         :aria-label="t('a11y.homeLink')"
         @click="closeMenu"
       >
@@ -50,6 +50,7 @@ import type { Locale } from '@/i18n';
 import { getPostBySlug, getPostPath, getPostTranslation } from '@/content/blog';
 import AppNavigation from '@/components/AppNavigation.vue';
 import BrandLogo from '@/components/BrandLogo.vue';
+import { localizedPath as toLocalizedPath } from '@/utils/routes';
 
 const isMenuOpen = ref(false);
 const route = useRoute();
@@ -84,9 +85,7 @@ function localizedPath(targetLocale: Locale): string {
     if (translation) return getPostPath(translation);
   }
 
-  if (route.path === '/blog') return '/blog';
-
-  return route.path;
+  return toLocalizedPath(route.path, targetLocale);
 }
 
 function getBlogPostSlug(path: string): string | undefined {

@@ -32,11 +32,7 @@
           </a>
         </li>
         <li>
-          <a
-            href="https://scholar.google.com/citations?user=LoAMxRIAAAAJ&hl=en"
-            rel="me noopener noreferrer"
-            target="_blank"
-          >
+          <a :href="scholarUrl" rel="me noopener noreferrer" target="_blank">
             Google Scholar
             <span class="visually-hidden">{{ t('a11y.openNewTab') }}</span>
           </a>
@@ -53,5 +49,11 @@
 </template>
 
 <script setup lang="ts">
-import { t } from '@/i18n';
+import { computed } from 'vue';
+
+import { locale, t } from '@/i18n';
+
+const scholarUrl = computed(
+  () => `https://scholar.google.com/citations?user=LoAMxRIAAAAJ&hl=${locale.value}`,
+);
 </script>

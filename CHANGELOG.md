@@ -5,6 +5,51 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 0.2.4 - 2026-07-18
+
+### Added
+
+- Licencia MIT para el codigo fuente con obligacion de conservar aviso de
+  copyright y licencia.
+- Tesis de maestria de El Encanto destacada al inicio de la seccion de
+  publicaciones en investigacion, con enlace al PDF y cita.
+
+### Changed
+
+- README del perfil publico reescrito para reflejar identidad, enfoque,
+  enlaces principales y reglas de licencia sin convertirlo en documentacion
+  tecnica.
+- Pagina publica de licencia y documentacion interna actualizadas para distinguir
+  codigo bajo MIT, contenido escrito bajo CC BY 4.0 y assets/marca con reglas
+  separadas.
+
+## 0.2.3 - 2026-07-18
+
+### Added
+
+- Rutas explicitas por idioma con slugs traducidos para paginas principales,
+  legales e indice del blog, sin prefijo `/en`.
+- RSS en ingles con URLs localizadas y sitemap con rutas bilingues.
+- Inventario inicial de assets publicos y documento de pendientes de madurez
+  legal, editorial, marca y accesibilidad.
+- Atribucion sugerida y enlace oficial a CC BY 4.0 en la pagina de licencia.
+
+### Changed
+
+- Navegacion, footer, breadcrumbs, enlaces del blog y metadata SEO respetan el
+  idioma activo y publican alternates `hreflang`.
+- Home, README y descripciones de proyectos usan lenguaje mas sobrio y alineado
+  con evidencia aprobada.
+- Investigacion distingue preprints en la interfaz y agrega nota editorial sobre
+  tipos de publicacion.
+- Avisos de privacidad y cookies detallan proveedor, contacto y conservacion de
+  preferencias con mayor claridad.
+
+### Fixed
+
+- Mejoras de accesibilidad en el dialogo de cookies, dialogo de citas y etiquetas
+  del blog.
+
 ## 0.2.2 - 2026-07-18
 
 ### Added
@@ -13,6 +58,8 @@ publica vinculada al footer del sitio.
   Analytics denegado por defecto y activarlo solo cuando la persona permite
   analitica.
 - Control en el footer para reabrir las preferencias de cookies.
+- Paginas publicas de privacidad, cookies y licencia/reutilizacion enlazadas
+  desde el footer.
 - Pruebas unitarias para verificar consentimiento, carga condicional de Google
   Analytics e idioma del aviso de cookies.
 
@@ -20,6 +67,9 @@ publica vinculada al footer del sitio.
 
 - El aviso de cookies usa el idioma seleccionado o, en primera visita, el idioma
   detectado del navegador.
+- El contenido publico escrito queda orientado a reutilizacion con atribucion
+  bajo CC BY 4.0, mientras marca, codigo, fotografias y documentos mantienen
+  reglas separadas.
 
 ## 0.2.1 - 2026-07-17
 

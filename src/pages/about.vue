@@ -6,8 +6,10 @@
 import { definePageMeta } from '#imports';
 
 import AboutView from '@/views/AboutView.vue';
+import { setLocaleForRoute } from '@/i18n';
 import { usePageSeo } from '@/utils/seo';
 
-definePageMeta({ name: 'about' });
-usePageSeo('meta.aboutTitle', 'meta.aboutDesc', '/about');
+definePageMeta({ name: 'about-en' });
+setLocaleForRoute('en');
+usePageSeo('meta.aboutTitle', 'meta.aboutDesc', '/about', 'en');
 </script>

@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://mikeroguez.me/</loc></url>
+  <url><loc>https://mikeroguez.me/sobre-mi</loc></url>
+  <url><loc>https://mikeroguez.me/trabajo</loc></url>
+  <url><loc>https://mikeroguez.me/investigacion</loc></url>
+  <url><loc>https://mikeroguez.me/publicaciones</loc></url>
+  <url><loc>https://mikeroguez.me/contacto</loc></url>
+  <url><loc>https://mikeroguez.me/privacidad</loc></url>
+  <url><loc>https://mikeroguez.me/aviso-de-cookies</loc></url>
+  <url><loc>https://mikeroguez.me/licencia</loc></url>
+  <url><loc>https://mikeroguez.me/home</loc></url>
   <url><loc>https://mikeroguez.me/about</loc></url>
   <url><loc>https://mikeroguez.me/work</loc></url>
   <url><loc>https://mikeroguez.me/research</loc></url>
   <url><loc>https://mikeroguez.me/blog</loc></url>
   <url><loc>https://mikeroguez.me/contact</loc></url>
-  <url><loc>https://mikeroguez.me/en/blog</loc></url>
+  <url><loc>https://mikeroguez.me/privacy</loc></url>
+  <url><loc>https://mikeroguez.me/cookies</loc></url>
+  <url><loc>https://mikeroguez.me/license</loc></url>
   <url><loc>https://mikeroguez.me/blog/analitica-aprendizaje-inteligencia-artificial</loc></url>
   <url><loc>https://mikeroguez.me/blog/what-is-learning-analytics-ai</loc></url>
 </urlset>

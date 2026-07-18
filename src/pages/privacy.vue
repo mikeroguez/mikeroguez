@@ -1,15 +1,15 @@
 <template>
-  <ContactView />
+  <PrivacyView />
 </template>
 
 <script setup lang="ts">
 import { definePageMeta } from '#imports';
 
-import ContactView from '@/views/ContactView.vue';
+import PrivacyView from '@/views/PrivacyView.vue';
 import { setLocaleForRoute } from '@/i18n';
 import { usePageSeo } from '@/utils/seo';
 
-definePageMeta({ name: 'contact-en' });
+definePageMeta({ name: 'privacy-en' });
 setLocaleForRoute('en');
-usePageSeo('meta.contactTitle', 'meta.contactDesc', '/contact', 'en');
+usePageSeo('meta.privacyTitle', 'meta.privacyDesc', '/privacy', 'en');
 </script>

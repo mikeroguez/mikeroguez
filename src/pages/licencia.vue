@@ -1,15 +1,15 @@
 <template>
-  <HomeView />
+  <LicenseView />
 </template>
 
 <script setup lang="ts">
 import { definePageMeta } from '#imports';
 
-import HomeView from '@/views/HomeView.vue';
+import LicenseView from '@/views/LicenseView.vue';
 import { setLocaleForRoute } from '@/i18n';
 import { usePageSeo } from '@/utils/seo';
 
-definePageMeta({ name: 'home' });
+definePageMeta({ name: 'license' });
 setLocaleForRoute('es');
-usePageSeo('meta.homeTitle', 'meta.homeDesc', '/', 'es');
+usePageSeo('meta.licenseTitle', 'meta.licenseDesc', '/licencia', 'es');
 </script>

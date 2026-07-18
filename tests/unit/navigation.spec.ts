@@ -24,8 +24,22 @@ describe('navigation', () => {
   });
 
   it('routes to work without hashes', async () => {
-    await router.push('/work');
-    expect(router.currentRoute.value.path).toBe('/work');
+    await router.push('/trabajo');
+    expect(router.currentRoute.value.path).toBe('/trabajo');
+  });
+
+  it('routes to legal pages', async () => {
+    await router.push('/privacidad');
+    expect(router.currentRoute.value.name).toBe('privacy');
+
+    await router.push('/aviso-de-cookies');
+    expect(router.currentRoute.value.name).toBe('cookies');
+
+    await router.push('/licencia');
+    expect(router.currentRoute.value.name).toBe('license');
+
+    await router.push('/privacy');
+    expect(router.currentRoute.value.name).toBe('privacy-en');
   });
 
   it('switches blog posts to the translated slug', async () => {

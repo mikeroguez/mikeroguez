@@ -16,7 +16,8 @@ puede convertirse en una ruta publica durante el build.
 El comando `npm run generate:blog` crea:
 
 - `src/content/generated/blog-posts.ts`, usado por Vue.
-- `public/feed.xml`, usado por lectores RSS.
+- `public/feed.xml`, usado por lectores RSS en espanol.
+- `public/feed-en.xml`, usado por lectores RSS en ingles.
 - `public/sitemap.xml`, usado por buscadores.
 
 No edites esos archivos generados para cambiar una entrada. Edita el Markdown
@@ -85,7 +86,7 @@ Estados permitidos:
 - `review`: texto en revision editorial.
 - `published`: entrada visible en el indice, RSS y sitemap.
 
-Solo las entradas con `status: 'published'` aparecen en `/blog`, `feed.xml` y
+Solo las entradas con `status: 'published'` aparecen en `/blog`, feeds RSS y
 `sitemap.xml`.
 
 ## Regla de Privacidad

@@ -44,8 +44,16 @@ accesibilidad.
 El contenido Markdown se procesa con `scripts/generate-blog-content.mjs`, se
 renderiza con `markdown-it` durante build y no permite HTML crudo por defecto.
 El navegador recibe contenido ya generado en
-`src/content/generated/blog-posts.ts`. El mismo flujo genera `public/feed.xml`
-y `public/sitemap.xml` para que el blog, RSS y sitemap salgan de la misma fuente.
+`src/content/generated/blog-posts.ts`. El mismo flujo genera `public/feed.xml`,
+`public/feed-en.xml` y `public/sitemap.xml` para que el blog, RSS y sitemap
+salgan de la misma fuente.
+
+Las rutas publicas principales usan slugs traducidos: por ejemplo `/sobre-mi`
+en espanol y `/about` en ingles, `/investigacion` en espanol y `/research` en
+ingles. El indice del blog usa `/publicaciones` en espanol y `/blog` en ingles.
+Los posts usan `/blog/{slug}` en ambos idiomas porque cada slug identifica el
+idioma del contenido. El SEO publica alternates `hreflang` entre variantes
+cuando aplica.
 
 ## Contenido y Presentacion
 

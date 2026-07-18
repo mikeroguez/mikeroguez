@@ -63,7 +63,8 @@
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 
-import { t } from '@/i18n';
+import { locale, t } from '@/i18n';
+import { localizedPath } from '@/utils/routes';
 
 interface ProjectItem {
   title: string;
@@ -107,7 +108,7 @@ const projects = computed<ProjectItem[]>(() => [
     tags: [t('work.encantoTag1'), t('work.encantoTag2'), t('work.encantoTag3')],
     linksLabel: t('work.projectLinksLabel', { name: t('work.encantoTitle') }),
     monogram: 'EE',
-    to: '/research',
+    to: localizedPath('/research', locale.value),
   },
 ]);
 </script>

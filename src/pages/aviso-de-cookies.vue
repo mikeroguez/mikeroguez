@@ -1,15 +1,15 @@
 <template>
-  <HomeView />
+  <CookiesView />
 </template>
 
 <script setup lang="ts">
 import { definePageMeta } from '#imports';
 
-import HomeView from '@/views/HomeView.vue';
+import CookiesView from '@/views/CookiesView.vue';
 import { setLocaleForRoute } from '@/i18n';
 import { usePageSeo } from '@/utils/seo';
 
-definePageMeta({ name: 'home' });
+definePageMeta({ name: 'cookies' });
 setLocaleForRoute('es');
-usePageSeo('meta.homeTitle', 'meta.homeDesc', '/', 'es');
+usePageSeo('meta.cookiesTitle', 'meta.cookiesDesc', '/aviso-de-cookies', 'es');
 </script>

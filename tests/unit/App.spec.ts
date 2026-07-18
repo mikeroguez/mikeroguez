@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
 import App from '@/app.vue';
+import { setLocale } from '@/i18n';
 import router from '@/router';
 
 describe('App', () => {
@@ -46,7 +47,7 @@ describe('App', () => {
   });
 
   it('renders breadcrumbs on internal pages', async () => {
-    await router.push('/work');
+    await router.push('/trabajo');
     await router.isReady();
 
     const wrapper = mountApp();
@@ -65,7 +66,11 @@ describe('App', () => {
     const wrapper = mountApp();
 
     expect(wrapper.get('footer .brand-logo--logo').attributes('aria-label')).toBe('Mikeroguez');
-    expect(wrapper.get('a[href="/feed.xml"]').text()).toBe('RSS');
+    expect(wrapper.get('a[href="/feed.xml"]').text()).toBe('RSS ES');
+    expect(wrapper.get('a[href="/privacidad"]').text()).toBe('Privacidad');
+    expect(wrapper.get('a[href="/aviso-de-cookies"]').text()).toBe('Cookies');
+    expect(wrapper.get('a[href="/licencia"]').text()).toBe('Licencia');
+    expect(wrapper.findAll('footer a').some((link) => link.text() === 'Changelog')).toBe(false);
     expect(wrapper.get('a[href="https://www.linkedin.com/in/mikeroguez/"]').text()).toBe(
       'LinkedIn',
     );
@@ -75,5 +80,19 @@ describe('App', () => {
       .findAll('a[href*="CHANGELOG.md"]')
       .find((link) => link.text().startsWith('v'));
     expect(versionLink?.text()).toMatch(/^v\d+\.\d+\.\d+$/);
+  });
+
+  it('uses the English RSS feed when English is selected', async () => {
+    setLocale('en');
+    await router.push('/home');
+    await router.isReady();
+
+    const wrapper = mountApp();
+
+    expect(wrapper.get('a[href="/feed-en.xml"]').text()).toBe('RSS EN');
+    expect(wrapper.get('a[href="/privacy"]').text()).toBe('Privacy');
+    expect(wrapper.get('a[href="/license"]').text()).toBe('License');
+    expect(wrapper.text()).toContain('Privacy');
+    expect(wrapper.text()).toContain('License');
   });
 });

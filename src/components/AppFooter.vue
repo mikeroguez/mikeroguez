@@ -77,22 +77,30 @@
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 
-import { t } from '@/i18n';
+import { locale, t } from '@/i18n';
 import BrandLogo from '@/components/BrandLogo.vue';
+import { localizedPath } from '@/utils/routes';
 
 const appVersion = import.meta.env.VITE_APP_VERSION;
 const changelogUrl = 'https://github.com/mikeroguez/mikeroguez/blob/main/CHANGELOG.md';
 
 const siteLinks = computed(() => [
-  { href: '/about', label: t('nav.about') },
-  { href: '/work', label: t('nav.work') },
-  { href: '/research', label: t('nav.research') },
-  { href: '/contact', label: t('nav.contact') },
+  { href: localizedPath('/', locale.value), label: t('nav.home') },
+  { href: localizedPath('/about', locale.value), label: t('nav.about') },
+  { href: localizedPath('/work', locale.value), label: t('nav.work') },
+  { href: localizedPath('/research', locale.value), label: t('nav.research') },
+  { href: localizedPath('/blog', locale.value), label: t('nav.blog') },
+  { href: localizedPath('/contact', locale.value), label: t('nav.contact') },
 ]);
 
 const resourceLinks = computed(() => [
-  { href: '/feed.xml', label: 'RSS' },
-  { href: changelogUrl, label: 'Changelog', external: true },
+  {
+    href: locale.value === 'en' ? '/feed-en.xml' : '/feed.xml',
+    label: locale.value === 'en' ? 'RSS EN' : 'RSS ES',
+  },
+  { href: localizedPath('/privacy', locale.value), label: t('footer.privacyLabel') },
+  { href: localizedPath('/cookies', locale.value), label: t('footer.cookiesLabel') },
+  { href: localizedPath('/license', locale.value), label: t('footer.licenseLabel') },
   {
     href: 'https://github.com/mikeroguez/mikeroguez',
     label: t('footer.repositoryLabel'),

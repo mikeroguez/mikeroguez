@@ -1,15 +1,15 @@
 <template>
-  <HomeView />
+  <BlogIndexView lang="es" />
 </template>
 
 <script setup lang="ts">
 import { definePageMeta } from '#imports';
 
-import HomeView from '@/views/HomeView.vue';
+import BlogIndexView from '@/views/BlogIndexView.vue';
 import { setLocaleForRoute } from '@/i18n';
 import { usePageSeo } from '@/utils/seo';
 
-definePageMeta({ name: 'home' });
+definePageMeta({ name: 'blog' });
 setLocaleForRoute('es');
-usePageSeo('meta.homeTitle', 'meta.homeDesc', '/', 'es');
+usePageSeo('meta.blogTitle', 'meta.blogDesc', '/publicaciones', 'es');
 </script>

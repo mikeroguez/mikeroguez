@@ -15,8 +15,9 @@
 import { computed } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 
-import { t } from '@/i18n';
+import { locale, t } from '@/i18n';
 import { getPostBySlug } from '@/content/blog';
+import { localizedPath } from '@/utils/routes';
 
 interface BreadcrumbItem {
   label: string;
@@ -26,14 +27,15 @@ interface BreadcrumbItem {
 const route = useRoute();
 
 const items = computed<BreadcrumbItem[]>(() => {
-  if (route.name === 'home') return [];
+  if (route.name === 'home' || route.name === 'home-en') return [];
 
-  if (route.name === 'blog-post') {
+  if (route.name === 'blog-post' || route.name === 'blog-post-en') {
     const slug = String(route.params.slug);
     const post = getPostBySlug(slug);
+    const postLocale = post?.meta.lang ?? locale.value;
     return [
-      { label: t('breadcrumb.home'), to: '/' },
-      { label: t('breadcrumb.blog'), to: '/blog' },
+      { label: t('breadcrumb.home'), to: localizedPath('/', postLocale) },
+      { label: t('breadcrumb.blog'), to: localizedPath('/blog', postLocale) },
       { label: post?.meta.title ?? t('breadcrumb.publication') },
     ];
   }
@@ -44,12 +46,15 @@ const items = computed<BreadcrumbItem[]>(() => {
     research: 'breadcrumb.research',
     blog: 'breadcrumb.blog',
     contact: 'breadcrumb.contact',
+    privacy: 'breadcrumb.privacy',
+    cookies: 'breadcrumb.cookies',
+    license: 'breadcrumb.license',
     'not-found': 'breadcrumb.notFound',
   };
 
-  const routeName = typeof route.name === 'string' ? route.name : '';
+  const routeName = typeof route.name === 'string' ? route.name.replace(/-en$/, '') : '';
   const label = t(sectionKey[routeName] ?? 'breadcrumb.home');
 
-  return [{ label: t('breadcrumb.home'), to: '/' }, { label }];
+  return [{ label: t('breadcrumb.home'), to: localizedPath('/', locale.value) }, { label }];
 });
 </script>

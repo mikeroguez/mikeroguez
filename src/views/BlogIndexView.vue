@@ -63,7 +63,7 @@
               </span>
             </p>
             <p>{{ post.excerpt }}</p>
-            <ul v-if="post.meta.tags?.length" class="post-tags" aria-label="Etiquetas">
+            <ul v-if="post.meta.tags?.length" class="post-tags" :aria-label="t('blog.tagsHeading')">
               <li v-for="tag in post.meta.tags" :key="tag">
                 <button
                   class="post-tag"
@@ -142,7 +142,7 @@
         </ul>
       </section>
 
-      <a class="blog-sidebar__link" href="/feed.xml" type="application/rss+xml">
+      <a class="blog-sidebar__link" :href="rssHref" type="application/rss+xml">
         {{ t('blog.rssLabel') }}
       </a>
     </aside>
@@ -163,6 +163,7 @@ const props = defineProps<{
 
 const pageSize = 6;
 const activeLang = computed(() => props.lang ?? locale.value);
+const rssHref = computed(() => (activeLang.value === 'en' ? '/feed-en.xml' : '/feed.xml'));
 const posts = computed(() => getPublishedPostsByLanguage(activeLang.value));
 const query = ref('');
 const activeTag = ref<string | null>(null);

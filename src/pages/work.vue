@@ -6,8 +6,10 @@
 import { definePageMeta } from '#imports';
 
 import WorkView from '@/views/WorkView.vue';
+import { setLocaleForRoute } from '@/i18n';
 import { usePageSeo } from '@/utils/seo';
 
-definePageMeta({ name: 'work' });
-usePageSeo('meta.workTitle', 'meta.workDesc', '/work');
+definePageMeta({ name: 'work-en' });
+setLocaleForRoute('en');
+usePageSeo('meta.workTitle', 'meta.workDesc', '/work', 'en');
 </script>

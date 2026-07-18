@@ -9,7 +9,7 @@ import ContactView from '@/views/ContactView.vue';
 import { setLocaleForRoute } from '@/i18n';
 import { usePageSeo } from '@/utils/seo';
 
-definePageMeta({ name: 'contact-en' });
-setLocaleForRoute('en');
-usePageSeo('meta.contactTitle', 'meta.contactDesc', '/contact', 'en');
+definePageMeta({ name: 'contact' });
+setLocaleForRoute('es');
+usePageSeo('meta.contactTitle', 'meta.contactDesc', '/contacto', 'es');
 </script>

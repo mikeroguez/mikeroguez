@@ -8,7 +8,7 @@ import { useRoute } from 'vue-router';
 import { definePageMeta, useHead, useSeoMeta } from '#imports';
 
 import BlogPostView from '@/views/BlogPostView.vue';
-import { getPostBySlug } from '@/content/blog';
+import { getPostBySlug, getPostTranslation } from '@/content/blog';
 import { setLocaleForRoute, t } from '@/i18n';
 import { useSiteSeo } from '@/utils/seo';
 import { absoluteUrl, SITE_AUTHOR, SITE_URL } from '@/utils/site';
@@ -20,6 +20,28 @@ const AUTHOR_URL = SITE_URL;
 const route = useRoute();
 const slug = computed(() => String(route.params.slug));
 const post = computed(() => getPostBySlug(slug.value));
+const spanishPost = computed(() =>
+  post.value?.meta.lang === 'es'
+    ? post.value
+    : post.value
+      ? getPostTranslation(post.value, 'es')
+      : undefined,
+);
+const englishPost = computed(() =>
+  post.value?.meta.lang === 'en'
+    ? post.value
+    : post.value
+      ? getPostTranslation(post.value, 'en')
+      : undefined,
+);
+const alternatePaths = computed(() =>
+  post.value
+    ? {
+        es: spanishPost.value ? `/blog/${spanishPost.value.slug}` : `/blog/${post.value.slug}`,
+        en: englishPost.value ? `/blog/${englishPost.value.slug}` : `/blog/${post.value.slug}`,
+      }
+    : undefined,
+);
 
 watchEffect(() => {
   if (post.value) setLocaleForRoute(post.value.meta.lang);
@@ -32,6 +54,7 @@ useSiteSeo({
   description: computed(() => post.value?.meta.description ?? t('meta.blogPostDesc')),
   path: `/blog/${slug.value}`,
   lang: computed(() => post.value?.meta.lang),
+  alternatePaths,
   type: 'article',
   imagePath: computed(() => post.value?.meta.image),
 });

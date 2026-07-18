@@ -1,15 +1,15 @@
 <template>
-  <HomeView />
+  <WorkView />
 </template>
 
 <script setup lang="ts">
 import { definePageMeta } from '#imports';
 
-import HomeView from '@/views/HomeView.vue';
+import WorkView from '@/views/WorkView.vue';
 import { setLocaleForRoute } from '@/i18n';
 import { usePageSeo } from '@/utils/seo';
 
-definePageMeta({ name: 'home' });
+definePageMeta({ name: 'work' });
 setLocaleForRoute('es');
-usePageSeo('meta.homeTitle', 'meta.homeDesc', '/', 'es');
+usePageSeo('meta.workTitle', 'meta.workDesc', '/trabajo', 'es');
 </script>

@@ -1,15 +1,15 @@
 <template>
-  <HomeView />
+  <PrivacyView />
 </template>
 
 <script setup lang="ts">
 import { definePageMeta } from '#imports';
 
-import HomeView from '@/views/HomeView.vue';
+import PrivacyView from '@/views/PrivacyView.vue';
 import { setLocaleForRoute } from '@/i18n';
 import { usePageSeo } from '@/utils/seo';
 
-definePageMeta({ name: 'home' });
+definePageMeta({ name: 'privacy' });
 setLocaleForRoute('es');
-usePageSeo('meta.homeTitle', 'meta.homeDesc', '/', 'es');
+usePageSeo('meta.privacyTitle', 'meta.privacyDesc', '/privacidad', 'es');
 </script>

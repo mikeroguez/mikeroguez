@@ -11,13 +11,15 @@
 
         <ul class="action-list" :aria-label="t('home.sectionsLabel')">
           <li>
-            <RouterLink to="/research">{{ t('nav.research') }}</RouterLink>
+            <RouterLink :to="localizedPath('/research', locale)">{{
+              t('nav.research')
+            }}</RouterLink>
           </li>
           <li>
-            <RouterLink to="/work">{{ t('nav.work') }}</RouterLink>
+            <RouterLink :to="localizedPath('/work', locale)">{{ t('nav.work') }}</RouterLink>
           </li>
           <li>
-            <RouterLink to="/blog">{{ t('nav.blog') }}</RouterLink>
+            <RouterLink :to="localizedPath('/blog', locale)">{{ t('nav.blog') }}</RouterLink>
           </li>
         </ul>
       </div>
@@ -46,5 +48,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
 
-import { t } from '@/i18n';
+import { locale, t } from '@/i18n';
+import { localizedPath } from '@/utils/routes';
 </script>
