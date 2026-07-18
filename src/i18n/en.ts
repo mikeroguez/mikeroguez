@@ -27,6 +27,7 @@ export default {
     resourcesHeading: 'Resources',
     socialHeading: 'Social',
     repositoryLabel: 'Repository',
+    cookiePreferences: 'Cookie preferences',
   },
   breadcrumb: {
     home: 'Home',
@@ -226,6 +227,20 @@ export default {
     lead: 'Public profiles are the most direct way to follow my work.',
     linksHeading: 'Links',
     emailContext: 'For academic, collaboration or research inquiries.',
+  },
+  cookies: {
+    title: 'Privacy and cookies',
+    description:
+      'This site stores basic preferences to work correctly. Google Analytics only runs if you allow analytics.',
+    optionsLabel: 'Available preferences',
+    necessaryTitle: 'Necessary',
+    necessaryDescription: 'Store language and consent. They remain active.',
+    alwaysOn: 'Active',
+    optional: 'Optional',
+    analyticsTitle: 'Google Analytics',
+    analyticsDescription: 'Allow visit and site-use measurement.',
+    reject: 'Use necessary only',
+    accept: 'Allow Google Analytics',
   },
   notFound: {
     eyebrow: '404',

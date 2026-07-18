@@ -32,6 +32,7 @@ export interface Messages {
     resourcesHeading: string;
     socialHeading: string;
     repositoryLabel: string;
+    cookiePreferences: string;
   };
   breadcrumb: {
     home: string;
@@ -218,6 +219,19 @@ export interface Messages {
     lead: string;
     linksHeading: string;
     emailContext: string;
+  };
+  cookies: {
+    title: string;
+    description: string;
+    optionsLabel: string;
+    necessaryTitle: string;
+    necessaryDescription: string;
+    alwaysOn: string;
+    optional: string;
+    analyticsTitle: string;
+    analyticsDescription: string;
+    reject: string;
+    accept: string;
   };
   notFound: { eyebrow: string; h1: string; lead: string; back: string };
 }

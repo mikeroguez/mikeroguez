@@ -5,6 +5,22 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 0.2.2 - 2026-07-18
+
+### Added
+
+- Consentimiento de cookies con Google Consent Mode para mantener Google
+  Analytics denegado por defecto y activarlo solo cuando la persona permite
+  analitica.
+- Control en el footer para reabrir las preferencias de cookies.
+- Pruebas unitarias para verificar consentimiento, carga condicional de Google
+  Analytics e idioma del aviso de cookies.
+
+### Changed
+
+- El aviso de cookies usa el idioma seleccionado o, en primera visita, el idioma
+  detectado del navegador.
+
 ## 0.2.1 - 2026-07-17
 
 ### Added

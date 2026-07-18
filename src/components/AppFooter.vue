@@ -62,6 +62,11 @@
             v{{ appVersion }}
           </a>
         </p>
+        <p>
+          <button class="site-footer__meta-button" type="button" @click="openCookiePreferences">
+            {{ t('footer.cookiePreferences') }}
+          </button>
+        </p>
         <p>&copy; 2026 Mikeroguez.</p>
       </div>
     </div>
@@ -101,4 +106,8 @@ const socialLinks = [
   { href: 'https://x.com/mikeroguez', label: 'X' },
   { href: 'https://www.facebook.com/mikeroguez', label: 'Facebook' },
 ];
+
+function openCookiePreferences(): void {
+  window.dispatchEvent(new window.Event('mikeroguez:open-cookie-preferences'));
+}
 </script>
