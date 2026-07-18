@@ -150,6 +150,29 @@ export default {
     encantoTag1: 'Juegos serios',
     encantoTag2: 'Trabajo Social',
     encantoTag3: 'Investigación aplicada',
+    collaborationsHeading: 'Colaboraciones de investigación',
+    collaborationsLead:
+      'Participaciones interinstitucionales vinculadas al IHCLab donde mi rol público aparece como miembro del equipo.',
+    collaborationRole: 'Miembro',
+    collaborationLinksLabel: 'Enlaces de {name}',
+    conacytSeedTitle:
+      'Procesamiento de lenguaje natural para apoyar comprensión lectora en estudiantes Sordos',
+    conacytSeedDesc:
+      'Proyecto semilla interinstitucional de corta duración con financiamiento CONACYT, orientado a formular un proyecto de mayor alcance sobre lectoescritura de personas Sordas en educación básica.',
+    conacytSeedDate: 'Finalizado · 02/11/2020 — 31/03/2021',
+    conacytSeedTagsLabel: 'Ejes del proyecto semilla CONACYT',
+    conacytSeedTag1: 'Lectoescritura',
+    conacytSeedTag2: 'Procesamiento de lenguaje natural',
+    conacytSeedTag3: 'Educación inclusiva',
+    pronacesTitle:
+      'Lectoescritura para estudiantes Sordos mediante recursos didácticos interactivos',
+    pronacesDesc:
+      'Proyecto interinstitucional de investigación e incidencia de los PRONACES CONAHCYT 2022-2024, orientado a promover lectura y escritura en estudiantes Sordos de nivel básico con recursos interactivos y enfoque bilingüe-bicultural.',
+    pronacesDate: 'Finalizado · 31/01/2022',
+    pronacesTagsLabel: 'Ejes del proyecto PRONACES CONAHCYT',
+    pronacesTag1: 'Recursos interactivos',
+    pronacesTag2: 'Enfoque bilingüe-bicultural',
+    pronacesTag3: 'Inclusión educativa',
   },
   research: {
     eyebrow: 'Investigación',

@@ -56,6 +56,34 @@
         </article>
       </div>
     </section>
+
+    <section class="content-section" aria-labelledby="work-collaborations">
+      <h2 id="work-collaborations">{{ t('work.collaborationsHeading') }}</h2>
+      <p>{{ t('work.collaborationsLead') }}</p>
+      <div class="project-grid project-grid--compact">
+        <article
+          v-for="collaboration in collaborations"
+          :key="collaboration.title"
+          class="project-card"
+        >
+          <div class="project-card__body">
+            <p class="project-card__type">{{ collaboration.role }}</p>
+            <h3>{{ collaboration.title }}</h3>
+            <p class="project-card__date">{{ collaboration.date }}</p>
+            <p>{{ collaboration.description }}</p>
+            <ul class="tag-list" :aria-label="collaboration.tagsLabel">
+              <li v-for="tag in collaboration.tags" :key="tag">{{ tag }}</li>
+            </ul>
+          </div>
+          <nav class="project-card__actions" :aria-label="collaboration.linksLabel">
+            <a :href="ihcLabProfileUrl" rel="noopener noreferrer" target="_blank">
+              IHCLab
+              <span class="visually-hidden">{{ t('a11y.openNewTab') }}</span>
+            </a>
+          </nav>
+        </article>
+      </div>
+    </section>
   </article>
 </template>
 
@@ -78,6 +106,18 @@ interface ProjectItem {
   href?: string;
   to?: string;
 }
+
+interface CollaborationItem {
+  title: string;
+  role: string;
+  date: string;
+  description: string;
+  tagsLabel: string;
+  tags: string[];
+  linksLabel: string;
+}
+
+const ihcLabProfileUrl = 'https://ihclab.ucol.mx/miembros-y-colaboradores/Mike%2BRodr%C3%ADguez';
 
 const projects = computed<ProjectItem[]>(() => [
   {
@@ -109,6 +149,27 @@ const projects = computed<ProjectItem[]>(() => [
     linksLabel: t('work.projectLinksLabel', { name: t('work.encantoTitle') }),
     monogram: 'EE',
     to: localizedPath('/research', locale.value),
+  },
+]);
+
+const collaborations = computed<CollaborationItem[]>(() => [
+  {
+    title: t('work.conacytSeedTitle'),
+    role: t('work.collaborationRole'),
+    date: t('work.conacytSeedDate'),
+    description: t('work.conacytSeedDesc'),
+    tagsLabel: t('work.conacytSeedTagsLabel'),
+    tags: [t('work.conacytSeedTag1'), t('work.conacytSeedTag2'), t('work.conacytSeedTag3')],
+    linksLabel: t('work.collaborationLinksLabel', { name: t('work.conacytSeedTitle') }),
+  },
+  {
+    title: t('work.pronacesTitle'),
+    role: t('work.collaborationRole'),
+    date: t('work.pronacesDate'),
+    description: t('work.pronacesDesc'),
+    tagsLabel: t('work.pronacesTagsLabel'),
+    tags: [t('work.pronacesTag1'), t('work.pronacesTag2'), t('work.pronacesTag3')],
+    linksLabel: t('work.collaborationLinksLabel', { name: t('work.pronacesTitle') }),
   },
 ]);
 </script>

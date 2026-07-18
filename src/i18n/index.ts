@@ -142,6 +142,24 @@ export interface Messages {
     encantoTag1: string;
     encantoTag2: string;
     encantoTag3: string;
+    collaborationsHeading: string;
+    collaborationsLead: string;
+    collaborationRole: string;
+    collaborationLinksLabel: string;
+    conacytSeedTitle: string;
+    conacytSeedDesc: string;
+    conacytSeedDate: string;
+    conacytSeedTagsLabel: string;
+    conacytSeedTag1: string;
+    conacytSeedTag2: string;
+    conacytSeedTag3: string;
+    pronacesTitle: string;
+    pronacesDesc: string;
+    pronacesDate: string;
+    pronacesTagsLabel: string;
+    pronacesTag1: string;
+    pronacesTag2: string;
+    pronacesTag3: string;
   };
   research: {
     eyebrow: string;

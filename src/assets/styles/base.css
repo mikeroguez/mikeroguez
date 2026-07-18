@@ -620,6 +620,10 @@ p {
   border-bottom: 1px solid var(--color-border);
 }
 
+.project-grid--compact {
+  max-width: var(--width-reading);
+}
+
 .project-card__type,
 .publication-list__meta {
   margin: 0 0 var(--space-2);
@@ -664,6 +668,11 @@ p {
 
 .project-card__body {
   min-width: 0;
+}
+
+.project-card__date {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-0);
 }
 
 .project-card__actions {
@@ -766,16 +775,6 @@ p {
   padding: 0;
   margin: var(--space-5) 0 0;
   list-style: none;
-}
-
-.publication-feature {
-  display: grid;
-  gap: var(--space-3);
-  max-width: var(--width-reading);
-  margin-top: var(--space-5);
-  padding: var(--space-4) 0;
-  border-top: 2px solid var(--color-brand-alpha-28);
-  border-bottom: 1px solid var(--color-border);
 }
 
 .publication-list li {

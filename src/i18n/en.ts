@@ -148,6 +148,28 @@ export default {
     encantoTag1: 'Serious games',
     encantoTag2: 'Social Work',
     encantoTag3: 'Applied research',
+    collaborationsHeading: 'Research collaborations',
+    collaborationsLead:
+      'Interinstitutional IHCLab-linked work where my public role is listed as team member.',
+    collaborationRole: 'Member',
+    collaborationLinksLabel: '{name} links',
+    conacytSeedTitle:
+      'Natural language processing to support reading comprehension for Deaf students',
+    conacytSeedDesc:
+      'Short interinstitutional CONACYT-funded seed project focused on preparing a larger project around literacy for Deaf students in basic education.',
+    conacytSeedDate: 'Completed · 2020-11-02 — 2021-03-31',
+    conacytSeedTagsLabel: 'CONACYT seed project areas',
+    conacytSeedTag1: 'Literacy',
+    conacytSeedTag2: 'Natural language processing',
+    conacytSeedTag3: 'Inclusive education',
+    pronacesTitle: 'Literacy for Deaf students through interactive educational resources',
+    pronacesDesc:
+      'Interinstitutional PRONACES CONAHCYT 2022-2024 research and incidence project focused on promoting reading and writing among Deaf students in basic education through interactive resources and a bilingual-bicultural approach.',
+    pronacesDate: 'Completed · 2022-01-31',
+    pronacesTagsLabel: 'PRONACES CONAHCYT project areas',
+    pronacesTag1: 'Interactive resources',
+    pronacesTag2: 'Bilingual-bicultural approach',
+    pronacesTag3: 'Educational inclusion',
   },
   research: {
     eyebrow: 'Research',

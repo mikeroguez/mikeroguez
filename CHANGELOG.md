@@ -5,6 +5,19 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 0.2.5 - 2026-07-18
+
+### Added
+
+- Colaboraciones interinstitucionales de IHCLab sobre lectoescritura de
+  estudiantes Sordos en la pagina de trabajo, usando rol de miembro.
+- Mencion breve de IHCLab en el README del perfil publico.
+
+### Changed
+
+- La tesis de maestria queda integrada en la lista general de publicaciones, sin
+  bloque destacado separado en la pagina de investigacion.
+
 ## 0.2.4 - 2026-07-18
 
 ### Added
