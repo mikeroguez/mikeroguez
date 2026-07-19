@@ -8,7 +8,7 @@
         <p>{{ t('about.bio1') }}</p>
         <p>{{ t('about.bio2') }}</p>
         <p>{{ t('about.bio3') }}</p>
-        <p>{{ t('about.bio4') }}</p>
+        <p v-if="t('about.bio4')">{{ t('about.bio4') }}</p>
       </div>
       <div class="about-intro__media">
         <picture>

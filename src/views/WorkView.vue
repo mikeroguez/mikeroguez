@@ -60,29 +60,38 @@
     <section class="content-section" aria-labelledby="work-collaborations">
       <h2 id="work-collaborations">{{ t('work.collaborationsHeading') }}</h2>
       <p>{{ t('work.collaborationsLead') }}</p>
-      <div class="project-grid project-grid--compact">
-        <article
+      <ol class="collaboration-list">
+        <li
           v-for="collaboration in collaborations"
           :key="collaboration.title"
-          class="project-card"
+          class="collaboration-list__item"
         >
-          <div class="project-card__body">
-            <p class="project-card__type">{{ collaboration.role }}</p>
+          <div class="collaboration-list__meta">
+            <div class="collaboration-list__program" :aria-label="collaboration.programLabel">
+              <span>{{ collaboration.program }}</span>
+              <span>{{ collaboration.programContext }}</span>
+            </div>
+            <p>{{ collaboration.role }} · IHCLab</p>
+            <p class="collaboration-list__period">{{ collaboration.period }}</p>
+          </div>
+          <article class="collaboration-list__body">
             <h3>{{ collaboration.title }}</h3>
-            <p class="project-card__date">{{ collaboration.date }}</p>
             <p>{{ collaboration.description }}</p>
             <ul class="tag-list" :aria-label="collaboration.tagsLabel">
               <li v-for="tag in collaboration.tags" :key="tag">{{ tag }}</li>
             </ul>
-          </div>
-          <nav class="project-card__actions" :aria-label="collaboration.linksLabel">
-            <a :href="ihcLabProfileUrl" rel="noopener noreferrer" target="_blank">
-              IHCLab
+            <a
+              class="collaboration-list__link"
+              :href="ihcLabProfileUrl"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {{ t('work.ihcLabProfile') }}
               <span class="visually-hidden">{{ t('a11y.openNewTab') }}</span>
             </a>
-          </nav>
-        </article>
-      </div>
+          </article>
+        </li>
+      </ol>
     </section>
   </article>
 </template>
@@ -110,11 +119,13 @@ interface ProjectItem {
 interface CollaborationItem {
   title: string;
   role: string;
-  date: string;
+  program: string;
+  programContext: string;
+  programLabel: string;
+  period: string;
   description: string;
   tagsLabel: string;
   tags: string[];
-  linksLabel: string;
 }
 
 const ihcLabProfileUrl = 'https://ihclab.ucol.mx/miembros-y-colaboradores/Mike%2BRodr%C3%ADguez';
@@ -156,20 +167,24 @@ const collaborations = computed<CollaborationItem[]>(() => [
   {
     title: t('work.conacytSeedTitle'),
     role: t('work.collaborationRole'),
-    date: t('work.conacytSeedDate'),
+    program: t('work.conacytSeedProgram'),
+    programContext: t('work.conacytSeedProgramContext'),
+    programLabel: t('work.conacytSeedProgramLabel'),
+    period: t('work.conacytSeedPeriod'),
     description: t('work.conacytSeedDesc'),
     tagsLabel: t('work.conacytSeedTagsLabel'),
     tags: [t('work.conacytSeedTag1'), t('work.conacytSeedTag2'), t('work.conacytSeedTag3')],
-    linksLabel: t('work.collaborationLinksLabel', { name: t('work.conacytSeedTitle') }),
   },
   {
     title: t('work.pronacesTitle'),
     role: t('work.collaborationRole'),
-    date: t('work.pronacesDate'),
+    program: t('work.pronacesProgram'),
+    programContext: t('work.pronacesProgramContext'),
+    programLabel: t('work.pronacesProgramLabel'),
+    period: t('work.pronacesPeriod'),
     description: t('work.pronacesDesc'),
     tagsLabel: t('work.pronacesTagsLabel'),
     tags: [t('work.pronacesTag1'), t('work.pronacesTag2'), t('work.pronacesTag3')],
-    linksLabel: t('work.collaborationLinksLabel', { name: t('work.pronacesTitle') }),
   },
 ]);
 </script>

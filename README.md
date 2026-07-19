@@ -9,8 +9,10 @@ contextos educativos.
 
 Soy desarrollador y profesor en la Universidad de Colima. Mi trabajo reciente se
 relaciona con Learning Analytics, inteligencia artificial aplicada a educación,
-experiencia de usuario y sistemas de apoyo para educación superior. Formo parte
-del [IHCLab](https://ihclab.ucol.mx/miembros-y-colaboradores/Mike%2BRodr%C3%ADguez),
+experiencia de usuario y sistemas de apoyo para educación superior.
+
+También formo parte del
+[IHCLab](https://ihclab.ucol.mx/miembros-y-colaboradores/Mike%2BRodr%C3%ADguez),
 donde mi perfil público aparece como miembro y responsable de desarrollo.
 
 Este repositorio funciona como perfil público de GitHub y como fuente del sitio

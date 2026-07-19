@@ -5,6 +5,22 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 0.2.6 - 2026-07-19
+
+### Changed
+
+- Seccion de colaboraciones de investigacion redisenada como lista editorial con
+  identificadores de programa, rol y periodo.
+- Proyecto semilla de lectoescritura ajustado a CONACYT y proyecto PRONACES a
+  CONAHCYT (PRONACES), segun su denominacion correspondiente.
+- README del perfil publico suavizado para mejorar lectura sin agregar claims.
+- Pagina "Sobre mi" ajustada para evitar una frase final demasiado editorial.
+
+### Fixed
+
+- Enlace de la publicacion sobre juego serio para trabajo social corregido de
+  `ww.ucol.mx` a `www.ucol.mx`.
+
 ## 0.2.5 - 2026-07-18
 
 ### Added
