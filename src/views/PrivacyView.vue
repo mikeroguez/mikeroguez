@@ -56,7 +56,7 @@ const content = computed<LegalContent>(() =>
             items: [
               'Language preference stored in the browser.',
               'Cookie consent preference stored in the browser.',
-              'Basic analytics data through Google Analytics only if you allow it.',
+              'Basic analytics data through Google Tag Manager and Google Analytics only if you allow it.',
               'Information you choose to send by email when contacting Mikeroguez.',
             ],
           },
@@ -67,30 +67,30 @@ const content = computed<LegalContent>(() =>
             ],
             items: [
               'Remember site language and cookie choices.',
-              'Understand aggregate site use when Google Analytics is allowed.',
+              'Understand aggregate site use when analytics is allowed.',
               'Respond to messages sent voluntarily by email.',
               'Maintain site security and public repository quality.',
             ],
           },
           {
-            heading: 'Google Analytics',
+            heading: 'Google Tag Manager and Google Analytics',
             paragraphs: [
-              'This site loads the Google tag with Consent Mode. Analytics storage is denied by default. Page-view measurement is sent only after you choose to allow Google Analytics.',
-              'Google may receive technical information when the Google tag loads. If you allow analytics, Google Analytics can process visit and usage data according to Google’s terms and privacy controls.',
-              'Google LLC acts as an external analytics provider. Its processing may involve infrastructure outside your country. Review Google’s privacy information at https://policies.google.com/privacy.',
+              'This site loads Google Tag Manager with Consent Mode. Analytics storage is denied by default. Page-view measurement is sent only after you choose to allow analytics.',
+              'Google Tag Manager is used to manage analytics tags, including Google Analytics. Google may receive technical information when the container loads. If you allow analytics, Google Analytics can process visit and usage data according to Google’s terms and privacy controls.',
+              'Google LLC acts as an external tag management and analytics provider. Its processing may involve infrastructure outside your country. Review Google’s privacy information at https://policies.google.com/privacy.',
             ],
           },
           {
             heading: 'Retention',
             paragraphs: [
               'Language and cookie consent preferences remain in your browser until you change or clear them. Email messages are kept only as long as needed to respond, maintain context for voluntary communication or comply with applicable obligations.',
-              'Google Analytics retention depends on the GA4 property configuration and Google’s own controls. This site should not use analytics data to identify individual visitors.',
+              'Google Analytics retention depends on the GA4 property configuration and Google’s own controls. Google Tag Manager does not define analytics retention by itself. This site should not use analytics data to identify individual visitors.',
             ],
           },
           {
             heading: 'Your choices',
             paragraphs: [
-              'You can use the site without allowing Google Analytics. You can change your choice later from “Cookie preferences” in the footer.',
+              'You can use the site without allowing analytics. You can change your choice later from “Cookie preferences” in the footer.',
             ],
           },
           {
@@ -139,7 +139,7 @@ const content = computed<LegalContent>(() =>
             items: [
               'Preferencia de idioma guardada en el navegador.',
               'Preferencia de consentimiento de cookies guardada en el navegador.',
-              'Datos básicos de analítica mediante Google Analytics solo si lo permites.',
+              'Datos básicos de analítica mediante Google Tag Manager y Google Analytics solo si lo permites.',
               'Información que decidas enviar por correo al contactar a Mikeroguez.',
             ],
           },
@@ -150,30 +150,30 @@ const content = computed<LegalContent>(() =>
             ],
             items: [
               'Recordar idioma y decisiones de cookies.',
-              'Entender uso agregado del sitio cuando Google Analytics está permitido.',
+              'Entender uso agregado del sitio cuando la analítica está permitida.',
               'Responder mensajes enviados voluntariamente por correo.',
               'Mantener seguridad del sitio y calidad del repositorio público.',
             ],
           },
           {
-            heading: 'Google Analytics',
+            heading: 'Google Tag Manager y Google Analytics',
             paragraphs: [
-              'Este sitio carga la etiqueta de Google con Consent Mode. El almacenamiento de analítica está denegado por defecto. La medición de páginas vistas se envía solo después de elegir permitir Google Analytics.',
-              'Google puede recibir información técnica cuando carga la etiqueta. Si permites analítica, Google Analytics puede procesar datos de visita y uso conforme a los términos y controles de privacidad de Google.',
-              'Google LLC actúa como proveedor externo de analítica. Su procesamiento puede involucrar infraestructura fuera de tu país. Revisa la información de privacidad de Google en https://policies.google.com/privacy.',
+              'Este sitio carga Google Tag Manager con Consent Mode. El almacenamiento de analítica está denegado por defecto. La medición de páginas vistas se envía solo después de elegir permitir analítica.',
+              'Google Tag Manager se usa para gestionar etiquetas de analítica, incluido Google Analytics. Google puede recibir información técnica cuando carga el contenedor. Si permites analítica, Google Analytics puede procesar datos de visita y uso conforme a los términos y controles de privacidad de Google.',
+              'Google LLC actúa como proveedor externo de gestión de etiquetas y analítica. Su procesamiento puede involucrar infraestructura fuera de tu país. Revisa la información de privacidad de Google en https://policies.google.com/privacy.',
             ],
           },
           {
             heading: 'Conservación',
             paragraphs: [
               'Las preferencias de idioma y consentimiento permanecen en tu navegador hasta que las cambies o las borres. Los correos se conservan solo mientras sean necesarios para responder, mantener contexto de una comunicación voluntaria o cumplir obligaciones aplicables.',
-              'La conservación en Google Analytics depende de la configuración de la propiedad GA4 y de los controles propios de Google. Este sitio no debe usar analítica para identificar visitantes individuales.',
+              'La conservación en Google Analytics depende de la configuración de la propiedad GA4 y de los controles propios de Google. Google Tag Manager no define por sí mismo la conservación de analítica. Este sitio no debe usar analítica para identificar visitantes individuales.',
             ],
           },
           {
             heading: 'Tus decisiones',
             paragraphs: [
-              'Puedes usar el sitio sin permitir Google Analytics. Puedes cambiar tu elección después desde “Preferencias de cookies” en el footer.',
+              'Puedes usar el sitio sin permitir analítica. Puedes cambiar tu elección después desde “Preferencias de cookies” en el footer.',
             ],
           },
           {

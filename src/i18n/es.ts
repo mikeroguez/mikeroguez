@@ -278,16 +278,16 @@ export default {
   cookies: {
     title: 'Privacidad y cookies',
     description:
-      'Este sitio guarda preferencias básicas para funcionar. Google Analytics solo se activa si permites analítica.',
+      'Este sitio guarda preferencias básicas para funcionar. La analítica con Google Tag Manager y Google Analytics solo se activa si la permites.',
     optionsLabel: 'Preferencias disponibles',
     necessaryTitle: 'Necesarias',
     necessaryDescription: 'Guardan idioma y consentimiento. Permanecen activas.',
     alwaysOn: 'Activas',
     optional: 'Opcional',
-    analyticsTitle: 'Google Analytics',
+    analyticsTitle: 'Analítica de Google',
     analyticsDescription: 'Permitir medición de visitas y uso del sitio.',
     reject: 'Usar solo necesarias',
-    accept: 'Permitir Google Analytics',
+    accept: 'Permitir analítica',
   },
   notFound: {
     eyebrow: '404',

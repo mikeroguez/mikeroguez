@@ -13,13 +13,13 @@ calling it fully mature from a legal, editorial and brand perspective.
   - Resolve by: reviewing with a qualified lawyer for Mexico and expected
     international visitors, especially EU/UK/Swiss visitors.
 
-- Decide whether Google Analytics should stay in Consent Mode advanced or move
-  to basic consent mode.
-  - Why: the current implementation loads the Google tag with denied consent by
-    default, which helps installation checks and Consent Mode behavior but may
+- Decide whether Google Tag Manager and Google Analytics should stay in Consent
+  Mode advanced or move to basic consent mode.
+  - Why: the current implementation loads the GTM container with denied consent
+    by default, which helps installation checks and Consent Mode behavior but may
     still send consent pings before acceptance.
   - Resolve by: choosing risk posture. If basic mode is required, load
-    `gtag.js` only after analytics is accepted and accept that some installation
+    `gtm.js` only after analytics is accepted and accept that some installation
     checks may need consent first.
 
 - Confirm GA4 data retention settings.

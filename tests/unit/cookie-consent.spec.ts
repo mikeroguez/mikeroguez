@@ -23,13 +23,13 @@ describe('CookieConsentBanner', () => {
     const wrapper = await mountBanner('/home');
 
     expect(wrapper.text()).toContain('Privacy and cookies');
-    expect(wrapper.text()).toContain('Allow Google Analytics');
+    expect(wrapper.text()).toContain('Allow analytics');
 
     setLocale('es');
     await nextTick();
 
     expect(wrapper.text()).toContain('Privacidad y cookies');
-    expect(wrapper.text()).toContain('Permitir Google Analytics');
+    expect(wrapper.text()).toContain('Permitir analítica');
   });
 
   it('presents analytics as a button decision, not a second input', async () => {
@@ -41,6 +41,6 @@ describe('CookieConsentBanner', () => {
     expect(checkboxes).toHaveLength(0);
     expect(wrapper.findAll('button')).toHaveLength(2);
     expect(wrapper.text()).toContain('Usar solo necesarias');
-    expect(wrapper.text()).toContain('Permitir Google Analytics');
+    expect(wrapper.text()).toContain('Permitir analítica');
   });
 });

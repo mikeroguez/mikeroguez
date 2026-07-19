@@ -274,16 +274,16 @@ export default {
   cookies: {
     title: 'Privacy and cookies',
     description:
-      'This site stores basic preferences to work correctly. Google Analytics only runs if you allow analytics.',
+      'This site stores basic preferences to work correctly. Analytics through Google Tag Manager and Google Analytics only runs if you allow it.',
     optionsLabel: 'Available preferences',
     necessaryTitle: 'Necessary',
     necessaryDescription: 'Store language and consent. They remain active.',
     alwaysOn: 'Active',
     optional: 'Optional',
-    analyticsTitle: 'Google Analytics',
+    analyticsTitle: 'Google analytics',
     analyticsDescription: 'Allow visit and site-use measurement.',
     reject: 'Use necessary only',
-    accept: 'Allow Google Analytics',
+    accept: 'Allow analytics',
   },
   notFound: {
     eyebrow: '404',

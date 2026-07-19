@@ -1,7 +1,7 @@
-export const GOOGLE_ANALYTICS_ID = 'G-6DWL8R5BHR';
+export const GOOGLE_TAG_MANAGER_ID = 'GTM-M333ZHPZ';
 
 const CONSENT_STORAGE_KEY = 'mikeroguez_cookie_consent';
-const GA_SCRIPT_ID = 'google-analytics-gtag';
+const GTM_SCRIPT_ID = 'google-tag-manager';
 const GA_COOKIE_PREFIXES = ['_ga', '_gid', '_gat'];
 
 export interface CookieConsentPreferences {
@@ -56,7 +56,7 @@ export function initializeGoogleAnalytics(): void {
   if (typeof window === 'undefined') return;
 
   initializeGoogleConsent();
-  loadGoogleTag();
+  loadGoogleTagManager();
 }
 
 export function applyCookieConsent(analytics: boolean): void {
@@ -78,7 +78,8 @@ export function trackPageView(path: string, title: string): void {
   if (typeof window === 'undefined') return;
   if (!getStoredCookieConsent()?.analytics) return;
 
-  window.gtag?.('event', 'page_view', {
+  window.dataLayer?.push({
+    event: 'page_view',
     page_path: path,
     page_title: title,
   });
@@ -96,17 +97,19 @@ function initializeGoogleConsent(): void {
   window.gtag('set', 'ads_data_redaction', true);
 }
 
-function loadGoogleTag(): void {
-  if (document.getElementById(GA_SCRIPT_ID)) return;
+function loadGoogleTagManager(): void {
+  if (document.getElementById(GTM_SCRIPT_ID)) return;
+
+  window.dataLayer.push({
+    'gtm.start': new Date().getTime(),
+    event: 'gtm.js',
+  });
 
   const script = document.createElement('script');
-  script.id = GA_SCRIPT_ID;
+  script.id = GTM_SCRIPT_ID;
   script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`;
+  script.src = `https://www.googletagmanager.com/gtm.js?id=${GOOGLE_TAG_MANAGER_ID}`;
   document.head.append(script);
-
-  window.gtag('js', new Date());
-  window.gtag('config', GOOGLE_ANALYTICS_ID, { send_page_view: false });
 }
 
 function consentState(analytics: ConsentValue): GoogleConsentState {
