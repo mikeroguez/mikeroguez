@@ -18,6 +18,8 @@ donde mi perfil público aparece como miembro y responsable de desarrollo.
 Este repositorio funciona como perfil público de GitHub y como fuente del sitio
 personal [mikeroguez.me](https://mikeroguez.me).
 
+Versión pública actual del sitio: `v1.0.1`.
+
 ## Enfoque
 
 - Tecnología educativa y sistemas para educación superior.
