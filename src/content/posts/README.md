@@ -206,6 +206,15 @@ En Markdown se vincula con ruta absoluta desde la raiz publica:
 ![Diagrama del flujo editorial](/blog/aprendizaje-herramientas-digitales/diagrama-flujo.webp)
 ```
 
+Para agregar pie de imagen, escribe un parrafo en cursivas inmediatamente despues
+de la imagen. El generador lo convertira en `figcaption`:
+
+```md
+![Diagrama del flujo editorial](/blog/aprendizaje-herramientas-digitales/diagrama-flujo.webp)
+
+_Elaboracion propia._
+```
+
 Reglas para imagenes publicas:
 
 - el nombre del directorio debe coincidir con el slug de la entrada;

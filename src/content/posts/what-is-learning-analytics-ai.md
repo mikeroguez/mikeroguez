@@ -107,8 +107,9 @@ field that combines education, computing, system design and social sciences.
 
 ![Timeline summarizing how learning analytics moved from academic foundations and digital platforms to predictive models, generative artificial intelligence and challenges around privacy, transparency and fairness.](/blog/analitica-aprendizaje-inteligencia-artificial/evolution-learning-analytics.svg)
 
-_Figure by the author, based on the systematic review about machine learning,
-generative artificial intelligence and learning analytics in higher education._
+_Visual synthesis of learning analytics: from its academic foundations to
+predictive models, generative AI and the challenges of privacy, transparency and
+fairness._
 
 In the review, most traditional studies focused on three areas: academic
 performance prediction, dropout detection and engagement analysis. Many used

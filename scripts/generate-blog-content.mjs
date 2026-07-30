@@ -37,6 +37,56 @@ const markdown = new MarkdownIt({
   typographer: true,
 });
 
+markdown.core.ruler.after('inline', 'image_caption_figures', (state) => {
+  const tokens = state.tokens;
+
+  for (let index = 0; index < tokens.length - 5; index += 1) {
+    const imageParagraphOpen = tokens[index];
+    const imageInline = tokens[index + 1];
+    const imageParagraphClose = tokens[index + 2];
+    const captionParagraphOpen = tokens[index + 3];
+    const captionInline = tokens[index + 4];
+    const captionParagraphClose = tokens[index + 5];
+    const imageChildren = imageInline.children ?? [];
+    const captionChildren = captionInline.children ?? [];
+    const hasSingleImage =
+      imageParagraphOpen.type === 'paragraph_open' &&
+      imageInline.type === 'inline' &&
+      imageParagraphClose.type === 'paragraph_close' &&
+      imageChildren.length === 1 &&
+      imageChildren[0].type === 'image';
+    const hasEmphasisCaption =
+      captionParagraphOpen.type === 'paragraph_open' &&
+      captionInline.type === 'inline' &&
+      captionParagraphClose.type === 'paragraph_close' &&
+      captionChildren[0]?.type === 'em_open' &&
+      captionChildren.at(-1)?.type === 'em_close';
+
+    if (!hasSingleImage || !hasEmphasisCaption) continue;
+
+    const figureOpen = new state.Token('figure_open', 'figure', 1);
+    const figureClose = new state.Token('figure_close', 'figure', -1);
+    const figcaptionOpen = new state.Token('figcaption_open', 'figcaption', 1);
+    const figcaptionClose = new state.Token('figcaption_close', 'figcaption', -1);
+    const figureImage = new state.Token('inline', '', 0);
+    const captionText = new state.Token('inline', '', 0);
+
+    figureImage.children = imageChildren;
+    captionText.children = captionChildren.slice(1, -1);
+
+    tokens.splice(
+      index,
+      6,
+      figureOpen,
+      figureImage,
+      figcaptionOpen,
+      captionText,
+      figcaptionClose,
+      figureClose,
+    );
+  }
+});
+
 function normalizeSearchText(value) {
   return value
     .toLowerCase()

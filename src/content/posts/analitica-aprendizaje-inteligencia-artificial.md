@@ -113,9 +113,9 @@ educación, computación, diseño de sistemas y ciencias sociales.
 
 ![Línea del tiempo que resume cómo la analítica de aprendizaje pasó de bases académicas y plataformas digitales a modelos predictivos, inteligencia artificial generativa y retos de privacidad, transparencia y equidad.](/blog/analitica-aprendizaje-inteligencia-artificial/evolucion-analitica-aprendizaje.svg)
 
-_Elaboración propia a partir de la revisión sistemática sobre aprendizaje
-automático, inteligencia artificial generativa y analítica de aprendizaje en
-educación superior._
+_Síntesis visual del recorrido de la analítica de aprendizaje: de sus bases
+académicas a los modelos predictivos, la IA generativa y los retos de privacidad,
+transparencia y equidad._
 
 En la revisión, la mayoría de los estudios tradicionales se concentraron en tres
 áreas: predicción del desempeño académico, detección de abandono y análisis de
