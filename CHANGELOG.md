@@ -5,6 +5,22 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 1.0.1 - 2026-07-30
+
+### Changed
+
+- Pies de imagen del blog renderizados como `figure` y `figcaption`, con estilo
+  editorial reutilizable para distinguirlos del texto principal.
+- Pie de imagen de la entrada sobre analitica de aprendizaje reescrito como
+  sintesis visual del recorrido del campo.
+- Guia editorial de posts actualizada para documentar el patron de pies de
+  imagen en Markdown.
+
+### Fixed
+
+- Periodo visible del proyecto CONAHCYT PRONACES corregido de `2022-2024` a
+  `2022-2023`.
+
 ## 1.0.0 - 2026-07-19
 
 ### Changed

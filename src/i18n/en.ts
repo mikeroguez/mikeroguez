@@ -170,7 +170,7 @@ export default {
     pronacesProgram: 'CONAHCYT',
     pronacesProgramContext: 'PRONACES 2022-2024',
     pronacesProgramLabel: 'CONAHCYT (PRONACES) 2022-2024 project',
-    pronacesPeriod: '2022-2024',
+    pronacesPeriod: '2022-2023',
     pronacesTagsLabel: 'PRONACES CONAHCYT project areas',
     pronacesTag1: 'Interactive resources',
     pronacesTag2: 'Bilingual-bicultural approach',

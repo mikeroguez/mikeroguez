@@ -1502,11 +1502,30 @@ button.post-tag[aria-pressed='true'] {
   color: var(--color-text-muted);
 }
 
+.markdown-body figure {
+  margin: var(--space-6) 0;
+}
+
 .markdown-body img {
   width: 100%;
   height: auto;
   margin: var(--space-5) 0 var(--space-2);
   border-radius: var(--radius-small);
+}
+
+.markdown-body figure img {
+  margin: 0;
+}
+
+.markdown-body figcaption {
+  max-width: 92%;
+  padding: var(--space-2) 0 0;
+  margin: var(--space-1) 0 0;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-0);
+  font-style: normal;
+  line-height: var(--line-height-body);
 }
 
 .markdown-body code {

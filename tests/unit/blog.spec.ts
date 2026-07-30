@@ -23,6 +23,8 @@ describe('blog content', () => {
     const post = getPostBySlug('analitica-aprendizaje-inteligencia-artificial');
 
     expect(post?.html).toContain('<p>');
+    expect(post?.html).toContain('<figure>');
+    expect(post?.html).toContain('<figcaption>Síntesis visual');
     expect(post?.meta.status).toBe('published');
     expect(post?.meta.image).toBeUndefined();
   });
