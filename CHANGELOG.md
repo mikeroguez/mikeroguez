@@ -5,6 +5,13 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 1.0.2 - 2026-07-30
+
+### Fixed
+
+- Identificadores concretos de analitica redactados del changelog historico para
+  reducir exposicion publica innecesaria.
+
 ## 1.0.1 - 2026-07-30
 
 ### Changed
@@ -25,17 +32,15 @@ publica vinculada al footer del sitio.
 
 ### Changed
 
-- Analitica migrada de carga directa de Google Analytics a Google Tag Manager
-  mediante el contenedor `GTM-M333ZHPZ`.
-- Consent Mode conserva analitica denegada por defecto y los eventos de
-  `page_view` solo se envian cuando la persona acepta analitica.
+- Analitica migrada a un gestor de etiquetas con consentimiento denegado por
+  defecto.
+- La medicion de visitas solo se activa cuando la persona acepta analitica.
 - Modal de cookies, aviso de privacidad, aviso de cookies y pendientes legales
-  actualizados para describir Google Tag Manager y Google Analytics.
+  actualizados para describir el flujo de consentimiento y analitica.
 
 ### Removed
 
-- Carga directa de `gtag/js?id=G-6DWL8R5BHR` desde el sitio; GA4 debe
-  configurarse dentro del contenedor de Google Tag Manager.
+- Carga directa anterior de analitica desde el sitio.
 
 ## 0.2.6 - 2026-07-19
 
