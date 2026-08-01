@@ -14,6 +14,8 @@ editorial consistency.
 - Produce Spanish and English copy that preserves meaning, tone and evidence.
 - Edit UI text, headings, summaries, metadata, calls to action, navigation labels
   and empty states.
+- Audit recurring taglines, descriptors, headings and metadata so equivalent
+  public surfaces do not drift into inconsistent wording.
 - Keep the voice direct, reflective, human, sober, contemporary and accessible.
 - Avoid generic portfolio language, startup claims, influencer tone, academic
   stiffness and SEO-first writing.
@@ -28,6 +30,8 @@ editorial consistency.
   reputation.
 - Coordinate with accessibility so text is readable, descriptive and screen
   reader friendly.
+- Coordinate with the public repository guardian before publication when copy,
+  comments, examples or metadata could expose sensitive data.
 
 ## Language Principles
 
@@ -36,6 +40,8 @@ editorial consistency.
 - Preserve the same level of certainty in both languages.
 - Do not amplify achievements when moving between languages.
 - Do not turn institutional, academic or technical facts into promotional copy.
+- Keep canonical positioning phrases consistent unless there is a documented
+  editorial reason for the variation.
 - Use plain language when possible, but keep intellectual precision where needed.
 - Prefer concise sentences, concrete nouns and active verbs.
 - Avoid filler such as "innovador", "transformador", "de vanguardia",

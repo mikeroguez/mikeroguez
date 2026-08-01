@@ -16,8 +16,15 @@ clientes y desconocidos. Por eso, la privacidad es parte de la arquitectura.
 - No publicar documentos internos.
 - No publicar datos privados o de terceros.
 - No publicar secretos.
+- No publicar llaves de analitica, measurement IDs, tokens, client IDs, webhook
+  URLs, nombres de entornos, rutas locales ni identificadores operativos en
+  commits, PRs, comentarios, codigo, documentacion, publicaciones, frontmatter o
+  archivos generados.
 - No asumir que una fuente local es publicable.
 - Revisar diffs, workflows, dependencias y archivos generados.
+- Revisar tambien mensajes de commit, descripciones de PR, comentarios de
+  revision, comentarios de codigo, ejemplos, logs y metadatos antes de hacerlos
+  publicos.
 
 El script `npm run check:public` ayuda a detectar riesgos obvios, pero no
 sustituye una revision humana.

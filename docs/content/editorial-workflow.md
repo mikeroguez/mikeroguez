@@ -13,6 +13,16 @@ Evidencia local
 Cada etapa debe dejar claro que se sabe, que se infiere y que permanece
 pendiente.
 
+La revision de copy debe comparar frases recurrentes, descriptores, metadatos,
+titulos, pies, navegacion y microcopy entre README, sitio, publicaciones y
+social cards. Cuando una frase funcione como posicionamiento canonico, las
+variaciones deben ser intencionales y estar justificadas.
+
+La revision publica tambien aplica a comentarios editoriales, ejemplos,
+frontmatter, mensajes preparados para commit o PR y notas de publicacion. Ningun
+texto de trabajo debe incluir secretos, llaves de analitica, tokens, IDs
+operativos, rutas locales, datos privados o informacion sensible.
+
 ## Blog
 
 Las entradas del blog viven en `src/content/posts/` y se publican en

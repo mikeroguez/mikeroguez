@@ -62,6 +62,12 @@ No publicar secretos, telefonos privados, domicilios, documentos oficiales, dato
 familiares, datos de estudiantes, clientes, instituciones confidenciales,
 negociaciones, cotizaciones ni estrategias privadas.
 
+Esta regla tambien aplica a commits, mensajes de PR, comentarios de revision,
+comentarios de codigo, ejemplos, logs, metadatos, frontmatter y publicaciones.
+No incluir llaves de analitica, measurement IDs, tokens, client IDs, webhook
+URLs, nombres de entornos, rutas locales ni identificadores operativos aunque
+parezcan de bajo impacto o parcialmente publicos.
+
 ## Uso de `.local-context/`
 
 Leer primero `.local-context/approved/`, despues `reviewed/` y usar `raw/` solo
@@ -98,7 +104,8 @@ rastreado por Git debe considerarse publico aunque tenga `status: draft`.
 7. Implementar en cambios pequenos.
 8. Ejecutar validaciones.
 9. Revisar accesibilidad.
-10. Revisar seguridad publica.
+10. Revisar seguridad publica, incluyendo commits, comentarios, codigo,
+    publicaciones y metadatos.
 11. Revisar `git diff`.
 12. Registrar decisiones relevantes.
 13. Presentar resultados.
