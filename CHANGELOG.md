@@ -5,6 +5,30 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 1.0.4 - 2026-08-02
+
+### Added
+
+- Flujo editorial coordinado por `editorial-lead` para contenido publico,
+  analitica, evidencia, embargos, revision bilingue y seguridad antes de
+  publicacion.
+- Scripts locales para consultar Google Analytics 4 desde credenciales ignoradas
+  por Git.
+- Rutas editoriales en home y posts para conectar lectura con investigacion,
+  trabajo aplicado y contacto.
+
+### Changed
+
+- Regla editorial actualizada: toda publicacion publica debe tener espejo en
+  español e ingles con la misma prioridad, salvo excepcion temporal aprobada.
+- Paginas de trabajo e investigacion ajustadas con llamados contextuales hacia
+  contacto.
+
+### Fixed
+
+- Normalizacion cliente de rutas con diagonal final para reducir duplicacion de
+  vistas en analitica.
+
 ## 1.0.3 - 2026-08-01
 
 ### Changed
