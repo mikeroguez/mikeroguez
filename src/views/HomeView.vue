@@ -42,12 +42,51 @@
         </section>
       </div>
     </section>
+
+    <section class="content-section" aria-labelledby="home-pathways">
+      <h2 id="home-pathways">{{ t('home.pathwaysHeading') }}</h2>
+      <div class="pathway-grid">
+        <article v-for="pathway in pathways" :key="pathway.title" class="pathway-card">
+          <h3>{{ pathway.title }}</h3>
+          <p>{{ pathway.description }}</p>
+          <RouterLink :to="pathway.href">{{ pathway.link }}</RouterLink>
+        </article>
+      </div>
+    </section>
   </article>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 
 import { locale, t } from '@/i18n';
 import { localizedPath } from '@/utils/routes';
+
+const pathways = computed(() => [
+  {
+    title: t('home.pathwayResearchTitle'),
+    description: t('home.pathwayResearchDesc'),
+    link: t('home.pathwayResearchLink'),
+    href: localizedPath('/research', locale.value),
+  },
+  {
+    title: t('home.pathwayWorkTitle'),
+    description: t('home.pathwayWorkDesc'),
+    link: t('home.pathwayWorkLink'),
+    href: localizedPath('/work', locale.value),
+  },
+  {
+    title: t('home.pathwayBlogTitle'),
+    description: t('home.pathwayBlogDesc'),
+    link: t('home.pathwayBlogLink'),
+    href: localizedPath('/blog', locale.value),
+  },
+  {
+    title: t('home.pathwayContactTitle'),
+    description: t('home.pathwayContactDesc'),
+    link: t('home.pathwayContactLink'),
+    href: localizedPath('/contact', locale.value),
+  },
+]);
 </script>

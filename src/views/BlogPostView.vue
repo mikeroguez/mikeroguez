@@ -41,6 +41,16 @@
         </li>
       </ul>
     </section>
+    <section class="post-next" aria-labelledby="post-next-title">
+      <h2 id="post-next-title">{{ t('blogPost.nextHeading') }}</h2>
+      <div class="pathway-grid pathway-grid--compact">
+        <article v-for="item in nextSteps" :key="item.title" class="pathway-card">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+          <RouterLink :to="item.href">{{ item.link }}</RouterLink>
+        </article>
+      </div>
+    </section>
     <section class="share-tools" aria-labelledby="share-tools-title">
       <h2 id="share-tools-title">{{ t('blogPost.shareHeading') }}</h2>
       <div class="share-tools__actions">
@@ -93,6 +103,7 @@ import { locale, setLocaleForRoute, t } from '@/i18n';
 import { getPostBySlug, getPostPath, getPublishedPostsByLanguage } from '@/content/blog';
 import NotFoundView from '@/views/NotFoundView.vue';
 import { absoluteUrl, SITE_AUTHOR, SITE_NAME } from '@/utils/site';
+import { localizedPath } from '@/utils/routes';
 import type { BlogPostLanguage } from '@/types/blog';
 
 const props = defineProps<{
@@ -103,6 +114,27 @@ const route = useRoute();
 const post = computed(() => getPostBySlug(String(route.params.slug), props.lang));
 const blogIndexPath = computed(() => (post.value?.meta.lang === 'en' ? '/blog' : '/publicaciones'));
 const shareStatus = ref('');
+const postLocale = computed(() => post.value?.meta.lang ?? locale.value);
+const nextSteps = computed(() => [
+  {
+    title: t('blogPost.nextResearchTitle'),
+    description: t('blogPost.nextResearchDesc'),
+    link: t('blogPost.nextResearchLink'),
+    href: localizedPath('/research', postLocale.value),
+  },
+  {
+    title: t('blogPost.nextWorkTitle'),
+    description: t('blogPost.nextWorkDesc'),
+    link: t('blogPost.nextWorkLink'),
+    href: localizedPath('/work', postLocale.value),
+  },
+  {
+    title: t('blogPost.nextContactTitle'),
+    description: t('blogPost.nextContactDesc'),
+    link: t('blogPost.nextContactLink'),
+    href: localizedPath('/contact', postLocale.value),
+  },
+]);
 
 const relatedPosts = computed(() => {
   if (!post.value?.meta.tags?.length) return [];

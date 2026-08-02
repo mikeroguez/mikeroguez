@@ -187,6 +187,14 @@
           </li>
         </ul>
       </section>
+
+      <section class="sidebar-callout" aria-labelledby="research-contact">
+        <h3 id="research-contact">{{ t('research.contactHeading') }}</h3>
+        <p>{{ t('research.contactLead') }}</p>
+        <RouterLink class="blog-sidebar__link" :to="localizedPath('/contact', locale)">
+          {{ t('research.contactLink') }}
+        </RouterLink>
+      </section>
     </aside>
   </div>
 
@@ -214,9 +222,11 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import { RouterLink } from 'vue-router';
 
 import { locale, t } from '@/i18n';
 import { getPublishedPublications } from '@/content/research';
+import { localizedPath } from '@/utils/routes';
 import type { Publication, PublicationType } from '@/types/research';
 
 const publications = getPublishedPublications();

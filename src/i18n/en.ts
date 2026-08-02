@@ -87,6 +87,21 @@ export default {
     focusEduDesc: 'Systems, platforms and digital resources for university contexts.',
     focusAiTitle: 'AI & Learning Analytics',
     focusAiDesc: 'Applied research on systems that support pedagogical decisions.',
+    pathwaysHeading: 'Where to start',
+    pathwayResearchTitle: 'Research',
+    pathwayResearchDesc:
+      'Publications, academic lines and profiles where the available evidence can be reviewed.',
+    pathwayResearchLink: 'View research',
+    pathwayWorkTitle: 'Applied work',
+    pathwayWorkDesc:
+      'Projects where interaction design and software connect with educational processes.',
+    pathwayWorkLink: 'View work',
+    pathwayBlogTitle: 'Notes and essays',
+    pathwayBlogDesc: 'Texts on education, design, software, accessibility and technical practice.',
+    pathwayBlogLink: 'Read posts',
+    pathwayContactTitle: 'Collaboration',
+    pathwayContactDesc: 'Public channels for academic, professional or research conversations.',
+    pathwayContactLink: 'Go to contact',
   },
   about: {
     eyebrow: 'About me',
@@ -151,6 +166,10 @@ export default {
     collaborationsHeading: 'Research collaborations',
     collaborationsLead:
       'Interinstitutional IHCLab-linked work where my public role is listed as team member.',
+    contactHeading: 'Discuss applied work',
+    contactLead:
+      'For academic collaborations, educational projects or professional conversation, the public contact page gathers the appropriate channels.',
+    contactLink: 'Go to contact',
     collaborationRole: 'Member',
     ihcLabProfile: 'View IHCLab profile',
     conacytSeedTitle: 'Literacy for Deaf students in basic education',
@@ -227,6 +246,10 @@ export default {
     typeThesis: 'Thesis',
     typeReport: 'Technical report',
     typePreprint: 'Preprint',
+    contactHeading: 'Discuss research',
+    contactLead:
+      'For academic collaboration, publication reading or related work, use the public contact channels.',
+    contactLink: 'Go to contact',
   },
   blog: {
     eyebrow: 'Blog',
@@ -263,6 +286,18 @@ export default {
     copyLink: 'Copy link',
     linkCopied: 'Link copied.',
     shareReady: 'Post ready to share.',
+    nextHeading: 'Next step',
+    nextResearchTitle: 'Review publications',
+    nextResearchDesc:
+      'Connect this note with publications, academic profiles and reviewable sources.',
+    nextResearchLink: 'Go to research',
+    nextWorkTitle: 'View applied work',
+    nextWorkDesc: 'Explore projects where these topics become software and user experience.',
+    nextWorkLink: 'Go to work',
+    nextContactTitle: 'Open a conversation',
+    nextContactDesc:
+      'Use the public channels for academic, professional or research collaboration.',
+    nextContactLink: 'Go to contact',
   },
   contact: {
     eyebrow: 'Profile',

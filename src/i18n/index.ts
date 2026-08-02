@@ -87,6 +87,19 @@ export interface Messages {
     focusEduDesc: string;
     focusAiTitle: string;
     focusAiDesc: string;
+    pathwaysHeading: string;
+    pathwayResearchTitle: string;
+    pathwayResearchDesc: string;
+    pathwayResearchLink: string;
+    pathwayWorkTitle: string;
+    pathwayWorkDesc: string;
+    pathwayWorkLink: string;
+    pathwayBlogTitle: string;
+    pathwayBlogDesc: string;
+    pathwayBlogLink: string;
+    pathwayContactTitle: string;
+    pathwayContactDesc: string;
+    pathwayContactLink: string;
   };
   about: {
     eyebrow: string;
@@ -144,6 +157,9 @@ export interface Messages {
     encantoTag3: string;
     collaborationsHeading: string;
     collaborationsLead: string;
+    contactHeading: string;
+    contactLead: string;
+    contactLink: string;
     collaborationRole: string;
     ihcLabProfile: string;
     conacytSeedTitle: string;
@@ -215,6 +231,9 @@ export interface Messages {
     typeThesis: string;
     typeReport: string;
     typePreprint: string;
+    contactHeading: string;
+    contactLead: string;
+    contactLink: string;
   };
   blog: {
     eyebrow: string;
@@ -251,6 +270,16 @@ export interface Messages {
     copyLink: string;
     linkCopied: string;
     shareReady: string;
+    nextHeading: string;
+    nextResearchTitle: string;
+    nextResearchDesc: string;
+    nextResearchLink: string;
+    nextWorkTitle: string;
+    nextWorkDesc: string;
+    nextWorkLink: string;
+    nextContactTitle: string;
+    nextContactDesc: string;
+    nextContactLink: string;
   };
   contact: {
     eyebrow: string;

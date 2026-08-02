@@ -93,6 +93,14 @@
         </li>
       </ol>
     </section>
+
+    <section class="content-section callout-section" aria-labelledby="work-contact">
+      <h2 id="work-contact">{{ t('work.contactHeading') }}</h2>
+      <p>{{ t('work.contactLead') }}</p>
+      <RouterLink class="text-link" :to="localizedPath('/contact', locale)">
+        {{ t('work.contactLink') }}
+      </RouterLink>
+    </section>
   </article>
 </template>
 

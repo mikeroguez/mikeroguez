@@ -581,17 +581,20 @@ p {
 }
 
 .feature-grid,
+.pathway-grid,
 .project-grid {
   display: grid;
   gap: var(--space-4);
   margin-top: var(--space-5);
 }
 
-.feature-grid {
+.feature-grid,
+.pathway-grid {
   grid-template-columns: 1fr;
 }
 
 .feature-grid section,
+.pathway-card,
 .project-card {
   position: relative;
   min-width: 0;
@@ -600,6 +603,7 @@ p {
 }
 
 .feature-grid h3,
+.pathway-card h3,
 .project-card h3,
 .publication-list h3 {
   margin: 0 0 var(--space-2);
@@ -609,9 +613,31 @@ p {
 }
 
 .feature-grid p,
+.pathway-card p,
 .project-card p,
 .publication-list p {
   margin-bottom: 0;
+}
+
+.pathway-card {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+}
+
+.pathway-card a,
+.callout-section a {
+  justify-self: start;
+  color: var(--color-brand);
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.24em;
+}
+
+.pathway-card a:hover,
+.callout-section a:hover {
+  color: var(--color-brand-strong);
 }
 
 .project-grid {
@@ -1228,6 +1254,16 @@ button.post-tag[aria-pressed='true'] {
   border-top: 1px solid var(--color-border);
 }
 
+.post-next {
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.post-next h2 {
+  font-size: var(--font-size-1);
+}
+
 .post-related__heading {
   font-size: var(--font-size-0);
   font-weight: 600;
@@ -1345,6 +1381,19 @@ button.post-tag[aria-pressed='true'] {
   margin: 0;
   color: var(--color-text-muted);
   font-size: var(--font-size-0);
+}
+
+.sidebar-callout {
+  display: grid;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  margin-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.sidebar-callout h3,
+.sidebar-callout p {
+  margin: 0;
 }
 
 .cookie-consent {
@@ -1658,6 +1707,14 @@ button.post-tag[aria-pressed='true'] {
 
   .feature-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pathway-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pathway-grid--compact {
+    grid-template-columns: 1fr;
   }
 
   .project-card {

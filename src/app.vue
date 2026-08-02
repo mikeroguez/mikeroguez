@@ -18,6 +18,15 @@ const route = useRoute();
 const router = useRouter();
 
 onMounted(() => {
+  if (route.path !== '/' && route.path.endsWith('/')) {
+    void router.replace({
+      path: route.path.replace(/\/+$/, ''),
+      query: route.query,
+      hash: route.hash,
+    });
+    return;
+  }
+
   if (!hasStoredLocalePreference() && route.path === '/' && detectNavigatorLocale() === 'en') {
     void router.replace(localizedPath('/', 'en'));
   }
