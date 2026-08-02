@@ -95,21 +95,32 @@ rastreado por Git debe considerarse publico aunque tenga `status: draft`.
 
 ## Flujo de Trabajo
 
-1. Inspeccionar el repositorio.
-2. Identificar el objetivo.
-3. Leer el contexto relevante.
-4. Revisar evidencia si aplica.
-5. Separar hechos de inferencias.
-6. Proponer un plan breve para cambios importantes.
-7. Implementar en cambios pequenos.
-8. Ejecutar validaciones.
-9. Revisar accesibilidad.
-10. Revisar seguridad publica, incluyendo commits, comentarios, codigo,
-    publicaciones y metadatos.
-11. Revisar `git diff`.
-12. Registrar decisiones relevantes.
-13. Presentar resultados.
-14. Solicitar revision humana antes de commit o publicacion.
+1. Activar `editorial-lead` para cambios publicos, editoriales, estrategicos,
+   de blog, marca, analitica, publicacion, release o despliegue.
+2. Inspeccionar el repositorio.
+3. Identificar objetivo, audiencia, superficie publica y urgencia.
+4. Clasificar material como publico, privado, interno, sensible o embargado.
+5. Leer el contexto relevante.
+6. Revisar evidencia con `evidence-librarian` si hay claims.
+7. Revisar embargos con `research-embargo-guardian` si toca investigacion,
+   tesis, papers, HAPDA, modelo predictivo o materiales de `short-mexihc-2026`.
+8. Separar hechos, inferencias, opiniones y aspiraciones.
+9. Enrutar especialistas necesarios: contenido, copy, marca, reputacion
+   academica, docencia, analitica, UX, visual, accesibilidad, SEO, legal,
+   frontend y seguridad publica.
+10. Proponer un plan breve para cambios importantes.
+11. Implementar en cambios pequenos.
+12. Ejecutar validaciones proporcionales al cambio.
+13. Revisar accesibilidad si hay UI o contenido navegable.
+14. Revisar seguridad publica, incluyendo commits, comentarios, codigo,
+    publicaciones, analitica, metadatos y archivos generados.
+15. Revisar `git diff`.
+16. Registrar decisiones relevantes.
+17. Pasar por `publication-readiness-editor` antes de solicitar aprobacion.
+18. Presentar paquete de aprobacion humana con resultado, evidencia, riesgos,
+    validaciones y decision solicitada.
+19. No publicar, commitear, empujar ni desplegar sin aprobacion humana explicita
+    cuando el cambio sea editorial, sensible, reputacional o de release.
 
 ## Definicion de Terminado
 
@@ -117,6 +128,10 @@ Una tarea termina cuando cumple el objetivo, usa evidencia verificada cuando
 aplica, es apta para publicacion, mantiene marca y accesibilidad, pasa lint,
 TypeScript, pruebas, build, rutas, seguridad publica, diff revisado y
 documentacion actualizada.
+
+Para trabajo publico o editorial, tambien debe quedar lista para revision humana
+final: el agente puede recomendar aprobar, modificar, pausar o rechazar, pero la
+aprobacion final corresponde al usuario.
 
 ## Git
 

@@ -6,6 +6,7 @@ publicos reales.
 ## Principios
 
 - Publicar menos, pero mejor verificado.
+- Publicar con espejo en español e ingles desde la planeacion editorial.
 - Separar biografia, trabajo, investigacion y contacto.
 - Convertir evidencia en sintesis publica, no en copia literal.
 - Evitar lenguaje promocional.

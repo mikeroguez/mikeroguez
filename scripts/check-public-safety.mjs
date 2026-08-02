@@ -29,6 +29,7 @@ const ignoredDirs = new Set([
   '.output',
   'coverage',
   '.local-context',
+  '.secrets',
   '.npm-cache',
   '.npm-logs',
 ]);
@@ -43,6 +44,9 @@ const secretPatterns = [
   },
 ];
 const localPathPattern = /(?:\/Users\/|\/home\/|C:\\Users\\)/i;
+const privateKeyJsonPattern = new RegExp(
+  String.raw`"private_key"\s*:\s*"-----BEGIN ` + String.raw`PRIVATE KEY-----`,
+);
 
 function addFailure(message) {
   failures.push(message);
@@ -84,6 +88,10 @@ if (!/(^|\n)\.local-context\/(\n|$)/.test(gitignore)) {
   addFailure('.local-context/ must remain ignored in .gitignore.');
 }
 
+if (!/(^|\n)\.secrets\/(\n|$)/.test(gitignore)) {
+  addFailure('.secrets/ must remain ignored in .gitignore.');
+}
+
 if (!/(^|\n)\.env(\n|$)/.test(gitignore) || !/(^|\n)\.env\.\*(\n|$)/.test(gitignore)) {
   addFailure('.env and .env.* must remain ignored in .gitignore.');
 }
@@ -97,6 +105,17 @@ const tracked = (await git(['ls-files'])).stdout.split('\n').filter(Boolean);
 for (const file of tracked) {
   if (/\.(pem|key|p12)$/i.test(file)) {
     addFailure(`Tracked key or certificate file is not allowed: ${file}`);
+  }
+
+  if (/^\.secrets\//.test(file)) {
+    addFailure(`Secrets directory file must not be tracked: ${file}`);
+  }
+
+  if (/\.json$/i.test(file)) {
+    const content = await readFile(file, 'utf8').catch(() => '');
+    if (/"type"\s*:\s*"service_account"/.test(content) || privateKeyJsonPattern.test(content)) {
+      addFailure(`Tracked service account JSON is not allowed: ${file}`);
+    }
   }
 
   if (/^\.env(?:\.|$)/.test(file) && file !== '.env.example') {

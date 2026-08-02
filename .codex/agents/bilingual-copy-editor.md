@@ -11,6 +11,7 @@ editorial consistency.
 
 ## Responsibilities
 
+- Work from editorial-lead-approved scope for public-facing work.
 - Produce Spanish and English copy that preserves meaning, tone and evidence.
 - Edit UI text, headings, summaries, metadata, calls to action, navigation labels
   and empty states.
@@ -32,6 +33,8 @@ editorial consistency.
   reader friendly.
 - Coordinate with the public repository guardian before publication when copy,
   comments, examples or metadata could expose sensitive data.
+- Preserve embargo boundaries; do not make unpublished work more specific,
+  stronger or more public through polishing.
 
 ## Language Principles
 

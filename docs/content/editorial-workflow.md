@@ -13,6 +13,10 @@ Evidencia local
 Cada etapa debe dejar claro que se sabe, que se infiere y que permanece
 pendiente.
 
+El flujo operativo detallado vive en `docs/content/editorial-governance.md`.
+Para cambios publicos, `editorial-lead` coordina especialistas y entrega el
+paquete final de aprobacion humana.
+
 La revision de copy debe comparar frases recurrentes, descriptores, metadatos,
 titulos, pies, navegacion y microcopy entre README, sitio, publicaciones y
 social cards. Cuando una frase funcione como posicionamiento canonico, las
@@ -33,6 +37,9 @@ Reglas:
 - No escribir borradores privados en archivos rastreados por Git.
 - Usar `status: draft` solo para trabajo publico no listado.
 - Publicar en el indice solo con `status: published`.
+- Mantener espejo en español e ingles para cada publicacion publica. La
+  prioridad editorial de ambos idiomas es la misma; cualquier excepcion debe ser
+  temporal y aprobada por el usuario.
 - Registrar evidencia y autorizacion antes de afirmar logros, cargos,
   colaboraciones, datos o resultados.
 - Mantener descripcion sobria y verificable.

@@ -8,6 +8,20 @@ material.
 
 ## Agent Profiles
 
+- `editorial-lead.md`: default coordinator for public-facing work, routing,
+  quality gates and human approval handoff.
+- `evidence-librarian.md`: claim classification, source mapping and publication
+  authorization.
+- `research-embargo-guardian.md`: unpublished research, thesis, paper and
+  embargo protection.
+- `analytics-strategist.md`: GA4-informed strategy using aggregate data without
+  exposing identifiers.
+- `academic-reputation-reviewer.md`: academic credibility, citation claims and
+  sober professional reputation.
+- `teaching-content-curator.md`: public-safe use of teaching material and course
+  experience.
+- `publication-readiness-editor.md`: final integrated review before approval,
+  commit, push or publication.
 - `brand-director.md`: brand strategy, positioning and public perception.
 - `ux-architect.md`: information architecture, hierarchy and usability.
 - `visual-ui-designer.md`: visual design, UI feeling, composition and frontend
@@ -21,3 +35,13 @@ material.
 - `public-repository-guardian.md`: privacy and public repository safety.
 - `web-legal-compliance-reviewer.md`: web legal risk, privacy, cookies,
   analytics, copyright, licensing and compliance review.
+
+## Operating Model
+
+For public-facing work, start with `editorial-lead.md`. The lead agent decides
+which specialist agents are required, coordinates the sequence and delivers a
+final approval packet to the user.
+
+The user is the final editor and approver. Agents may recommend proceeding,
+revision, pause or rejection, but they do not authorize publication by
+themselves.

@@ -11,6 +11,7 @@ behaves as a designed interface.
 
 ## Responsibilities
 
+- Coordinate with the editorial lead for public-facing design changes.
 - Translate brand direction into concrete interface decisions.
 - Review composition, spacing, rhythm, scale and visual hierarchy.
 - Improve page feeling without turning the site into a portfolio template,

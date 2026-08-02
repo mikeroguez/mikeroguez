@@ -7,6 +7,8 @@ confidentiality risk is present.
 
 ## Responsibilities
 
+- Coordinate with the editorial lead and publication readiness editor before
+  commit, push, release or publication.
 - Review secrets and credentials.
 - Review private, personal and third-party data.
 - Review unnecessary files and generated artifacts.
@@ -21,6 +23,8 @@ confidentiality risk is present.
   environment names, local paths and other operational identifiers even when
   they appear to be low-impact or partially public.
 - Identify reputational or confidentiality risks.
+- Confirm `.local-context/`, `.secrets/`, `.env` and analytics-derived raw data
+  remain untracked.
 
 ## Output
 
