@@ -42,15 +42,16 @@ const alternatePaths = computed(() =>
       }
     : undefined,
 );
+const seoTitle = computed(() => post.value?.meta.seoTitle ?? post.value?.meta.title);
+const postKeywords = computed(() => post.value?.meta.keywords ?? post.value?.meta.tags ?? []);
+const postKeywordText = computed(() => postKeywords.value.join(', '));
 
 watchEffect(() => {
   if (post.value) setLocaleForRoute(post.value.meta.lang);
 });
 
 useSiteSeo({
-  title: computed(() =>
-    post.value ? `${post.value.meta.title} | Mikeroguez` : t('meta.blogPostTitle'),
-  ),
+  title: computed(() => (post.value ? `${seoTitle.value} | Mikeroguez` : t('meta.blogPostTitle'))),
   description: computed(() => post.value?.meta.description ?? t('meta.blogPostDesc')),
   path: `/blog/${slug.value}`,
   lang: computed(() => post.value?.meta.lang),
@@ -61,8 +62,10 @@ useSiteSeo({
 
 useSeoMeta({
   articlePublishedTime: computed(() => post.value?.meta.date),
+  articleModifiedTime: computed(() => post.value?.meta.updated ?? post.value?.meta.date),
   articleAuthor: [AUTHOR_URL],
   articleTag: computed(() => post.value?.meta.tags),
+  keywords: postKeywordText,
 });
 
 useHead(
@@ -71,22 +74,23 @@ useHead(
       ? [
           {
             type: 'application/ld+json',
-            children: JSON.stringify({
+            innerHTML: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'BlogPosting',
               headline: post.value.meta.title,
+              name: seoTitle.value,
               description: post.value.meta.description,
               datePublished: post.value.meta.date,
+              dateModified: post.value.meta.updated ?? post.value.meta.date,
               inLanguage: post.value.meta.lang === 'es' ? 'es-MX' : 'en',
               url: absoluteUrl(`/blog/${post.value.slug}`),
+              mainEntityOfPage: absoluteUrl(`/blog/${post.value.slug}`),
               author: {
                 '@type': 'Person',
                 name: SITE_AUTHOR,
                 url: AUTHOR_URL,
               },
-              ...(post.value.meta.tags?.length
-                ? { keywords: post.value.meta.tags.join(', ') }
-                : {}),
+              ...(postKeywords.value.length ? { keywords: postKeywords.value.join(', ') } : {}),
             }),
           },
         ]

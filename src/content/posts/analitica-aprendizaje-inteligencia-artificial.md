@@ -1,11 +1,14 @@
 ---
 title: 'Qué es la analítica de aprendizaje y hacia dónde va con inteligencia artificial'
-description: 'Una explicación sencilla sobre la analítica de aprendizaje, los datos que usa, sus aplicaciones y los retos que trae la inteligencia artificial generativa.'
+seoTitle: 'Analítica de aprendizaje e inteligencia artificial en educación'
+description: 'Analítica de aprendizaje e inteligencia artificial en educación: qué datos se usan, para qué sirven y qué retos trae la IA generativa.'
 date: '2026-07-16'
+updated: '2026-08-02'
 status: 'published'
 lang: 'es'
 translationKey: 'analitica-aprendizaje-inteligencia-artificial'
 tags: 'analítica de aprendizaje, inteligencia artificial, educación superior, learning analytics, IA generativa'
+keywords: 'analítica de aprendizaje, analitica de aprendizaje, inteligencia artificial, inteligencia artificial en educación, IA en educación, IA generativa, aprendizaje automático, educación superior, learning analytics'
 ---
 
 La analítica de aprendizaje es una forma de estudiar lo que pasa cuando una

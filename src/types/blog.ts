@@ -3,13 +3,16 @@ export type BlogPostLanguage = 'es' | 'en';
 
 export interface BlogPostMeta {
   title: string;
+  seoTitle?: string;
   description: string;
   date: string;
+  updated?: string;
   status: BlogPostStatus;
   lang: BlogPostLanguage;
   translationKey?: string;
   image?: string;
   tags?: string[];
+  keywords?: string[];
   readingTime?: number;
 }
 
