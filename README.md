@@ -1,6 +1,6 @@
 # Mikeroguez
 
-Investigación, educación, diseño y software.
+Educación, diseño de interacción y software.
 
 Soy Miguel Ángel Rodríguez Ortiz. Trabajo públicamente como Mikeroguez: una
 identidad donde conecto docencia universitaria, interacción humano-computadora,
@@ -18,7 +18,7 @@ donde mi perfil público aparece como miembro y responsable de desarrollo.
 Este repositorio funciona como perfil público de GitHub y como fuente del sitio
 personal [mikeroguez.me](https://mikeroguez.me).
 
-Versión pública actual del sitio: `v1.0.2`.
+Versión pública actual del sitio: `v1.0.3`.
 
 ## Enfoque
 

@@ -22,7 +22,7 @@ export default {
     contact: 'Contact',
   },
   footer: {
-    tagline: 'Research, education, design and software.',
+    tagline: 'Education, interaction design and software.',
     siteHeading: 'Site',
     resourcesHeading: 'Resources',
     socialHeading: 'Social',
@@ -47,7 +47,7 @@ export default {
   },
   meta: {
     homeTitle: 'Mikeroguez',
-    homeDesc: 'Personal site of Mikeroguez on research, education, design and software.',
+    homeDesc: 'Personal site of Mikeroguez on education, interaction design and software.',
     aboutTitle: 'About | Mikeroguez',
     aboutDesc: 'Miguel Ángel Rodríguez Ortiz, developer and professor at Universidad de Colima.',
     workTitle: 'Work & Projects | Mikeroguez',
@@ -58,7 +58,7 @@ export default {
       'Publications and research lines on HCI, Learning Analytics, accessibility and educational technology.',
     blogTitle: 'Posts | Mikeroguez',
     blogDesc:
-      'Notes and essays by Mikeroguez on research, education, design and technical practice.',
+      'Notes and essays by Mikeroguez on education, interaction design and technical practice.',
     blogPostTitle: 'Post | Mikeroguez',
     blogPostDesc: 'Post from the Mikeroguez blog.',
     contactTitle: 'Contact | Mikeroguez',

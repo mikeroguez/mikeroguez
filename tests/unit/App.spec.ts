@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import App from '@/app.vue';
 import { setLocale } from '@/i18n';
+import DefaultLayout from '@/layouts/default.vue';
 import router from '@/router';
 
 describe('App', () => {
@@ -11,6 +12,7 @@ describe('App', () => {
       global: {
         plugins: [router],
         stubs: {
+          NuxtLayout: DefaultLayout,
           NuxtPage: { template: '<div />' },
         },
       },

@@ -22,7 +22,7 @@ export default {
     contact: 'Contacto',
   },
   footer: {
-    tagline: 'Investigación, educación, diseño y software.',
+    tagline: 'Educación, diseño de interacción y software.',
     siteHeading: 'Sitio',
     resourcesHeading: 'Recursos',
     socialHeading: 'Redes',
@@ -47,7 +47,7 @@ export default {
   },
   meta: {
     homeTitle: 'Mikeroguez',
-    homeDesc: 'Sitio personal de Mikeroguez sobre investigación, educación, diseño y software.',
+    homeDesc: 'Sitio personal de Mikeroguez sobre educación, diseño de interacción y software.',
     aboutTitle: 'Sobre mí | Mikeroguez',
     aboutDesc:
       'Miguel Ángel Rodríguez Ortiz, desarrollador y profesor en la Universidad de Colima.',
@@ -59,7 +59,7 @@ export default {
       'Publicaciones y líneas de investigación sobre HCI, Learning Analytics, accesibilidad y tecnología educativa.',
     blogTitle: 'Publicaciones | Mikeroguez',
     blogDesc:
-      'Notas y ensayos de Mikeroguez sobre investigación, educación, diseño y práctica técnica.',
+      'Notas y ensayos de Mikeroguez sobre educación, diseño de interacción y práctica técnica.',
     blogPostTitle: 'Publicación | Mikeroguez',
     blogPostDesc: 'Publicación del blog de Mikeroguez.',
     contactTitle: 'Contacto | Mikeroguez',

@@ -5,6 +5,24 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 1.0.3 - 2026-08-01
+
+### Changed
+
+- Frase de posicionamiento unificada entre README, hero, footer y metadatos
+  bilingues.
+- Flujo editorial reforzado para revisar consistencia de copy y seguridad
+  publica antes de commits, comentarios, codigo, metadatos y publicaciones.
+- Dependencia directa de `vue-router` alineada con Nuxt para eliminar el warning
+  de Volar durante `typecheck`.
+- Build de Nuxt configurado sin el polyfill de `modulepreload` para evitar el
+  warning de sourcemaps en generacion estatica.
+
+### Fixed
+
+- Layout global migrado al mecanismo nativo de Nuxt con `<NuxtLayout>`, evitando
+  el warning de layouts durante `dev`.
+
 ## 1.0.2 - 2026-07-30
 
 ### Fixed

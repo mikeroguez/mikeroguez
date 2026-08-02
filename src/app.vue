@@ -1,8 +1,7 @@
 <template>
-  <SkipLink />
-  <DefaultLayout>
+  <NuxtLayout>
     <NuxtPage />
-  </DefaultLayout>
+  </NuxtLayout>
   <CookieConsentBanner />
 </template>
 
@@ -11,8 +10,6 @@ import { onMounted, watchEffect } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 import CookieConsentBanner from '@/components/CookieConsentBanner.vue';
-import SkipLink from '@/components/SkipLink.vue';
-import DefaultLayout from '@/layouts/DefaultLayout.vue';
 import { getPostBySlug } from '@/content/blog';
 import { detectNavigatorLocale, hasStoredLocalePreference, setLocaleForRoute } from '@/i18n';
 import { localizedPath, pathLocale } from '@/utils/routes';
