@@ -20,6 +20,8 @@ risk.
 
 ## Responsibilities
 
+- Coordinate with the editorial lead for publication, analytics and content
+  changes.
 - Review cookie notices, consent flows and analytics behavior.
 - Check that Google Analytics or similar tools are not activated without a
   clear consent basis when consent is required.
@@ -33,6 +35,8 @@ risk.
 - Review public claims for unsupported, misleading or risky wording.
 - Review forms, contact flows, tracking pixels, embeds, external services and
   data retention implications.
+- Review teaching materials, student data, unpublished papers, datasets and
+  reviewer/editor correspondence for legal and confidentiality risk.
 
 ## Project Defaults
 

@@ -22,7 +22,7 @@ export default {
     contact: 'Contacto',
   },
   footer: {
-    tagline: 'Investigación, educación, diseño y software.',
+    tagline: 'Educación, diseño de interacción y software.',
     siteHeading: 'Sitio',
     resourcesHeading: 'Recursos',
     socialHeading: 'Redes',
@@ -47,7 +47,7 @@ export default {
   },
   meta: {
     homeTitle: 'Mikeroguez',
-    homeDesc: 'Sitio personal de Mikeroguez sobre investigación, educación, diseño y software.',
+    homeDesc: 'Sitio personal de Mikeroguez sobre educación, diseño de interacción y software.',
     aboutTitle: 'Sobre mí | Mikeroguez',
     aboutDesc:
       'Miguel Ángel Rodríguez Ortiz, desarrollador y profesor en la Universidad de Colima.',
@@ -59,7 +59,7 @@ export default {
       'Publicaciones y líneas de investigación sobre HCI, Learning Analytics, accesibilidad y tecnología educativa.',
     blogTitle: 'Publicaciones | Mikeroguez',
     blogDesc:
-      'Notas y ensayos de Mikeroguez sobre investigación, educación, diseño y práctica técnica.',
+      'Notas y ensayos de Mikeroguez sobre educación, diseño de interacción y práctica técnica.',
     blogPostTitle: 'Publicación | Mikeroguez',
     blogPostDesc: 'Publicación del blog de Mikeroguez.',
     contactTitle: 'Contacto | Mikeroguez',
@@ -89,6 +89,22 @@ export default {
     focusEduDesc: 'Sistemas, plataformas y recursos digitales para contextos universitarios.',
     focusAiTitle: 'IA y Learning Analytics',
     focusAiDesc: 'Investigación aplicada a sistemas que apoyan decisiones pedagógicas.',
+    pathwaysHeading: 'Por dónde empezar',
+    pathwayResearchTitle: 'Investigación',
+    pathwayResearchDesc:
+      'Publicaciones, líneas académicas y perfiles donde puede revisarse la evidencia disponible.',
+    pathwayResearchLink: 'Ver investigación',
+    pathwayWorkTitle: 'Trabajo aplicado',
+    pathwayWorkDesc:
+      'Proyectos donde el diseño de interacción y el software se conectan con procesos educativos.',
+    pathwayWorkLink: 'Ver trabajo',
+    pathwayBlogTitle: 'Notas y ensayos',
+    pathwayBlogDesc: 'Textos sobre educación, diseño, software, accesibilidad y práctica técnica.',
+    pathwayBlogLink: 'Leer publicaciones',
+    pathwayContactTitle: 'Colaboración',
+    pathwayContactDesc:
+      'Canales públicos para conversaciones académicas, profesionales o de investigación.',
+    pathwayContactLink: 'Ir a contacto',
   },
   about: {
     eyebrow: 'Sobre mí',
@@ -153,6 +169,10 @@ export default {
     collaborationsHeading: 'Colaboraciones de investigación',
     collaborationsLead:
       'Participaciones interinstitucionales vinculadas al IHCLab donde mi rol público aparece como miembro del equipo.',
+    contactHeading: 'Conversar sobre trabajo aplicado',
+    contactLead:
+      'Para colaboraciones académicas, proyectos educativos o conversación profesional, el contacto público concentra los canales adecuados.',
+    contactLink: 'Ir a contacto',
     collaborationRole: 'Miembro',
     ihcLabProfile: 'Ver perfil en IHCLab',
     conacytSeedTitle: 'Lectoescritura para estudiantes Sordos en educación básica',
@@ -231,6 +251,10 @@ export default {
     typeThesis: 'Tesis',
     typeReport: 'Reporte técnico',
     typePreprint: 'Preprint',
+    contactHeading: 'Conversar sobre investigación',
+    contactLead:
+      'Para colaboración académica, lectura de publicaciones o trabajo relacionado, usa los canales públicos de contacto.',
+    contactLink: 'Ir a contacto',
   },
   blog: {
     eyebrow: 'Blog',
@@ -267,6 +291,19 @@ export default {
     copyLink: 'Copiar enlace',
     linkCopied: 'Enlace copiado.',
     shareReady: 'Publicación lista para compartir.',
+    nextHeading: 'Siguiente paso',
+    nextResearchTitle: 'Revisar publicaciones',
+    nextResearchDesc:
+      'Conecta esta nota con publicaciones, perfiles académicos y fuentes revisables.',
+    nextResearchLink: 'Ir a investigación',
+    nextWorkTitle: 'Ver trabajo aplicado',
+    nextWorkDesc:
+      'Explora proyectos donde estos temas se convierten en software y experiencia de usuario.',
+    nextWorkLink: 'Ir a trabajo',
+    nextContactTitle: 'Abrir conversación',
+    nextContactDesc:
+      'Usa los canales públicos para colaboración académica, profesional o de investigación.',
+    nextContactLink: 'Ir a contacto',
   },
   contact: {
     eyebrow: 'Perfil',

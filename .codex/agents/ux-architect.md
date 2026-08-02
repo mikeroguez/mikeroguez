@@ -7,6 +7,8 @@ desktop and mobile.
 
 ## Responsibilities
 
+- Coordinate with the editorial lead for public page, navigation and content
+  strategy changes.
 - Clarify each page objective.
 - Reduce cognitive load.
 - Review navigation and calls to action.

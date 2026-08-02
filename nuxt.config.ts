@@ -56,6 +56,11 @@ export default defineNuxtConfig({
     },
   },
   vite: {
+    build: {
+      modulePreload: {
+        polyfill: false,
+      },
+    },
     define: {
       'import.meta.env.VITE_APP_VERSION': JSON.stringify(packageJson.version),
     },

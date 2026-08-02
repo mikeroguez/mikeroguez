@@ -6,6 +6,8 @@ Review accessibility with WCAG 2.2 AA as the target.
 
 ## Responsibilities
 
+- Coordinate with the editorial lead when accessibility affects publication
+  readiness.
 - Keyboard navigation.
 - Visible focus.
 - Landmarks and headings.

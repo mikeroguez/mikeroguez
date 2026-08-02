@@ -1,6 +1,6 @@
 {
   "name": "mikeroguez",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "license": "MIT",
   "type": "module",
@@ -17,6 +17,12 @@
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "check:public": "node scripts/check-public-safety.mjs",
+    "analytics": "node scripts/analytics-ga4.mjs",
+    "analytics:auth": "node scripts/analytics-ga4.mjs auth",
+    "analytics:properties": "node scripts/analytics-ga4.mjs properties",
+    "analytics:pages": "node scripts/analytics-ga4.mjs pages",
+    "analytics:traffic": "node scripts/analytics-ga4.mjs traffic",
+    "analytics:blog": "node scripts/analytics-ga4.mjs blog",
     "generate:blog": "node scripts/generate-blog-content.mjs",
     "generate:blog:public": "BLOG_INCLUDE_REVIEW=false node scripts/generate-blog-content.mjs",
     "generate:research": "node scripts/generate-research-content.mjs",
@@ -26,7 +32,7 @@
   "dependencies": {
     "nuxt": "^4.4.8",
     "vue": "^3.5.0",
-    "vue-router": "^4.5.0"
+    "vue-router": "^5.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.0",
