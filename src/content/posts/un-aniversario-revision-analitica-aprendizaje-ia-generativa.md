@@ -127,7 +127,7 @@ Ese punto también conecta con la dirección que más me interesa seguir: pasar 
 modelos que solo describen o predicen a sistemas que ayuden a decidir mejor, con
 docentes en el centro y con explicaciones que puedan discutirse.
 
-![Diagrama del ciclo de analítica de aprendizaje: datos, predicción, explicación, decisión docente y acompañamiento, con una flecha de retorno hacia una nueva iteración.](/blog/un-ano-revision-analitica-aprendizaje-ia-generativa/ciclo-learning-analytics-prediccion-decision.svg)
+![Diagrama del ciclo de analítica de aprendizaje: datos, predicción, explicación, decisión docente y acompañamiento, con una flecha de retorno hacia una nueva iteración.](/blog/un-aniversario-revision-analitica-aprendizaje-ia-generativa/ciclo-learning-analytics-prediccion-decision.svg)
 
 _Del dato a la decisión pedagógica: el ciclo que orienta mi trabajo actual._
 
