@@ -3,6 +3,7 @@ export const GOOGLE_TAG_MANAGER_ID = 'GTM-M333ZHPZ';
 const CONSENT_STORAGE_KEY = 'mikeroguez_cookie_consent';
 const GTM_SCRIPT_ID = 'google-tag-manager';
 const GA_COOKIE_PREFIXES = ['_ga', '_gid', '_gat'];
+const ANALYTICS_ROOT_HOST = 'mikeroguez.me';
 
 export interface CookieConsentPreferences {
   necessary: true;
@@ -54,6 +55,7 @@ export function storeCookieConsent(analytics: boolean): CookieConsentPreferences
 
 export function initializeGoogleAnalytics(): void {
   if (typeof window === 'undefined') return;
+  if (!isAnalyticsHost()) return;
 
   initializeGoogleConsent();
   loadGoogleTagManager();
@@ -61,6 +63,10 @@ export function initializeGoogleAnalytics(): void {
 
 export function applyCookieConsent(analytics: boolean): void {
   if (typeof window === 'undefined') return;
+  if (!isAnalyticsHost()) {
+    clearGoogleAnalyticsCookies();
+    return;
+  }
 
   initializeGoogleAnalytics();
 
@@ -76,6 +82,7 @@ export function applyCookieConsent(analytics: boolean): void {
 
 export function trackPageView(path: string, title: string): void {
   if (typeof window === 'undefined') return;
+  if (!isAnalyticsHost()) return;
   if (!getStoredCookieConsent()?.analytics) return;
 
   window.dataLayer?.push({
@@ -110,6 +117,11 @@ function loadGoogleTagManager(): void {
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtm.js?id=${GOOGLE_TAG_MANAGER_ID}`;
   document.head.append(script);
+}
+
+function isAnalyticsHost(): boolean {
+  const { hostname } = window.location;
+  return hostname === ANALYTICS_ROOT_HOST || hostname.endsWith(`.${ANALYTICS_ROOT_HOST}`);
 }
 
 function consentState(analytics: ConsentValue): GoogleConsentState {
