@@ -80,12 +80,20 @@
         <p class="post-list__meta" aria-live="polite">{{ resultSummary }}</p>
 
         <ol v-if="visiblePubs.length > 0" class="publication-list">
-          <li v-for="pub in visiblePubs" :key="pub.slug">
+          <li v-for="pub in visiblePubs" :id="pub.slug" :key="pub.slug">
             <article>
               <p class="publication-list__year">{{ pub.year }}</p>
               <div>
                 <p class="publication-list__meta">{{ publicationTypeLabel(pub) }}</p>
-                <h3>{{ pub.title }}</h3>
+                <h3>
+                  <button
+                    class="publication-list__title"
+                    type="button"
+                    @click="openPublicationDialog(pub)"
+                  >
+                    {{ pub.title }}
+                  </button>
+                </h3>
                 <p>{{ publicationDescription(pub) }}</p>
                 <div class="publication-list__links">
                   <a
@@ -105,7 +113,7 @@
                     v-if="pub.citation"
                     class="cite-trigger"
                     type="button"
-                    @click="openCiteDialog(pub)"
+                    @click="openPublicationDialog(pub)"
                   >
                     {{ t('research.cite') }}
                   </button>
@@ -207,8 +215,29 @@
     <div class="cite-dialog__inner">
       <h2 id="cite-dialog-title" class="cite-dialog__heading">{{ t('research.citeTitle') }}</h2>
       <p v-if="activePub" class="cite-dialog__pub-title">{{ activePub.title }}</p>
-      <pre v-if="activePub?.citation" class="cite-dialog__text">{{ activePub.citation }}</pre>
+      <section v-if="activePub" class="cite-dialog__section" aria-labelledby="cite-dialog-summary">
+        <h3 id="cite-dialog-summary">{{ t('research.summaryTitle') }}</h3>
+        <p>{{ publicationDescription(activePub) }}</p>
+      </section>
+      <section
+        v-if="activePub?.citation"
+        class="cite-dialog__section"
+        aria-labelledby="cite-dialog-citation"
+      >
+        <h3 id="cite-dialog-citation">{{ t('research.citationTitle') }}</h3>
+        <pre class="cite-dialog__text">{{ activePub.citation }}</pre>
+      </section>
       <div class="cite-dialog__actions">
+        <a
+          v-if="activePub && publicationOfficialUrl(activePub)"
+          class="load-more__button"
+          :href="publicationOfficialUrl(activePub)"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {{ t('research.officialLink') }}
+          <span class="visually-hidden">{{ t('a11y.openNewTab') }}</span>
+        </a>
         <button class="load-more__button" type="button" @click="copyCitation">
           {{ copyLabel }}
         </button>
@@ -221,8 +250,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { RouterLink } from 'vue-router';
+import { computed, nextTick, onMounted, ref, watch } from 'vue';
+import { RouterLink, useRoute, useRouter } from 'vue-router';
 
 import { locale, t } from '@/i18n';
 import { getPublishedPublications } from '@/content/research';
@@ -230,6 +259,8 @@ import { localizedPath } from '@/utils/routes';
 import type { Publication, PublicationType } from '@/types/research';
 
 const publications = getPublishedPublications();
+const route = useRoute();
+const router = useRouter();
 const pageSize = publications.length;
 const query = ref('');
 const activeType = ref<PublicationType | null>(null);
@@ -239,7 +270,7 @@ const scholarUrl = computed(
   () => `https://scholar.google.com/citations?user=LoAMxRIAAAAJ&hl=${locale.value}`,
 );
 
-const citeDialog = ref<{ showModal: () => void; close: () => void } | null>(null);
+const citeDialog = ref<{ open: boolean; showModal: () => void; close: () => void } | null>(null);
 const activePub = ref<Publication | null>(null);
 const copied = ref(false);
 
@@ -247,15 +278,38 @@ const copyLabel = computed(() =>
   copied.value ? t('research.citeCopied') : t('research.citeCopy'),
 );
 
-function openCiteDialog(pub: Publication) {
+onMounted(() => {
+  openPublicationFromHash(route.hash);
+});
+
+watch(
+  () => route.hash,
+  (hash) => openPublicationFromHash(hash),
+);
+
+function openPublicationDialog(pub: Publication, updateHash = true) {
   activePub.value = pub;
   copied.value = false;
-  citeDialog.value?.showModal();
+  if (updateHash && route.hash !== `#${pub.slug}`) {
+    void router.replace({ hash: `#${pub.slug}` });
+  }
+  if (!citeDialog.value?.open) citeDialog.value?.showModal();
 }
 
 function closeCiteDialog() {
   citeDialog.value?.close();
+  if (activePub.value && route.hash === `#${activePub.value.slug}`) {
+    void router.replace({ hash: '' });
+  }
   activePub.value = null;
+}
+
+function openPublicationFromHash(hash: string) {
+  if (!hash) return;
+  const slug = decodeURIComponent(hash.replace(/^#/, ''));
+  const pub = publications.find((publication) => publication.slug === slug);
+  if (!pub || activePub.value?.slug === pub.slug) return;
+  void nextTick(() => openPublicationDialog(pub, false));
 }
 
 async function copyCitation() {
@@ -291,6 +345,11 @@ function publicationTypeLabel(pub: Publication): string {
 function publicationDescription(pub: (typeof publications)[number]): string {
   if (locale.value === 'en' && pub.descriptionEn) return pub.descriptionEn;
   return pub.description;
+}
+
+function publicationOfficialUrl(pub: Publication): string | undefined {
+  if (pub.doi) return `https://doi.org/${pub.doi}`;
+  return pub.url;
 }
 
 const normalizedQuery = computed(() => normalizeSearchText(query.value));

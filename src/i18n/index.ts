@@ -216,6 +216,9 @@ export interface Messages {
     viewPublication: string;
     cite: string;
     citeTitle: string;
+    summaryTitle: string;
+    citationTitle: string;
+    officialLink: string;
     citeCopy: string;
     citeCopied: string;
     citeClose: string;

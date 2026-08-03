@@ -52,12 +52,13 @@ access to information as permission to publish it.
 ## Routing Matrix
 
 - Blog post or article: evidence librarian, research embargo guardian, content
-  strategist, teaching content curator when teaching material is involved,
-  academic reputation reviewer, bilingual copy editor, brand director,
+  strategist, scientific strategy coach when research narrative or academic
+  positioning is involved, teaching content curator when teaching material is
+  involved, academic reputation reviewer, bilingual copy editor, brand director,
   SEO-performance reviewer, public repository guardian.
 - Research-related content: evidence librarian, research embargo guardian,
-  academic reputation reviewer, web legal compliance reviewer, public repository
-  guardian.
+  scientific strategy coach, academic reputation reviewer, web legal compliance
+  reviewer, public repository guardian.
 - Teaching content: teaching content curator, evidence librarian, content
   strategist, public repository guardian.
 - Analytics-driven planning: analytics strategist, content strategist, brand

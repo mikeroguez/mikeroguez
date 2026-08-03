@@ -1094,6 +1094,23 @@ p {
   margin-top: var(--space-2);
 }
 
+.publication-list__title {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-heading);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.publication-list__title:hover {
+  color: var(--color-brand);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
 .cite-trigger {
   background: none;
   border: none;
@@ -1148,6 +1165,21 @@ p {
   line-height: var(--line-height-heading, 1.25);
 }
 
+.cite-dialog__section {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.cite-dialog__section h3 {
+  margin: 0;
+  color: var(--color-brand);
+  font-size: var(--font-size-0);
+}
+
+.cite-dialog__section p {
+  margin: 0;
+}
+
 .cite-dialog__text {
   font-size: var(--font-size-0);
   line-height: 1.65;
@@ -1165,6 +1197,20 @@ p {
   flex-wrap: wrap;
   gap: var(--space-2);
   justify-content: flex-end;
+}
+
+.cite-dialog__actions .load-more__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+}
+
+.cite-dialog__actions .load-more__button:hover {
+  text-decoration: none;
 }
 
 .post-list {
@@ -1553,6 +1599,11 @@ button.post-tag[aria-pressed='true'] {
 
 .markdown-body figure {
   margin: var(--space-6) 0;
+  overflow-x: auto;
+}
+
+.markdown-body p + figure {
+  margin-top: var(--space-4);
 }
 
 .markdown-body img {
@@ -1564,6 +1615,11 @@ button.post-tag[aria-pressed='true'] {
 
 .markdown-body figure img {
   margin: 0;
+}
+
+.markdown-body figure img[src$='.svg'] {
+  width: max(100%, 38rem);
+  max-width: none;
 }
 
 .markdown-body figcaption {

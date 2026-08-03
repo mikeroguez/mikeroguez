@@ -18,6 +18,8 @@ material.
   exposing identifiers.
 - `academic-reputation-reviewer.md`: academic credibility, citation claims and
   sober professional reputation.
+- `scientific-strategy-coach.md`: scientific narrative, research positioning and
+  long-term academic strategy.
 - `teaching-content-curator.md`: public-safe use of teaching material and course
   experience.
 - `publication-readiness-editor.md`: final integrated review before approval,
