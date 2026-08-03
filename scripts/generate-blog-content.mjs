@@ -135,7 +135,9 @@ function parseMarkdownPost(source, filename) {
   const description = values.get('description') ?? 'Entrada sin descripcion.';
 
   const title = values.get('title') ?? 'Untitled';
+  const seoTitle = values.get('seoTitle');
   const date = values.get('date') ?? '1970-01-01';
+  const updated = values.get('updated');
   const translationKey = values.get('translationKey');
   const image = values.get('image');
   const tagsRaw = values.get('tags');
@@ -143,6 +145,13 @@ function parseMarkdownPost(source, filename) {
     ? tagsRaw
         .split(',')
         .map((t) => t.trim())
+        .filter(Boolean)
+    : [];
+  const keywordsRaw = values.get('keywords');
+  const keywords = keywordsRaw
+    ? keywordsRaw
+        .split(',')
+        .map((keyword) => keyword.trim())
         .filter(Boolean)
     : [];
   const bodyText = body
@@ -155,19 +164,24 @@ function parseMarkdownPost(source, filename) {
   return {
     meta: {
       title,
+      ...(seoTitle ? { seoTitle } : {}),
       description,
       date,
+      ...(updated ? { updated } : {}),
       status,
       lang,
       ...(translationKey ? { translationKey } : {}),
       ...(image ? { image } : {}),
       ...(tags.length ? { tags } : {}),
+      ...(keywords.length ? { keywords } : {}),
       readingTime,
     },
     html: markdown.render(body.trim()),
     excerpt: description,
     searchText: normalizeSearchText(
-      `${title} ${description} ${date} ${tags.join(' ')} ${bodyText}`,
+      `${title} ${seoTitle ?? ''} ${description} ${date} ${tags.join(' ')} ${keywords.join(
+        ' ',
+      )} ${bodyText}`,
     ),
   };
 }
@@ -258,11 +272,20 @@ function createSitemap(posts) {
     '/cookies',
     '/license',
   ];
-  const publishedRoutes = posts.filter((post) => post.meta.status === 'published').map(postPath);
+  const staticUrls = staticRoutes.map(
+    (pathname) => `  <url><loc>${escapeXml(absoluteUrl(pathname))}</loc></url>`,
+  );
+  const postUrls = posts
+    .filter((post) => post.meta.status === 'published')
+    .map(
+      (post) => `  <url>
+    <loc>${escapeXml(absoluteUrl(postPath(post)))}</loc>
+    <lastmod>${escapeXml(post.meta.updated ?? post.meta.date)}</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>`,
+    );
 
-  const urls = [...staticRoutes, ...publishedRoutes]
-    .map((pathname) => `  <url><loc>${escapeXml(absoluteUrl(pathname))}</loc></url>`)
-    .join('\n');
+  const urls = [...staticUrls, ...postUrls].join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

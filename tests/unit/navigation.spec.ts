@@ -59,6 +59,25 @@ describe('navigation', () => {
     expect(router.currentRoute.value.path).toBe('/blog/what-is-learning-analytics-ai');
   });
 
+  it('keeps the blog navigation item active on blog posts', async () => {
+    setLocale('es');
+    await router.push('/blog/analitica-aprendizaje-inteligencia-artificial');
+    await router.isReady();
+
+    const wrapper = mount(AppHeader, {
+      global: {
+        plugins: [router],
+      },
+    });
+
+    const blogLink = wrapper
+      .findAll('.nav-link')
+      .find((link) => link.text() === 'Blog' || link.text() === 'Publicaciones');
+
+    expect(blogLink?.classes()).toContain('nav-link--active');
+    expect(blogLink?.attributes('aria-current')).toBe('page');
+  });
+
   it('switches blog posts to the translated slug from trailing slash urls', async () => {
     setLocale('es');
     await router.push('/blog/analitica-aprendizaje-inteligencia-artificial/');

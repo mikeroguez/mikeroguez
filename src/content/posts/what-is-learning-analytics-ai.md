@@ -1,11 +1,14 @@
 ---
 title: 'What is learning analytics and where is it going with artificial intelligence?'
-description: 'A plain-language explanation of learning analytics, the data it uses, what it can do and the challenges raised by generative artificial intelligence.'
+seoTitle: 'Learning analytics and artificial intelligence in education'
+description: 'Learning analytics and artificial intelligence in education: what data are used, what they can support and what challenges generative AI raises.'
 date: '2026-07-16'
+updated: '2026-08-02'
 status: 'published'
 lang: 'en'
 translationKey: 'analitica-aprendizaje-inteligencia-artificial'
 tags: 'learning analytics, artificial intelligence, higher education, generative AI'
+keywords: 'learning analytics, artificial intelligence, artificial intelligence in education, AI in education, generative AI, machine learning, higher education'
 ---
 
 Learning analytics is a way to study what happens when a person learns by using

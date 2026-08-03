@@ -297,7 +297,8 @@ a:hover {
   color: var(--color-brand);
 }
 
-.nav-link.router-link-exact-active {
+.nav-link.router-link-exact-active,
+.nav-link.nav-link--active {
   background: var(--color-hover);
   color: var(--color-brand);
   font-weight: 700;

@@ -5,6 +5,13 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 1.0.5 - 2026-08-02
+
+### Fixed
+
+- Estado activo de la navegacion principal conservado al abrir entradas del
+  blog, con `aria-current` para comunicar la seccion actual.
+
 ## 1.0.4 - 2026-08-02
 
 ### Added

@@ -18,6 +18,14 @@
   <url><loc>https://mikeroguez.me/privacy</loc></url>
   <url><loc>https://mikeroguez.me/cookies</loc></url>
   <url><loc>https://mikeroguez.me/license</loc></url>
-  <url><loc>https://mikeroguez.me/blog/analitica-aprendizaje-inteligencia-artificial</loc></url>
-  <url><loc>https://mikeroguez.me/blog/what-is-learning-analytics-ai</loc></url>
+  <url>
+    <loc>https://mikeroguez.me/blog/analitica-aprendizaje-inteligencia-artificial</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://mikeroguez.me/blog/what-is-learning-analytics-ai</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
