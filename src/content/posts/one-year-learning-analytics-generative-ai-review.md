@@ -3,7 +3,7 @@ title: 'One year after a systematic review on Learning Analytics and generative 
 seoTitle: 'Learning Analytics and generative AI: one year later'
 description: 'A close reading of what has happened with Learning Analytics and generative artificial intelligence one year after a systematic review in higher education.'
 date: '2026-08-05'
-status: 'review'
+status: 'published'
 lang: 'en'
 translationKey: 'anniversary-learning-analytics-generative-ai-review'
 tags: 'learning analytics, artificial intelligence, generative AI, higher education, research'

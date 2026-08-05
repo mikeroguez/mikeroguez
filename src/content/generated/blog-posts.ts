@@ -9,7 +9,7 @@ export const blogPosts: BlogPost[] = [
       description:
         'A close reading of what has happened with Learning Analytics and generative artificial intelligence one year after a systematic review in higher education.',
       date: '2026-08-05',
-      status: 'review',
+      status: 'published',
       lang: 'en',
       translationKey: 'anniversary-learning-analytics-generative-ai-review',
       tags: [
@@ -43,7 +43,7 @@ export const blogPosts: BlogPost[] = [
       description:
         'Una lectura cercana sobre lo que ha pasado con Learning Analytics e inteligencia artificial generativa a un año de una revisión sistemática en educación superior.',
       date: '2026-08-05',
-      status: 'review',
+      status: 'published',
       lang: 'es',
       translationKey: 'anniversary-learning-analytics-generative-ai-review',
       tags: [

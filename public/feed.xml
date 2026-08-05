@@ -5,8 +5,21 @@
     <link>https://mikeroguez.me</link>
     <description>Sitio personal de Mikeroguez. Investigación, educación, diseño y desarrollo de software.</description>
     <language>es-MX</language>
-    <lastBuildDate>Thu, 16 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://mikeroguez.me/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A un año de una revisión sistemática sobre Learning Analytics e IA generativa</title>
+      <link>https://mikeroguez.me/blog/un-aniversario-revision-analitica-aprendizaje-ia-generativa</link>
+      <guid isPermaLink="true">https://mikeroguez.me/blog/un-aniversario-revision-analitica-aprendizaje-ia-generativa</guid>
+      <description>Una lectura cercana sobre lo que ha pasado con Learning Analytics e inteligencia artificial generativa a un año de una revisión sistemática en educación superior.</description>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+      <author>maro@ucol.mx (Miguel Ángel Rodríguez Ortiz)</author>
+      <category>analítica de aprendizaje</category>
+      <category>inteligencia artificial</category>
+      <category>IA generativa</category>
+      <category>educación superior</category>
+      <category>investigación</category>
+    </item>
     <item>
       <title>Qué es la analítica de aprendizaje y hacia dónde va con inteligencia artificial</title>
       <link>https://mikeroguez.me/blog/analitica-aprendizaje-inteligencia-artificial</link>

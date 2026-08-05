@@ -5,6 +5,14 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 1.0.6 - 2026-08-05
+
+### Added
+
+- Segunda entrada bilingue del blog sobre el primer aniversario de la revision
+  sistematica de Learning Analytics e IA generativa, con rutas, RSS y sitemap
+  sincronizados.
+
 ## 1.0.5 - 2026-08-02
 
 ### Fixed
