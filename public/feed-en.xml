@@ -8,6 +8,19 @@
     <lastBuildDate>Wed, 05 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://mikeroguez.me/feed-en.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Designing games from player motivation</title>
+      <link>https://mikeroguez.me/blog/designing-games-player-motivation</link>
+      <guid isPermaLink="true">https://mikeroguez.me/blog/designing-games-player-motivation</guid>
+      <description>A reflection on how game design changes when we stop thinking in fixed player types and start reading motivation as a set of dimensions.</description>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+      <author>maro@ucol.mx (Miguel Ángel Rodríguez Ortiz)</author>
+      <category>game design</category>
+      <category>player motivation</category>
+      <category>human-computer interaction</category>
+      <category>education</category>
+      <category>user experience</category>
+    </item>
+    <item>
       <title>One year after a systematic review on Learning Analytics and generative AI</title>
       <link>https://mikeroguez.me/blog/one-year-learning-analytics-generative-ai-review</link>
       <guid isPermaLink="true">https://mikeroguez.me/blog/one-year-learning-analytics-generative-ai-review</guid>

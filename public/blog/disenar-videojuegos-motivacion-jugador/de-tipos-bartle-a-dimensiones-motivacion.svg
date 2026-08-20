@@ -1,0 +1,147 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-labelledby="bartle-dim-es-title bartle-dim-es-desc"
+  viewBox="0 0 900 520"
+>
+  <title id="bartle-dim-es-title">De los cuatro tipos de jugador de Bartle a las dimensiones de motivación</title>
+  <desc id="bartle-dim-es-desc">
+    Diagrama conceptual que compara dos modelos de motivación del jugador. La parte
+    izquierda muestra el modelo de Bartle de 1996 como una cuadrícula de cuatro
+    cuadrantes con dos ejes cruzados: un eje horizontal de Jugadores (izquierda)
+    a Mundo (derecha), y un eje vertical de Actuar (arriba) a Interactuar (abajo).
+    Los cuatro cuadrantes contienen los tipos de jugador: Dominadores en la esquina
+    superior izquierda (actúan sobre otros jugadores para imponerse), Triunfadores en
+    la esquina superior derecha (actúan sobre el mundo para dominarlo), Socializadores
+    en la esquina inferior izquierda (interactúan con otros jugadores para relacionarse)
+    y Exploradores en la esquina inferior derecha (interactúan con el mundo para
+    descubrirlo). Una flecha central marca el giro conceptual. La parte derecha muestra
+    el marco de McKechnie-Martin et al. de 2024 con un jugador hipotético que sostiene
+    simultáneamente seis dimensiones de motivación con distinta intensidad: Autonomía en
+    nivel alto, Competencia en nivel alto, Exploración en nivel medio, Compañerismo en
+    nivel bajo, Relajación en nivel medio, y Creatividad en nivel alto. El contraste
+    ilustra el paso de cuatro categorías fijas y excluyentes a un espectro de dimensiones
+    que un mismo jugador puede sostener al mismo tiempo con distinta intensidad.
+  </desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+    </style>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="900" height="520" fill="#eee8dc" />
+  <!-- Tarjeta -->
+  <rect x="18" y="18" width="864" height="484" rx="14" fill="#f8f6f0" stroke="#d8d0c1" stroke-width="1.5" />
+
+  <!-- ══════════════════ COLUMNA IZQUIERDA — Bartle (1996) ══════════════ -->
+
+  <text x="219" y="52" text-anchor="middle" fill="#20294d" font-size="17" font-weight="700">Bartle (1996)</text>
+  <text x="219" y="70" text-anchor="middle" fill="#5d6870" font-size="12">4 tipos fijos — excluyentes entre sí</text>
+  <line x1="36" y1="80" x2="402" y2="80" stroke="#d8d0c1" stroke-width="1" />
+
+  <!-- Marco del cuadrante -->
+  <rect x="50" y="98" width="338" height="320" rx="6" fill="none" stroke="#d8d0c1" stroke-width="1" />
+
+  <!-- Ejes cruzados -->
+  <line x1="50" y1="258" x2="388" y2="258" stroke="#b8b0a1" stroke-width="1.5" />
+  <line x1="219" y1="98" x2="219" y2="418" stroke="#b8b0a1" stroke-width="1.5" />
+  <!-- Punto de intersección -->
+  <circle cx="219" cy="258" r="3" fill="#b8b0a1" />
+
+  <!-- Etiquetas de los ejes -->
+  <text x="58" y="254" text-anchor="start" fill="#5d6870" font-size="10">Jugadores</text>
+  <text x="380" y="254" text-anchor="end" fill="#5d6870" font-size="10">Mundo</text>
+  <text x="219" y="95" text-anchor="middle" fill="#5d6870" font-size="10">Actuar</text>
+  <text x="219" y="432" text-anchor="middle" fill="#5d6870" font-size="10">Interactuar</text>
+
+  <!-- Dominadores — cuadrante superior-izquierdo (actúan sobre jugadores) -->
+  <text x="134" y="178" text-anchor="middle" font-size="14" font-weight="700">
+    <tspan fill="#7a4a1c">♣</tspan><tspan fill="#20294d"> Dominadores</tspan>
+  </text>
+  <text x="134" y="197" text-anchor="middle" fill="#5d6870" font-size="11">imponerse sobre otros</text>
+
+  <!-- Triunfadores — cuadrante superior-derecho (actúan sobre el mundo) -->
+  <text x="304" y="178" text-anchor="middle" font-size="14" font-weight="700">
+    <tspan fill="#7a4a1c">◆</tspan><tspan fill="#20294d"> Triunfadores</tspan>
+  </text>
+  <text x="304" y="197" text-anchor="middle" fill="#5d6870" font-size="11">dominar el mundo</text>
+
+  <!-- Socializadores — cuadrante inferior-izquierdo (interactúan con jugadores) -->
+  <text x="134" y="332" text-anchor="middle" font-size="14" font-weight="700">
+    <tspan fill="#7a4a1c">♥</tspan><tspan fill="#20294d"> Socializadores</tspan>
+  </text>
+  <text x="134" y="351" text-anchor="middle" fill="#5d6870" font-size="11">relacionarse con otros</text>
+
+  <!-- Exploradores — cuadrante inferior-derecho (interactúan con el mundo) -->
+  <text x="304" y="332" text-anchor="middle" font-size="14" font-weight="700">
+    <tspan fill="#7a4a1c">♠</tspan><tspan fill="#20294d"> Exploradores</tspan>
+  </text>
+  <text x="304" y="351" text-anchor="middle" fill="#5d6870" font-size="11">descubrir el mundo</text>
+
+  <!-- Pie de columna izquierda -->
+  <text x="219" y="462" text-anchor="middle" fill="#5d6870" font-size="11" font-style="italic">Un jugador pertenece a un solo cuadrante.</text>
+
+  <!-- ══════════════════ FLECHA CENTRAL ═════════════════════════════════ -->
+
+  <text x="450" y="238" text-anchor="middle" fill="#5d6870" font-size="10">de tipos</text>
+  <line x1="414" y1="250" x2="479" y2="250" stroke="#7a4a1c" stroke-width="2" />
+  <polygon points="479,244 492,250 479,256" fill="#7a4a1c" />
+  <text x="450" y="268" text-anchor="middle" fill="#5d6870" font-size="10">a dimensiones</text>
+
+  <!-- ══════════════════ COLUMNA DERECHA — McKechnie-Martin et al. ══════ -->
+
+  <text x="690" y="52" text-anchor="middle" fill="#20294d" font-size="17" font-weight="700">McKechnie-Martin et al. (2024)</text>
+  <text x="690" y="70" text-anchor="middle" fill="#5d6870" font-size="12">Dimensiones con intensidad variable</text>
+  <line x1="498" y1="80" x2="882" y2="80" stroke="#d8d0c1" stroke-width="1" />
+
+  <!-- Indicador de jugador -->
+  <circle cx="690" cy="97" r="9" fill="#20294d" />
+  <text x="690" y="116" text-anchor="middle" fill="#5d6870" font-size="11" font-style="italic">un jugador</text>
+  <line x1="690" y1="120" x2="690" y2="133" stroke="#d8d0c1" stroke-width="1" stroke-dasharray="3 2" />
+
+  <!-- Barras: etiqueta alineada a la derecha en x=622, pista x=630 ancho=230, nivel en x=874 -->
+
+  <!-- Autonomía — alta (85%) -->
+  <text x="622" y="148" text-anchor="end" fill="#20294d" font-size="13" font-weight="600">Autonomía</text>
+  <rect x="630" y="135" width="230" height="14" rx="4" fill="#e8e1d5" />
+  <rect x="630" y="135" width="196" height="14" rx="4" fill="#20294d" />
+  <text x="874" y="148" text-anchor="end" fill="#5d6870" font-size="10">alta</text>
+
+  <!-- Competencia — alta (75%) -->
+  <text x="622" y="191" text-anchor="end" fill="#20294d" font-size="13" font-weight="600">Competencia</text>
+  <rect x="630" y="178" width="230" height="14" rx="4" fill="#e8e1d5" />
+  <rect x="630" y="178" width="173" height="14" rx="4" fill="#20294d" />
+  <text x="874" y="191" text-anchor="end" fill="#5d6870" font-size="10">alta</text>
+
+  <!-- Exploración — media (50%) -->
+  <text x="622" y="234" text-anchor="end" fill="#20294d" font-size="13" font-weight="600">Exploración</text>
+  <rect x="630" y="221" width="230" height="14" rx="4" fill="#e8e1d5" />
+  <rect x="630" y="221" width="115" height="14" rx="4" fill="#39476f" />
+  <text x="874" y="234" text-anchor="end" fill="#5d6870" font-size="10">media</text>
+
+  <!-- Compañerismo — baja (18%) -->
+  <text x="622" y="277" text-anchor="end" fill="#20294d" font-size="13" font-weight="600">Compañerismo</text>
+  <rect x="630" y="264" width="230" height="14" rx="4" fill="#e8e1d5" />
+  <rect x="630" y="264" width="41" height="14" rx="4" fill="#7a4a1c" />
+  <text x="874" y="277" text-anchor="end" fill="#5d6870" font-size="10">baja</text>
+
+  <!-- Relajación — media (38%) -->
+  <text x="622" y="320" text-anchor="end" fill="#20294d" font-size="13" font-weight="600">Relajación</text>
+  <rect x="630" y="307" width="230" height="14" rx="4" fill="#e8e1d5" />
+  <rect x="630" y="307" width="87" height="14" rx="4" fill="#39476f" />
+  <text x="874" y="320" text-anchor="end" fill="#5d6870" font-size="10">media</text>
+
+  <!-- Creatividad — alta (65%) -->
+  <text x="622" y="363" text-anchor="end" fill="#20294d" font-size="13" font-weight="600">Creatividad</text>
+  <rect x="630" y="350" width="230" height="14" rx="4" fill="#e8e1d5" />
+  <rect x="630" y="350" width="150" height="14" rx="4" fill="#20294d" />
+  <text x="874" y="363" text-anchor="end" fill="#5d6870" font-size="10">alta</text>
+
+  <!-- Pie de columna derecha -->
+  <text x="690" y="426" text-anchor="middle" fill="#5d6870" font-size="11" font-style="italic">Un jugador, múltiples dimensiones a la vez.</text>
+
+</svg>

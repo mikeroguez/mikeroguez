@@ -8,6 +8,19 @@
     <lastBuildDate>Wed, 05 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://mikeroguez.me/feed.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Diseñar videojuegos desde la motivación del jugador</title>
+      <link>https://mikeroguez.me/blog/disenar-videojuegos-motivacion-jugador</link>
+      <guid isPermaLink="true">https://mikeroguez.me/blog/disenar-videojuegos-motivacion-jugador</guid>
+      <description>Una lectura sobre cómo el diseño de videojuegos cambia cuando dejamos de pensar en tipos fijos de jugador y empezamos a mirar sus motivaciones como dimensiones.</description>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+      <author>maro@ucol.mx (Miguel Ángel Rodríguez Ortiz)</author>
+      <category>diseño de videojuegos</category>
+      <category>motivación del jugador</category>
+      <category>interacción humano-computadora</category>
+      <category>educación</category>
+      <category>experiencia de usuario</category>
+    </item>
+    <item>
       <title>A un año de una revisión sistemática sobre Learning Analytics e IA generativa</title>
       <link>https://mikeroguez.me/blog/un-aniversario-revision-analitica-aprendizaje-ia-generativa</link>
       <guid isPermaLink="true">https://mikeroguez.me/blog/un-aniversario-revision-analitica-aprendizaje-ia-generativa</guid>
