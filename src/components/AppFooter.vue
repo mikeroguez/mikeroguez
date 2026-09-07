@@ -1,55 +1,57 @@
 <template>
   <footer class="site-footer">
     <div class="site-footer__inner">
-      <div class="site-footer__brand">
-        <div class="site-footer__signature">
-          <BrandLogo label="Mikeroguez" size="footer" />
-          <p class="site-footer__tagline">{{ t('footer.tagline') }}</p>
+      <div class="site-footer__content">
+        <div class="site-footer__brand">
+          <div class="site-footer__signature">
+            <BrandLogo label="Mikeroguez" size="footer" />
+            <p class="site-footer__tagline">{{ t('footer.tagline') }}</p>
+          </div>
         </div>
+
+        <nav class="site-footer__nav" :aria-label="t('a11y.footerNav')">
+          <section aria-labelledby="footer-site-title">
+            <h2 id="footer-site-title">{{ t('footer.siteHeading') }}</h2>
+            <ul>
+              <li v-for="link in siteLinks" :key="link.href">
+                <RouterLink :to="link.href">{{ link.label }}</RouterLink>
+              </li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="footer-resources-title">
+            <h2 id="footer-resources-title">{{ t('footer.resourcesHeading') }}</h2>
+            <ul>
+              <li v-for="link in resourceLinks" :key="link.href">
+                <a
+                  :href="link.href"
+                  :aria-label="link.external ? `${link.label}${t('a11y.openNewTab')}` : undefined"
+                  :rel="link.external ? 'noopener noreferrer' : undefined"
+                  :target="link.external ? '_blank' : undefined"
+                >
+                  {{ link.label }}
+                </a>
+              </li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="footer-social-title">
+            <h2 id="footer-social-title">{{ t('footer.socialHeading') }}</h2>
+            <ul>
+              <li v-for="link in socialLinks" :key="link.href">
+                <a
+                  :href="link.href"
+                  :aria-label="`${link.label}${t('a11y.openNewTab')}`"
+                  rel="me noopener noreferrer"
+                  target="_blank"
+                >
+                  {{ link.label }}
+                </a>
+              </li>
+            </ul>
+          </section>
+        </nav>
       </div>
-
-      <nav class="site-footer__nav" :aria-label="t('a11y.footerNav')">
-        <section aria-labelledby="footer-site-title">
-          <h2 id="footer-site-title">{{ t('footer.siteHeading') }}</h2>
-          <ul>
-            <li v-for="link in siteLinks" :key="link.href">
-              <RouterLink :to="link.href">{{ link.label }}</RouterLink>
-            </li>
-          </ul>
-        </section>
-
-        <section aria-labelledby="footer-resources-title">
-          <h2 id="footer-resources-title">{{ t('footer.resourcesHeading') }}</h2>
-          <ul>
-            <li v-for="link in resourceLinks" :key="link.href">
-              <a
-                :href="link.href"
-                :aria-label="link.external ? `${link.label}${t('a11y.openNewTab')}` : undefined"
-                :rel="link.external ? 'noopener noreferrer' : undefined"
-                :target="link.external ? '_blank' : undefined"
-              >
-                {{ link.label }}
-              </a>
-            </li>
-          </ul>
-        </section>
-
-        <section aria-labelledby="footer-social-title">
-          <h2 id="footer-social-title">{{ t('footer.socialHeading') }}</h2>
-          <ul>
-            <li v-for="link in socialLinks" :key="link.href">
-              <a
-                :href="link.href"
-                :aria-label="`${link.label}${t('a11y.openNewTab')}`"
-                rel="me noopener noreferrer"
-                target="_blank"
-              >
-                {{ link.label }}
-              </a>
-            </li>
-          </ul>
-        </section>
-      </nav>
 
       <div class="site-footer__meta">
         <p>
