@@ -20,30 +20,30 @@
         </form>
 
         <div
-          v-if="allTags.length > 0"
+          v-if="topics.length > 0"
           class="pub-tabs"
           role="group"
-          :aria-label="t('blog.tagsHeading')"
+          :aria-label="t('blog.topicFilterHeading')"
         >
           <button
             class="pub-tabs__tab"
             type="button"
-            :aria-pressed="!activeTag"
-            @click="clearTagFilter"
+            :aria-pressed="!activeTag && !activeTopic"
+            @click="clearFilters"
           >
             {{ t('blog.tagsAll') }}
             <span class="pub-tabs__count" aria-hidden="true">{{ posts.length }}</span>
           </button>
           <button
-            v-for="tag in allTags"
-            :key="tag.label"
+            v-for="topic in topics"
+            :key="topic.id"
             class="pub-tabs__tab"
             type="button"
-            :aria-pressed="activeTag === tag.label"
-            @click="filterByTag(tag.label)"
+            :aria-pressed="activeTopic === topic.id"
+            @click="filterByTopic(topic.id)"
           >
-            {{ tag.label }}
-            <span class="pub-tabs__count" aria-hidden="true">{{ tag.count }}</span>
+            {{ topic.label }}
+            <span class="pub-tabs__count" aria-hidden="true">{{ topic.count }}</span>
           </button>
         </div>
 
@@ -167,23 +167,65 @@ const rssHref = computed(() => (activeLang.value === 'en' ? '/feed-en.xml' : '/f
 const posts = computed(() => getPublishedPostsByLanguage(activeLang.value));
 const query = ref('');
 const activeTag = ref<string | null>(null);
+const activeTopic = ref<BlogTopicId | null>(null);
 const visibleCount = ref(pageSize);
 const loadMoreDescriptionId = 'blog-load-more-status';
 
+type BlogTopicId = 'learning-analytics' | 'ai-education' | 'game-design' | 'interaction-design';
+
+const topicDefinitions: ReadonlyArray<{
+  id: BlogTopicId;
+  labelKey: string;
+  matchingTags: string[];
+}> = [
+  {
+    id: 'learning-analytics',
+    labelKey: 'blog.topicLearningAnalytics',
+    matchingTags: ['analítica de aprendizaje', 'learning analytics'],
+  },
+  {
+    id: 'ai-education',
+    labelKey: 'blog.topicAiEducation',
+    matchingTags: [
+      'inteligencia artificial',
+      'ia generativa',
+      'artificial intelligence',
+      'generative ai',
+    ],
+  },
+  {
+    id: 'game-design',
+    labelKey: 'blog.topicGameDesign',
+    matchingTags: ['diseño de videojuegos', 'game design'],
+  },
+  {
+    id: 'interaction-design',
+    labelKey: 'blog.topicInteractionDesign',
+    matchingTags: [
+      'interacción humano-computadora',
+      'human-computer interaction',
+      'experiencia de usuario',
+      'user experience',
+    ],
+  },
+];
+
 const normalizedQuery = computed(() => normalizeSearchText(query.value));
 
-const allTags = computed(() => {
-  const counts = new Map<string, number>();
-  for (const post of posts.value) {
-    for (const tag of post.meta.tags ?? []) {
-      counts.set(tag, (counts.get(tag) ?? 0) + 1);
-    }
-  }
-  return Array.from(counts.entries()).map(([label, count]) => ({ label, count }));
-});
+const topics = computed(() =>
+  topicDefinitions
+    .map((topic) => ({
+      ...topic,
+      label: t(topic.labelKey),
+      count: posts.value.filter((post) => postMatchesTopic(post, topic.id)).length,
+    }))
+    .filter((topic) => topic.count > 0),
+);
 
 const filteredPosts = computed(() => {
   let result = posts.value;
+  if (activeTopic.value)
+    result = result.filter((post) => postMatchesTopic(post, activeTopic.value!));
   if (activeTag.value) result = result.filter((p) => p.meta.tags?.includes(activeTag.value!));
   if (normalizedQuery.value)
     result = result.filter((p) => p.searchText.includes(normalizedQuery.value));
@@ -232,23 +274,37 @@ function filterByYear(year: string) {
 }
 
 function filterByTag(tag: string) {
+  activeTopic.value = null;
   activeTag.value = activeTag.value === tag ? null : tag;
   resetVisiblePosts();
 }
 
-function clearTagFilter() {
+function filterByTopic(topic: BlogTopicId) {
   activeTag.value = null;
+  activeTopic.value = activeTopic.value === topic ? null : topic;
+  resetVisiblePosts();
+}
+
+function clearFilters() {
+  activeTag.value = null;
+  activeTopic.value = null;
   resetVisiblePosts();
 }
 
 function clearSearch() {
   query.value = '';
-  activeTag.value = null;
-  resetVisiblePosts();
+  clearFilters();
 }
 
 function showMorePosts() {
   visibleCount.value += pageSize;
+}
+
+function postMatchesTopic(post: (typeof posts.value)[number], topicId: BlogTopicId): boolean {
+  const topic = topicDefinitions.find((definition) => definition.id === topicId);
+  if (!topic) return false;
+  const tags = new Set((post.meta.tags ?? []).map((tag) => tag.toLocaleLowerCase()));
+  return topic.matchingTags.some((tag) => tags.has(tag));
 }
 
 function formatDate(date: string) {
