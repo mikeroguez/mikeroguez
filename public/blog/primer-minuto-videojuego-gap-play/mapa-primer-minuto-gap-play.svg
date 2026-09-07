@@ -1,0 +1,116 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-labelledby="gap-play-title gap-play-desc"
+  viewBox="0 0 960 560"
+>
+  <title id="gap-play-title">GAP y PLAY en el primer minuto de un videojuego</title>
+  <desc id="gap-play-desc">
+    Diagrama editorial que muestra el primer minuto de un videojuego como una
+    zona de traducción entre el mapa que tiene el diseñador y el modelo mental
+    que construye el jugador. El centro del diagrama contiene cuatro momentos:
+    orientarse, actuar, recibir respuesta y practicar. Debajo, GAP revisa si la
+    entrada es abordable y PLAY revisa si jugar se sostiene.
+  </desc>
+
+  <defs>
+    <style>
+      text {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+    </style>
+    <marker id="arrow" markerHeight="8" markerWidth="10" orient="auto" refX="9" refY="4">
+      <path d="M0,0 L10,4 L0,8 Z" fill="#7a4a1c" />
+    </marker>
+  </defs>
+
+  <rect width="960" height="560" fill="#eee8dc" />
+  <rect x="24" y="24" width="912" height="512" rx="10" fill="#f8f6f0" stroke="#d8d0c1" stroke-width="1.5" />
+
+  <text x="480" y="61" text-anchor="middle" fill="#20294d" font-size="24" font-weight="750">
+    El primer minuto traduce diseño en experiencia
+  </text>
+  <text x="480" y="88" text-anchor="middle" fill="#5d6870" font-size="13">
+    <tspan x="480" dy="0">La experiencia esperada aparece cuando el jugador entiende,</tspan>
+    <tspan x="480" dy="18">prueba y recibe una respuesta clara.</tspan>
+  </text>
+
+  <line x1="72" y1="133" x2="888" y2="133" stroke="#d8d0c1" stroke-width="1" />
+
+  <g>
+    <text x="154" y="168" text-anchor="middle" fill="#20294d" font-size="16" font-weight="750">
+      Mapa del diseñador
+    </text>
+    <rect x="68" y="190" width="172" height="166" rx="8" fill="#ffffff" stroke="#d8d0c1" />
+    <text x="96" y="224" fill="#20294d" font-size="13" font-weight="700">Quiere provocar</text>
+    <text x="96" y="251" fill="#5d6870" font-size="12">reglas</text>
+    <text x="96" y="279" fill="#5d6870" font-size="12">acciones</text>
+    <text x="96" y="307" fill="#5d6870" font-size="12">ritmo</text>
+    <text x="96" y="335" fill="#5d6870" font-size="12">reto</text>
+
+    <text x="806" y="168" text-anchor="middle" fill="#20294d" font-size="16" font-weight="750">
+      Modelo del jugador
+    </text>
+    <rect x="720" y="190" width="172" height="166" rx="8" fill="#ffffff" stroke="#d8d0c1" />
+    <text x="748" y="224" fill="#20294d" font-size="13" font-weight="700">Intenta entender</text>
+    <text x="748" y="251" fill="#5d6870" font-size="12">qué mirar</text>
+    <text x="748" y="279" fill="#5d6870" font-size="12">qué hacer</text>
+    <text x="748" y="307" fill="#5d6870" font-size="12">qué cambió</text>
+    <text x="748" y="335" fill="#5d6870" font-size="12">por qué seguir</text>
+  </g>
+
+  <line x1="250" y1="273" x2="296" y2="273" stroke="#7a4a1c" stroke-width="2.4" marker-end="url(#arrow)" />
+  <line x1="664" y1="273" x2="710" y2="273" stroke="#7a4a1c" stroke-width="2.4" marker-end="url(#arrow)" />
+
+  <g>
+    <rect x="296" y="151" width="368" height="238" rx="10" fill="#eee8dc" stroke="#d8d0c1" stroke-width="1.4" />
+    <text x="480" y="183" text-anchor="middle" fill="#20294d" font-size="18" font-weight="750">
+      Primer minuto
+    </text>
+    <text x="480" y="206" text-anchor="middle" fill="#5d6870" font-size="12">
+      entrada, práctica y retroalimentación
+    </text>
+
+    <rect x="322" y="236" width="148" height="52" rx="7" fill="#ffffff" stroke="#d8d0c1" />
+    <text x="396" y="258" text-anchor="middle" fill="#20294d" font-size="14" font-weight="700">Orientarse</text>
+    <text x="396" y="278" text-anchor="middle" fill="#5d6870" font-size="11">sé qué mirar</text>
+
+    <rect x="490" y="236" width="148" height="52" rx="7" fill="#ffffff" stroke="#d8d0c1" />
+    <text x="564" y="258" text-anchor="middle" fill="#20294d" font-size="14" font-weight="700">Actuar</text>
+    <text x="564" y="278" text-anchor="middle" fill="#5d6870" font-size="11">puedo probar</text>
+
+    <rect x="322" y="313" width="148" height="52" rx="7" fill="#ffffff" stroke="#d8d0c1" />
+    <text x="396" y="335" text-anchor="middle" fill="#20294d" font-size="14" font-weight="700">Recibir</text>
+    <text x="396" y="355" text-anchor="middle" fill="#5d6870" font-size="11">entiendo el efecto</text>
+
+    <rect x="490" y="313" width="148" height="52" rx="7" fill="#ffffff" stroke="#d8d0c1" />
+    <text x="564" y="335" text-anchor="middle" fill="#20294d" font-size="14" font-weight="700">Practicar</text>
+    <text x="564" y="355" text-anchor="middle" fill="#5d6870" font-size="11">gano confianza</text>
+  </g>
+
+  <g>
+    <rect x="84" y="414" width="360" height="88" rx="8" fill="#ffffff" stroke="#d8d0c1" />
+    <text x="112" y="444" fill="#7a4a1c" font-size="20" font-weight="800">GAP</text>
+    <text x="172" y="443" fill="#20294d" font-size="14" font-weight="700">
+      ¿La entrada es abordable?
+    </text>
+    <text x="112" y="470" fill="#5d6870" font-size="12">
+      <tspan x="112" dy="0">Muestra, permite practicar</tspan>
+      <tspan x="112" dy="17">y da información justo a tiempo.</tspan>
+    </text>
+
+    <rect x="516" y="414" width="360" height="88" rx="8" fill="#ffffff" stroke="#d8d0c1" />
+    <text x="544" y="444" fill="#7a4a1c" font-size="20" font-weight="800">PLAY</text>
+    <text x="615" y="443" fill="#20294d" font-size="14" font-weight="700">
+      ¿Jugar se sostiene?
+    </text>
+    <text x="544" y="470" fill="#5d6870" font-size="12">
+      <tspan x="544" dy="0">Traduce diversión, reto y control</tspan>
+      <tspan x="544" dy="17">en aspectos que se pueden revisar.</tspan>
+    </text>
+  </g>
+
+  <text x="480" y="524" text-anchor="middle" fill="#5d6870" font-size="12" font-style="italic">
+    La pregunta no es si el juego explica más, sino si permite entrar mejor.
+  </text>
+</svg>
