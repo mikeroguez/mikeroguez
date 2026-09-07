@@ -5,8 +5,22 @@
     <link>https://mikeroguez.me</link>
     <description>Personal site of Mikeroguez. Research, education, design and software development.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2026 00:00:00 GMT</lastBuildDate>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://mikeroguez.me/feed-en.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why the first minute matters</title>
+      <link>https://mikeroguez.me/blog/first-minute-game-gap-play</link>
+      <guid isPermaLink="true">https://mikeroguez.me/blog/first-minute-game-gap-play</guid>
+      <description>How GAP and PLAY help examine whether a game orients and supports players from their first minute.</description>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
+      <author>maro@ucol.mx (Miguel Ángel Rodríguez Ortiz)</author>
+      <category>game design</category>
+      <category>GAP</category>
+      <category>PLAY</category>
+      <category>human-computer interaction</category>
+      <category>user experience</category>
+      <category>education</category>
+    </item>
     <item>
       <title>Designing games from player motivation</title>
       <link>https://mikeroguez.me/blog/designing-games-player-motivation</link>

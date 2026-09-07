@@ -2,7 +2,7 @@
 title: 'El primer minuto importa'
 seoTitle: 'GAP, PLAY y diseño de videojuegos'
 description: 'Una lectura sobre cómo GAP y PLAY ayudan a revisar si un videojuego enseña, orienta y acompaña al jugador desde sus primeros minutos.'
-date: '2026-08-29'
+date: '2026-09-07'
 status: 'published'
 lang: 'es'
 translationKey: 'game-design-gap-play-first-minute'
