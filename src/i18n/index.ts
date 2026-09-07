@@ -278,6 +278,7 @@ export interface Messages {
     copyLink: string;
     linkCopied: string;
     shareReady: string;
+    aiDisclosure: string;
     nextHeading: string;
     nextResearchTitle: string;
     nextResearchDesc: string;

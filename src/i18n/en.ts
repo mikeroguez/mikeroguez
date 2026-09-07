@@ -294,6 +294,8 @@ export default {
     copyLink: 'Copy link',
     linkCopied: 'Link copied.',
     shareReady: 'Post ready to share.',
+    aiDisclosure:
+      'Editorial note: this text used generative AI for editing support; editorial responsibility remains with the author.',
     nextHeading: 'Next step',
     nextResearchTitle: 'Review publications',
     nextResearchDesc:

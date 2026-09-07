@@ -68,9 +68,7 @@ describe('App', () => {
     const wrapper = mountApp();
 
     expect(wrapper.find('footer .site-footer__content .site-footer__brand').exists()).toBe(true);
-    expect(
-      wrapper.find('footer .site-footer__content nav[aria-label="Enlaces del sitio"]').exists(),
-    ).toBe(true);
+    expect(wrapper.findAll('footer [role="navigation"]').length).toBe(3);
     expect(wrapper.find('footer .site-footer__meta').exists()).toBe(true);
     expect(wrapper.get('footer .brand-logo--logo').attributes('aria-label')).toBe('Mikeroguez');
     expect(wrapper.get('a[href="/feed.xml"]').text()).toBe('RSS ES');

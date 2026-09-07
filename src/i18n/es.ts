@@ -299,6 +299,8 @@ export default {
     copyLink: 'Copiar enlace',
     linkCopied: 'Enlace copiado.',
     shareReady: 'Publicación lista para compartir.',
+    aiDisclosure:
+      'Nota editorial: este texto usó IA generativa como apoyo de edición; la responsabilidad editorial es del autor.',
     nextHeading: 'Siguiente paso',
     nextResearchTitle: 'Revisar publicaciones',
     nextResearchDesc:

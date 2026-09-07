@@ -70,6 +70,12 @@ en un idioma, salvo que el usuario apruebe explicitamente una excepcion temporal
 `web-legal-compliance-reviewer` y `public-repository-guardian` revisan bloqueos
 antes de publicacion.
 
+Toda entrada de blog en la que se haya usado inteligencia artificial generativa
+como apoyo de escritura, edicion, traduccion, revision o preparacion editorial
+debe mostrar una nota visible para lectores. La nota debe declarar el uso de IA
+generativa sin transferir la responsabilidad editorial fuera de la autoria humana
+del sitio.
+
 ### 6. Cierre
 
 `publication-readiness-editor` confirma que el paquete esta listo para revision
