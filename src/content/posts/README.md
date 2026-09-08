@@ -135,6 +135,15 @@ Clasifica internamente las afirmaciones cuando sea necesario:
 No conviertas inferencias en hechos. Si algo no esta confirmado, escribelo como
 incertidumbre o no lo publiques.
 
+## Transparencia Sobre IA Generativa
+
+Todas las entradas del blog deben mostrar una nota editorial cuando se haya usado
+inteligencia artificial generativa como apoyo en el proceso de escritura,
+edicion, traduccion, revision o preparacion editorial.
+
+La nota debe ser visible para lectores y dejar claro que la seleccion de fuentes,
+revision y responsabilidad editorial permanecen en la autoria humana del sitio.
+
 ## Escritura Recomendada
 
 El tono debe ser:

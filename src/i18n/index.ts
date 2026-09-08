@@ -256,7 +256,12 @@ export interface Messages {
     viewAll: string;
     yearsHeading: string;
     tagsHeading: string;
+    topicFilterHeading: string;
     tagsAll: string;
+    topicLearningAnalytics: string;
+    topicAiEducation: string;
+    topicGameDesign: string;
+    topicInteractionDesign: string;
     readingTime: string;
     relatedHeading: string;
     sidebarHeading: string;
@@ -273,6 +278,7 @@ export interface Messages {
     copyLink: string;
     linkCopied: string;
     shareReady: string;
+    aiDisclosure: string;
     nextHeading: string;
     nextResearchTitle: string;
     nextResearchDesc: string;

@@ -62,6 +62,20 @@ describe('blog content', () => {
     expect(wrapper.get('aside[aria-labelledby="blog-index-title"]').text()).toContain('Índice');
     expect(wrapper.find('input[type="search"]').exists()).toBe(true);
     expect(wrapper.get('a[href="/feed.xml"]').text()).toBe('RSS');
+    expect(wrapper.get('[role="group"][aria-label="Explorar por tema"]').text()).toContain(
+      'Diseño de videojuegos',
+    );
+
+    const gameDesignFilter = wrapper
+      .get('[role="group"][aria-label="Explorar por tema"]')
+      .findAll('button')
+      .find((button) => button.text().includes('Diseño de videojuegos'));
+
+    expect(gameDesignFilter).toBeDefined();
+    await gameDesignFilter!.trigger('click');
+
+    expect(wrapper.text()).toContain('Diseñar videojuegos desde la motivación del jugador');
+    expect(wrapper.text()).not.toContain('Qué es la analítica de aprendizaje');
   });
 
   it('renders English posts on the English blog index', async () => {

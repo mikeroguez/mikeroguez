@@ -277,7 +277,12 @@ export default {
     viewAll: 'Ver todas',
     yearsHeading: 'Años',
     tagsHeading: 'Temas',
+    topicFilterHeading: 'Explorar por tema',
     tagsAll: 'Todos',
+    topicLearningAnalytics: 'Analítica de aprendizaje',
+    topicAiEducation: 'IA y educación',
+    topicGameDesign: 'Diseño de videojuegos',
+    topicInteractionDesign: 'Diseño de interacción',
     readingTime: '{min} min de lectura',
     relatedHeading: 'Entradas relacionadas',
     sidebarHeading: 'Índice',
@@ -294,6 +299,8 @@ export default {
     copyLink: 'Copiar enlace',
     linkCopied: 'Enlace copiado.',
     shareReady: 'Publicación lista para compartir.',
+    aiDisclosure:
+      'Nota editorial: este texto usó IA generativa como apoyo de edición; la responsabilidad editorial es del autor.',
     nextHeading: 'Siguiente paso',
     nextResearchTitle: 'Revisar publicaciones',
     nextResearchDesc:

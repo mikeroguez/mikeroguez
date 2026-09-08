@@ -13,6 +13,9 @@
     <p class="post-byline">
       {{ t('blogPost.authorBy') }} <strong>{{ SITE_AUTHOR }}</strong>
     </p>
+    <p class="post-ai-disclosure">
+      {{ t('blogPost.aiDisclosure') }}
+    </p>
     <ul v-if="post.meta.tags?.length" class="post-tags" :aria-label="t('blog.tagsHeading')">
       <li v-for="tag in post.meta.tags" :key="tag">
         <span class="post-tag">{{ tag }}</span>
@@ -140,7 +143,12 @@ const relatedPosts = computed(() => {
   if (!post.value?.meta.tags?.length) return [];
   const currentTags = new Set(post.value.meta.tags);
   return getPublishedPostsByLanguage(post.value.meta.lang)
-    .filter((p) => p.slug !== post.value!.slug && p.meta.tags?.some((t) => currentTags.has(t)))
+    .filter(
+      (p) =>
+        p.meta.status === 'published' &&
+        p.slug !== post.value!.slug &&
+        p.meta.tags?.some((t) => currentTags.has(t)),
+    )
     .sort(
       (a, b) =>
         (b.meta.tags?.filter((t) => currentTags.has(t)).length ?? 0) -
