@@ -3,9 +3,12 @@ title: 'A un año de una revisión sistemática sobre Learning Analytics e IA ge
 seoTitle: 'Learning Analytics e IA generativa: un año después'
 description: 'Una lectura cercana sobre lo que ha pasado con Learning Analytics e inteligencia artificial generativa a un año de una revisión sistemática en educación superior.'
 date: '2026-08-05'
+updated: '2026-10-09'
 status: 'published'
 lang: 'es'
 translationKey: 'anniversary-learning-analytics-generative-ai-review'
+series: 'learning-analytics'
+seriesOrder: '2'
 tags: 'analítica de aprendizaje, inteligencia artificial, IA generativa, educación superior, investigación'
 keywords: 'Learning Analytics, analítica de aprendizaje, IA generativa, inteligencia artificial en educación, aprendizaje automático, educación superior, revisión sistemática'
 ---
@@ -152,8 +155,6 @@ cómo apoyar a quien aprende.
 
 ## Para seguir leyendo
 
-Si quieres una introducción más amplia al tema, también escribí sobre
-[qué es la analítica de aprendizaje y hacia dónde va con inteligencia artificial](/blog/analitica-aprendizaje-inteligencia-artificial).
 También puedes visitar la sección de [investigación](/investigacion), donde está
 el enlace directo a la
 [publicación de esta revisión sistemática](/investigacion#machine-learning-generative-ai-learning-analytics).

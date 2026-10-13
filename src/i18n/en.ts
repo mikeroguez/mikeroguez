@@ -296,6 +296,10 @@ export default {
     shareReady: 'Post ready to share.',
     aiDisclosure:
       'Editorial note: this text used generative AI for editing support; editorial responsibility remains with the author.',
+    seriesHeading: 'In this series',
+    internalPreview: 'Related post',
+    verifiedExternalPreview: 'Verified external resource',
+    externalPreview: 'External link',
     nextHeading: 'Next step',
     nextResearchTitle: 'Review publications',
     nextResearchDesc:

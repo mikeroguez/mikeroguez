@@ -6,6 +6,8 @@ date: '2026-08-05'
 status: 'published'
 lang: 'es'
 translationKey: 'game-design-player-motivation'
+series: 'game-design'
+seriesOrder: '1'
 tags: 'diseño de videojuegos, motivación del jugador, interacción humano-computadora, educación, experiencia de usuario'
 keywords: 'diseño de videojuegos, motivación del jugador, player motivation, game design, interacción humano-computadora, MDA, Bartle, McKechnie-Martin'
 ---

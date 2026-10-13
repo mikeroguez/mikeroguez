@@ -5,6 +5,25 @@ Todos los cambios relevantes de este sitio se documentan aqui.
 El formato sigue la intencion de Conventional Commits y mantiene una version
 publica vinculada al footer del sitio.
 
+## 1.2.0 - 2026-10-13
+
+### Added
+
+- Entrada bilingue del blog sobre la validacion temporal de indicadores
+  academicos, con RSS y sitemap sincronizados.
+- Secuencias editoriales y relaciones explicitas entre entradas del blog para
+  facilitar la continuidad de lectura en ambos idiomas.
+- Vista previa contextual y accesible para enlaces internos y recursos externos
+  verificados dentro de las entradas.
+
+### Changed
+
+- Referencia de investigacion _Beyond Grades_ actualizada de preprint a su
+  articulo publicado, con una descripcion que delimita el alcance de la
+  evidencia.
+- Guia de autor para entradas ampliada con los campos `series`, `seriesOrder` y
+  `related`.
+
 ## 1.0.6 - 2026-08-05
 
 ### Added

@@ -3,9 +3,12 @@ title: 'Why the first minute matters'
 seoTitle: 'GAP, PLAY, and video game design'
 description: 'How GAP and PLAY help examine whether a game orients and supports players from their first minute.'
 date: '2026-09-07'
+updated: '2026-10-09'
 status: 'published'
 lang: 'en'
 translationKey: 'game-design-gap-play-first-minute'
+series: 'game-design'
+seriesOrder: '2'
 tags: 'game design, GAP, PLAY, human-computer interaction, user experience, education'
 keywords: 'game design, GAP, PLAY, game heuristics, playability, game approachability, user experience, HCI, education'
 ---
@@ -16,7 +19,9 @@ The first minutes are fragile. A player is still working out what they can do, w
 
 That is why the first minute is not a formality. It is a design decision.
 
-In the [previous post](/blog/designing-games-player-motivation), I argued that game design starts by asking who we are designing for. That question needs a second one: once we know what kind of experience we want to offer, how do we check whether the game lets someone enter it?
+First, we need to think about who we are designing for. Then comes a second
+question: once we know what kind of experience we want to offer, how do we check
+whether the game lets someone enter it?
 
 GAP and PLAY offer two useful sets of questions. They help us examine whether a game gives a player a legible way in and whether the experience it promises can be sustained through play.
 

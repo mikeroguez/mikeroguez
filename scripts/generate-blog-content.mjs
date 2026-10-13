@@ -139,6 +139,22 @@ function parseMarkdownPost(source, filename) {
   const date = values.get('date') ?? '1970-01-01';
   const updated = values.get('updated');
   const translationKey = values.get('translationKey');
+  const series = values.get('series');
+  const seriesOrderRaw = values.get('seriesOrder');
+  const seriesOrder = seriesOrderRaw ? Number.parseInt(seriesOrderRaw, 10) : undefined;
+  if (seriesOrderRaw && (!Number.isSafeInteger(seriesOrder) || seriesOrder < 1)) {
+    throw new Error(`${filename} has invalid seriesOrder: ${seriesOrderRaw}`);
+  }
+  if (seriesOrder !== undefined && !series) {
+    throw new Error(`${filename} defines seriesOrder without a series.`);
+  }
+  const relatedRaw = values.get('related');
+  const related = relatedRaw
+    ? relatedRaw
+        .split(',')
+        .map((key) => key.trim())
+        .filter(Boolean)
+    : [];
   const image = values.get('image');
   const tagsRaw = values.get('tags');
   const tags = tagsRaw
@@ -171,6 +187,9 @@ function parseMarkdownPost(source, filename) {
       status,
       lang,
       ...(translationKey ? { translationKey } : {}),
+      ...(series ? { series } : {}),
+      ...(seriesOrder !== undefined ? { seriesOrder } : {}),
+      ...(related.length ? { related } : {}),
       ...(image ? { image } : {}),
       ...(tags.length ? { tags } : {}),
       ...(keywords.length ? { keywords } : {}),
@@ -316,6 +335,34 @@ for (const file of files) {
 }
 
 posts.sort((a, b) => b.meta.date.localeCompare(a.meta.date));
+
+const translationKeys = new Set(
+  posts.map((post) => post.meta.translationKey).filter((key) => key !== undefined),
+);
+const seriesPositions = new Set();
+
+for (const post of posts) {
+  const { related = [], series, seriesOrder } = post.meta;
+  const positionKey =
+    series && seriesOrder ? `${post.meta.lang}:${series}:${seriesOrder}` : undefined;
+
+  if (positionKey) {
+    if (seriesPositions.has(positionKey)) {
+      throw new Error(`${post.slug} duplicates series position ${positionKey}.`);
+    }
+    seriesPositions.add(positionKey);
+  }
+
+  for (const relatedKey of related) {
+    if (relatedKey === post.meta.translationKey) {
+      throw new Error(`${post.slug} cannot relate to itself.`);
+    }
+    if (!translationKeys.has(relatedKey)) {
+      throw new Error(`${post.slug} references unknown related post: ${relatedKey}.`);
+    }
+  }
+}
+
 const outputPosts = includeReviewPosts
   ? posts
   : posts.filter((post) => post.meta.status === 'published');

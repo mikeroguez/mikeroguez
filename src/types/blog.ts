@@ -10,6 +10,9 @@ export interface BlogPostMeta {
   status: BlogPostStatus;
   lang: BlogPostLanguage;
   translationKey?: string;
+  series?: string;
+  seriesOrder?: number;
+  related?: string[];
   image?: string;
   tags?: string[];
   keywords?: string[];
