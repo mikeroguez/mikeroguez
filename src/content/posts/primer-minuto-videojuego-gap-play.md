@@ -3,9 +3,12 @@ title: 'El primer minuto importa'
 seoTitle: 'GAP, PLAY y diseño de videojuegos'
 description: 'Una lectura sobre cómo GAP y PLAY ayudan a revisar si un videojuego enseña, orienta y acompaña al jugador desde sus primeros minutos.'
 date: '2026-09-07'
+updated: '2026-10-09'
 status: 'published'
 lang: 'es'
 translationKey: 'game-design-gap-play-first-minute'
+series: 'game-design'
+seriesOrder: '2'
 tags: 'diseño de videojuegos, GAP, PLAY, interacción humano-computadora, experiencia de usuario, educación'
 keywords: 'diseño de videojuegos, GAP, PLAY, heurísticas de videojuegos, playability, game approachability, experiencia de usuario, HCI, educación'
 ---
@@ -21,11 +24,11 @@ puede dejar al jugador fuera.
 
 Por eso el primer minuto no es un trámite. Es una decisión de diseño.
 
-En el [post anterior](/blog/disenar-videojuegos-motivacion-jugador), la pregunta
-central era para quién diseñamos. No basta decir "para jugadores", porque jugar
-no significa una sola cosa. Hay personas que buscan reto, otras exploración,
-otras historia, relajación, competencia, compañía, expresión o dominio técnico.
-Pensar en esas motivaciones ayuda a imaginar qué experiencia queremos cuidar.
+Primero hay que pensar para quién diseñamos. No basta decir "para jugadores",
+porque jugar no significa una sola cosa. Hay personas que buscan reto, otras
+exploración, otras historia, relajación, competencia, compañía, expresión o
+dominio técnico. Pensar en esas motivaciones ayuda a imaginar qué experiencia
+queremos cuidar.
 
 Pero esa pregunta necesita una segunda parte: si ya sabemos qué experiencia
 queremos proponer, ¿cómo revisamos si el juego permite habitarla desde el

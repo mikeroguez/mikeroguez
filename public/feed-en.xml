@@ -5,8 +5,21 @@
     <link>https://mikeroguez.me</link>
     <description>Personal site of Mikeroguez. Research, education, design and software development.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://mikeroguez.me/feed-en.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prediction is not intervention: validating academic indicators before using them</title>
+      <link>https://mikeroguez.me/blog/prediction-is-not-intervention-validating-academic-indicators</link>
+      <guid isPermaLink="true">https://mikeroguez.me/blog/prediction-is-not-intervention-validating-academic-indicators</guid>
+      <description>What we learned from validating a model of academic indicators, and why a signal in the data is not enough to turn it into an educational intervention.</description>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+      <author>maro@ucol.mx (Miguel Ángel Rodríguez Ortiz)</author>
+      <category>learning analytics</category>
+      <category>machine learning</category>
+      <category>artificial intelligence</category>
+      <category>higher education</category>
+      <category>research</category>
+    </item>
     <item>
       <title>Why the first minute matters</title>
       <link>https://mikeroguez.me/blog/first-minute-game-gap-play</link>

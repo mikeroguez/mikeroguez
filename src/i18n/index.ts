@@ -279,6 +279,10 @@ export interface Messages {
     linkCopied: string;
     shareReady: string;
     aiDisclosure: string;
+    seriesHeading: string;
+    internalPreview: string;
+    verifiedExternalPreview: string;
+    externalPreview: string;
     nextHeading: string;
     nextResearchTitle: string;
     nextResearchDesc: string;

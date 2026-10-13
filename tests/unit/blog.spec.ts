@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 
-import { getPostBySlug, getPostPath, getPublishedPosts } from '@/content/blog';
+import { getPostBySlug, getPostPath, getPublishedPosts, getSeriesPosts } from '@/content/blog';
 import { setLocale } from '@/i18n';
 import BlogIndexView from '@/views/BlogIndexView.vue';
 import BlogPostView from '@/views/BlogPostView.vue';
@@ -39,6 +39,15 @@ describe('blog content', () => {
     expect(englishPost ? getPostPath(englishPost) : undefined).toBe(
       '/blog/what-is-learning-analytics-ai',
     );
+  });
+
+  it('orders related posts in an editorial series', () => {
+    const post = getPostBySlug('disenar-videojuegos-motivacion-jugador');
+
+    expect(post ? getSeriesPosts(post).map((seriesPost) => seriesPost.slug) : []).toEqual([
+      'disenar-videojuegos-motivacion-jugador',
+      'primer-minuto-videojuego-gap-play',
+    ]);
   });
 
   it('keeps published posts visible while running in development mode', () => {
@@ -113,5 +122,45 @@ describe('blog content', () => {
     expect(wrapper.get('a[href*="facebook.com"]').attributes('href')).toContain(
       'https%3A%2F%2Fmikeroguez.me%2Fblog%2Fanalitica-aprendizaje-inteligencia-artificial',
     );
+  });
+
+  it('renders a readable series path for a post', async () => {
+    setLocale('es');
+    await router.push('/blog/primer-minuto-videojuego-gap-play');
+    await router.isReady();
+
+    const wrapper = mount(BlogPostView, {
+      global: {
+        plugins: [router],
+      },
+    });
+
+    expect(wrapper.get('#series-posts-title').text()).toBe('En esta serie');
+    expect(wrapper.get('[aria-current="page"]').text()).toContain('El primer minuto importa');
+    expect(
+      wrapper
+        .get('.post-series__list')
+        .get('a[href="/blog/disenar-videojuegos-motivacion-jugador"]')
+        .text(),
+    ).toContain('Diseñar videojuegos');
+  });
+
+  it('shows a verified preview when a reader focuses a known external resource', async () => {
+    setLocale('es');
+    await router.push('/blog/predecir-no-es-intervenir-validar-indicadores-academicos');
+    await router.isReady();
+
+    const wrapper = mount(BlogPostView, {
+      global: {
+        plugins: [router],
+      },
+    });
+    const paperLink = wrapper.get('a[href="https://doi.org/10.3390/app16199865"]');
+
+    await paperLink.trigger('focusin');
+
+    expect(wrapper.get('#link-preview').text()).toContain('Recurso externo verificado');
+    expect(wrapper.get('#link-preview').text()).toContain('Applied Sciences · 2026');
+    expect(paperLink.attributes('aria-describedby')).toBe('link-preview');
   });
 });

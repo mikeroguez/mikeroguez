@@ -5,8 +5,21 @@
     <link>https://mikeroguez.me</link>
     <description>Sitio personal de Mikeroguez. Investigación, educación, diseño y desarrollo de software.</description>
     <language>es-MX</language>
-    <lastBuildDate>Mon, 07 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://mikeroguez.me/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Predecir no es intervenir: validar indicadores académicos antes de usarlos</title>
+      <link>https://mikeroguez.me/blog/predecir-no-es-intervenir-validar-indicadores-academicos</link>
+      <guid isPermaLink="true">https://mikeroguez.me/blog/predecir-no-es-intervenir-validar-indicadores-academicos</guid>
+      <description>Qué aprendimos al validar un modelo de indicadores académicos y por qué una señal en los datos no basta para convertirla en una intervención educativa.</description>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+      <author>maro@ucol.mx (Miguel Ángel Rodríguez Ortiz)</author>
+      <category>analítica de aprendizaje</category>
+      <category>aprendizaje automático</category>
+      <category>inteligencia artificial</category>
+      <category>educación superior</category>
+      <category>investigación</category>
+    </item>
     <item>
       <title>El primer minuto importa</title>
       <link>https://mikeroguez.me/blog/primer-minuto-videojuego-gap-play</link>

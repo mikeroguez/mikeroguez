@@ -7,6 +7,8 @@ updated: '2026-08-02'
 status: 'published'
 lang: 'en'
 translationKey: 'analitica-aprendizaje-inteligencia-artificial'
+series: 'learning-analytics'
+seriesOrder: '1'
 tags: 'learning analytics, artificial intelligence, higher education, generative AI'
 keywords: 'learning analytics, artificial intelligence, artificial intelligence in education, AI in education, generative AI, machine learning, higher education'
 ---

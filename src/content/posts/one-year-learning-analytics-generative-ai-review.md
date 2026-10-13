@@ -3,9 +3,12 @@ title: 'One year after a systematic review on Learning Analytics and generative 
 seoTitle: 'Learning Analytics and generative AI: one year later'
 description: 'A close reading of what has happened with Learning Analytics and generative artificial intelligence one year after a systematic review in higher education.'
 date: '2026-08-05'
+updated: '2026-10-09'
 status: 'published'
 lang: 'en'
 translationKey: 'anniversary-learning-analytics-generative-ai-review'
+series: 'learning-analytics'
+seriesOrder: '2'
 tags: 'learning analytics, artificial intelligence, generative AI, higher education, research'
 keywords: 'Learning Analytics, generative AI, artificial intelligence in education, machine learning, higher education, systematic review'
 ---
@@ -149,8 +152,6 @@ informed conversation about how to support the person who is learning.
 
 ## Further reading
 
-If you want a broader introduction to the topic, I also wrote about
-[what learning analytics is and where it is going with artificial intelligence](/blog/what-is-learning-analytics-ai).
 You can also visit the [research](/research) section, where there is a direct
 link to the
 [published systematic review](/research#machine-learning-generative-ai-learning-analytics).

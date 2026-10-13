@@ -79,6 +79,9 @@ Campos:
 - `description`: resumen breve, sobrio y verificable. Se usa en el indice y RSS.
 - `date`: fecha de publicacion o fecha editorial, en formato `YYYY-MM-DD`.
 - `status`: estado editorial.
+- `series`: identificador estable de una secuencia editorial, como `learning-analytics`.
+- `seriesOrder`: posición dentro de una serie, empezando en `1`.
+- `related`: `translationKey` separados por coma para relaciones editoriales puntuales.
 
 Estados permitidos:
 
@@ -88,6 +91,11 @@ Estados permitidos:
 
 Solo las entradas con `status: 'published'` aparecen en `/blog`, feeds RSS y
 `sitemap.xml`.
+
+Las series se actualizan en la interfaz sin editar entradas previas: al añadir un
+post con el mismo `series`, este aparece en la secuencia de las demás entradas
+publicadas de ese idioma. Las relaciones `related` también se resuelven por
+`translationKey`, para conservar el vínculo correcto entre español e inglés.
 
 ## Regla de Privacidad
 

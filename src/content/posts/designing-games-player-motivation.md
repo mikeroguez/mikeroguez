@@ -6,6 +6,8 @@ date: '2026-08-05'
 status: 'published'
 lang: 'en'
 translationKey: 'game-design-player-motivation'
+series: 'game-design'
+seriesOrder: '1'
 tags: 'game design, player motivation, human-computer interaction, education, user experience'
 keywords: 'game design, player motivation, human-computer interaction, MDA, Bartle, McKechnie-Martin'
 ---

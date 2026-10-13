@@ -37,3 +37,24 @@ export function getPostTranslation(post: BlogPost, lang: BlogPostLanguage): Blog
       candidate.meta.translationKey === translationKey,
   );
 }
+
+export function getSeriesPosts(post: BlogPost): BlogPost[] {
+  if (!post.meta.series) return [];
+
+  return getPublishedPostsByLanguage(post.meta.lang)
+    .filter((candidate) => candidate.meta.series === post.meta.series)
+    .sort(
+      (a, b) =>
+        (a.meta.seriesOrder ?? Number.MAX_SAFE_INTEGER) -
+          (b.meta.seriesOrder ?? Number.MAX_SAFE_INTEGER) || a.meta.date.localeCompare(b.meta.date),
+    );
+}
+
+export function getPostByTranslationKey(
+  translationKey: string,
+  lang: BlogPostLanguage,
+): BlogPost | undefined {
+  return getPublishedPostsByLanguage(lang).find(
+    (post) => post.meta.translationKey === translationKey,
+  );
+}
