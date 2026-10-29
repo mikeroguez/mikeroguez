@@ -5,8 +5,22 @@
     <link>https://mikeroguez.me</link>
     <description>Sitio personal de Mikeroguez. Investigación, educación, diseño y desarrollo de software.</description>
     <language>es-MX</language>
-    <lastBuildDate>Fri, 09 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://mikeroguez.me/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cuauhtémoc Cárdenas y el despacho del general: una memoria de 2013</title>
+      <link>https://mikeroguez.me/blog/visita-despacho-lazaro-cardenas</link>
+      <guid isPermaLink="true">https://mikeroguez.me/blog/visita-despacho-lazaro-cardenas</guid>
+      <description>El día en que conocí a Cuauhtémoc Cárdenas y recorrí el despacho de Lázaro Cárdenas, durante una visita para valorar la digitalización de un archivo histórico. Una memoria escrita el día de su fallecimiento.</description>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+      <author>maro@ucol.mx (Miguel Ángel Rodríguez Ortiz)</author>
+      <category>memoria</category>
+      <category>archivos</category>
+      <category>digitalización</category>
+      <category>recursos educativos</category>
+      <category>Cuauhtémoc Cárdenas</category>
+      <category>Lázaro Cárdenas</category>
+    </item>
     <item>
       <title>Predecir no es intervenir: validar indicadores académicos antes de usarlos</title>
       <link>https://mikeroguez.me/blog/predecir-no-es-intervenir-validar-indicadores-academicos</link>
