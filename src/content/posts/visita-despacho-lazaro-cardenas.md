@@ -73,8 +73,7 @@ quienes participamos por parte de la Universidad de Colima.
 
 ![Ejemplar del libro Lázaro Cárdenas. Iconografía abierto en una página con una dedicatoria manuscrita fechada el 3 de diciembre de 2013.](/blog/visita-despacho-lazaro-cardenas/libro-lazaro-cardenas-dedicatoria.webp)
 
-_Dedicatoria en un ejemplar de Lázaro Cárdenas. Iconografía, 3 de diciembre de
-2013._
+_Dedicatoria en un ejemplar de Lázaro Cárdenas. Iconografía, 3 de diciembre de 2013._
 
 ## Lo que queda
 
@@ -95,6 +94,5 @@ ingeniero.
 
 _Nota editorial: esta crónica fue preparada con apoyo de inteligencia artificial
 generativa para la edición. Los datos sobre el fallecimiento de Cuauhtémoc
-Cárdenas provienen de la cobertura periodística publicada el 28 de octubre de
-2026. La selección de materiales, la revisión de los hechos y la responsabilidad
+Cárdenas provienen de la cobertura periodística publicada el 28 de octubre de 2026. La selección de materiales, la revisión de los hechos y la responsabilidad
 sobre el texto corresponden a su autor._
